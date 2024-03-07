@@ -1,0 +1,117 @@
+<div class="code-container">
+	<div class="wrapper">
+		<p class="instruction">
+			At TotalScope, we prioritize ethical business practices, safety compliance, and open communication with our
+			clients. Our Client Code of Conduct outlines the essential principles and standards that every client must
+			uphold while availing themselves of our services. By checking each of the following boxes, our clients
+			commit to fostering a professional and trustworthy relationship with our company:
+		</p>
+        <form [formGroup]="codeOfConductForm">
+		<div class="conduct-main">
+			<h5 class="conduct-head">Client Code of Conduct</h5>
+			<div class="conduct-wrapper">
+				<div class="conduct-card">
+					<input class="conduct-card-checkbox" formControlName="insuranceFraud" type="checkbox" kendoCheckBox />
+					<div class="conduct-card-detail">
+						<h6 class="card-detail-head">Insurance Fraud</h6>
+						<ul class="card-detail-list">
+							<li class="card-list">Client shall not illegally waive deductibles</li>
+							<li class="card-list">Client shall not request the release of depreciation for any work not
+								performed</li>
+						</ul>
+					</div>
+				</div>
+				<div class="conduct-card ">
+					<input class="conduct-card-checkbox" formControlName="licensing" type="checkbox" kendoCheckBox />
+					<div class="conduct-card-detail">
+						<h6 class="card-detail-head">Licensing</h6>
+						<ul class="card-detail-list">
+							<li class="card-list">Client must carry proper licensing for the appropriate jurisdiction
+								where performing work</li>
+							<li class="card-list">Client must pull permit where required</li>
+						</ul>
+					</div>
+				</div>
+				<div class="conduct-card ">
+					<input class="conduct-card-checkbox" formControlName="insurance" type="checkbox" kendoCheckBox />
+					<div class="conduct-card-detail">
+						<h6 class="card-detail-head">Insurance</h6>
+						<ul class="card-detail-list">
+							<li class="card-list">Client must carry a minimum of $1,000,000.00 of General Liability Insurance</li>
+							<li class="card-list">Client must carry worker’s compensation insurance where applicable</li>
+						</ul>
+					</div>
+				</div>
+				<div class="conduct-card ">
+					<input class="conduct-card-checkbox" formControlName="safety" type="checkbox" kendoCheckBox />
+					<div class="conduct-card-detail">
+						<h6 class="card-detail-head">Safety</h6>
+						<ul class="card-detail-list">
+							<li class="card-list">Client’s job sites must provide proper personal protective equipment</li>
+							<li class="card-list">Client must follow OSHA standards and guidelines</li>
+						</ul>
+					</div>
+				</div>
+				<div class="conduct-card ">
+					<input class="conduct-card-checkbox" formControlName="warranties" type="checkbox" kendoCheckBox />
+					<div class="conduct-card-detail">
+						<h6 class="card-detail-head">Warranties</h6>
+						<ul class="card-detail-list">
+							<li class="card-list">Client must offer and honor workmanship warranties</li>
+							<li class="card-list">Warranty repairs must be addressed in a timely fashion</li>
+						</ul>
+					</div>
+				</div>
+				<div class="conduct-card ">
+					<input class="conduct-card-checkbox" formControlName="supplements" type="checkbox" kendoCheckBox />
+					<div class="conduct-card-detail">
+						<h6 class="card-detail-head">Supplements</h6>
+						<ul class="card-detail-list">
+							<li class="card-list">Client must not fraudulently supplement insurance carriers</li>
+							<li class="card-list">Client will provide photo documentation of every supplement item</li>
+						</ul>
+					</div>
+				</div>
+				<div class="conduct-card ">
+					<input class="conduct-card-checkbox" formControlName="submittals" type="checkbox" kendoCheckBox />
+					<div class="conduct-card-detail">
+						<h6 class="card-detail-head">Submittals</h6>
+						<ul class="card-detail-list">
+							<li class="card-list">All submittal docs must be provided for every report requested
+								<ul class="card-detail-sub-list">
+									<li class="card-sub-list">Eagle view or similar will be provided when available</li>
+								</ul>
+							</li>
+							<li class="card-list">Eagle view or similar will be provided when available</li>
+							<li class="card-list">A scope sheet will be provided for EVERY structure work that is to be
+								performed on</li>
+						</ul>
+					</div>
+				</div>
+				<div class="conduct-card ">
+					<input class="conduct-card-checkbox" formControlName="distributors" type="checkbox" kendoCheckBox />
+					<div class="conduct-card-detail">
+						<h6 class="card-detail-head">Distributors</h6>
+						<ul class="card-detail-list">
+							<li class="card-list">Client agrees to pay supplier bills on time </li>
+						</ul>
+					</div>
+				</div>
+				<div class="conduct-card ">
+					<input class="conduct-card-checkbox" formControlName="subcontractedLabor" type="checkbox" kendoCheckBox />
+					<div class="conduct-card-detail">
+						<h6 class="card-detail-head">Subcontracted Labor</h6>
+						<ul class="card-detail-list">
+							<li class="card-list">Client agrees to pay all subcontracted services on time</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="actions">
+			<button class="btn-wrap" kendoButton size="medium" (click)="onBack()">Back</button>
+			<button class="btn-wrap" kendoButton size="medium" [disabled]="!codeOfConductForm.valid" (click)="onNext()">Next</button>
+		</div>
+    </form>
+	</div>
+</div>

@@ -1,0 +1,270 @@
+@import "../../../../../styles/variable";
+.hero {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.heading {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+  font-family: "AvenirNext-Bold";
+}
+.c-btn {
+  display: flex;
+  width: 178px;
+  height: 48px;
+  font-weight: 400;
+  padding: 12px 31.5px;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  margin-right: 18px;
+}
+.primary-c-btn {
+  background-color: $primary;
+  border-radius: 48px;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+  justify-content: space-evenly;
+}
+.primary-c-btn:hover {
+  background-color: #306fd5d7;
+}
+.left {
+  flex: 0.7;
+  padding: 10px 0px 10px 0px;
+}
+.right {
+  flex: 1;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding: 0px 0px 0px 20px;
+  height: 280px;
+}
+.check-text {
+  font-family: "AvenirNext-Medium";
+}
+.sub-text {
+  // width: 85%;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+}
+.btn-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.check-image {
+  height: 20px;
+  width: 20px;
+}
+@media screen and (min-width: 768px) and (max-width: 1399px) and (min-height: 600px) and (max-height: 900px) {
+  /* CSS rules specific to screens with width between 768 and 1399 pixels and height between 600 and 900 pixels */
+  .heading {
+    font-size: 50px;
+    line-height: 40.5px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .c-btn {
+    height: 40px;
+  }
+
+  .check-text {
+    font-size: 17px;
+    font-family: "AvenirNext";
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px;
+  }
+
+  .right {
+    height: 280px !important;
+    width: 749px !important;
+  }
+  .sub-text {
+    font-size: 22px;
+    line-height: 22px;
+    width: 469.659px;
+    margin-bottom: 18.94px;
+  }
+  .check-image {
+    height: 24px;
+    width: 24px;
+  }
+}
+@media #{$laptop-device} {
+  .heading {
+    font-size: 56px;
+    line-height: 60.5px;
+    font-weight: 700;
+    margin-bottom: 21px;
+  }
+
+  .check-text {
+    font-size: 17px;
+    font-family: "AvenirNext";
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
+  }
+
+  .right {
+    height: 421px !important;
+    width: 749px !important;
+  }
+  .sub-text {
+    font-size: 22px;
+    line-height: 28px;
+    width: 469.659px;
+    margin-bottom: 35.94px;
+  }
+  .check-image {
+    height: 24px;
+    width: 24px;
+  }
+}
+
+@media #{$extra-large-device} {
+  .heading {
+    font-size: 56px;
+  }
+
+  .check-text {
+    font-size: 22px;
+  }
+
+  .right {
+    height: 421px !important;
+    width: 749px !important;
+  }
+  .sub-text {
+    font-size: 22px;
+    line-height: 28px;
+  }
+  .check-image {
+    height: 30px;
+    width: 30px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .heading {
+    font-size: 36px;
+
+    font-style: normal;
+    font-weight: 700;
+    line-height: 41px;
+  }
+  .right {
+    flex: auto;
+    // height: 250px;
+    // width: inherit;
+    margin: 30px 0px;
+    width: 333px;
+    height: 187.174px;
+  }
+  .left {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .primary-c-btn {
+    padding: 12px 31.5px;
+    width: 178px;
+    height: 48px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
+  }
+
+  .sub-text {
+    width: 311.769px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 25px;
+    padding: 11px 0px 37.94px 0px;
+    margin: 0px;
+  }
+  .check-text {
+    width: 82px;
+    text-align: start;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 13px;
+  }
+  .btn-section {
+    justify-content: center;
+  }
+}
+
+
+
+
+     
+  .hero{
+    padding-top: 7px;
+    .left{
+      .heading{
+        font-size: 46px;
+        line-height: 60px;
+      }
+      .sub-text{font-size: 20px;line-height: 25px;font-weight: 500;}
+      .primary-c-btn{justify-content: center;font-family: "AvenirNext-Medium";
+        img{margin-left: 8px;}
+      }
+    }
+    .right{
+      height: 370px !important;
+      width: 662px !important;
+      max-width: 100%; 
+    }
+  }
+  
+
+
+
+  
+@media ( max-width:767px ) {
+  .hero{ 
+    .right{
+      margin:0px;
+      padding: 0px;
+      max-width: 100%;  
+    }
+  }
+   
+}
+
+@media ( min-width:1500px ) {
+  .hero{
+    padding-top: 7px;
+    .left{
+      .heading{
+        font-size: 56px;
+        line-height: 60px;
+      }
+      .sub-text{font-size: 22px;line-height: 28px;font-weight: 500;}
+      .btn-section{
+        .check-image{width: 24px;height: 24px;}
+        .check-text{font-size: 17px;;}
+      }
+    }
+    .right{
+      height: 420px !important; 
+      width: 662px !important;
+      max-width: 100%;   
+    }
+  }
+   
+} 

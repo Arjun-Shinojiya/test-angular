@@ -1,0 +1,118 @@
+<div class="container">
+    <form [formGroup]="contractorDetialsForm">
+        <div class="wrapper">
+            <div class="inner-wrapper">
+                <div class="instruction required-field">
+                    Choose the nature of your roofing jobs (if more than one type, choose Blend):
+                </div>
+
+            <div class="toggle"
+                [ngClass]="{error: !this.contractorDetialsForm.get('roofingNature').value && nextClicked}">
+                <div class="website-roles">
+                    <div class="select-options">
+                        <button kendoButton class="select-option"
+                            [ngClass]="{ active: contractorDetialsForm.value.roofingNature === 'R' }"
+                            (click)="changeRoofingNature('R')">
+                            Residential
+                        </button>
+                        <button kendoButton class="select-option"
+                            [ngClass]="{ active: contractorDetialsForm.value.roofingNature === 'C' }"
+                            (click)="changeRoofingNature('C')">
+                            Commercial
+                        </button>
+                        <button kendoButton class="select-option"
+                            [ngClass]="{ active: contractorDetialsForm.value.roofingNature === 'M' }"
+                            (click)="changeRoofingNature('M')">
+                            Multifamily
+                        </button>
+                        <button kendoButton class="select-option"
+                            [ngClass]="{ active: contractorDetialsForm.value.roofingNature === 'B' }"
+                            (click)="changeRoofingNature('B')">
+                            Blend
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <kendo-formerror *ngIf="contractorDetialsForm.controls.roofingNature.errors?.required && nextClicked">
+                {{'MSG-REGISTRATION-FORM-INLINE-ERROR-ROOFINGJOBREQUIRED' | translate }}
+            </kendo-formerror>
+        </div>
+            <div class="mt-3 form inner-wrapper">
+                <!-- <div class="row"> -->
+                    <div class="logo">
+                        <kendo-label class="field-labels" text="Company Logo:" />
+                        <div class="uploading">
+                            <div class="upload-image" *ngIf="imageUrl === ''">
+                                <div (click)="files.click(); $event.stopPropagation()" (drop)="onDrop($event)"
+                                    (dragover)="onDragOver($event)" class="file-drop">
+                                    <img src="assets/images/svg/Frame 37.svg" alt="">
+                                    <div class="text">
+                                        <span class="click-here">Click here</span> to upload or drag and drop <br> SVG
+                                        or PNG (max. 800x400px)
+                                    </div>
+                                </div>
+                                <input type="file" formControlName="uploadImage" id="uploadImage"
+                                    (change)="onFileUpload($event); $event.stopPropagation()" hidden #files>
+                            </div>
+                            <div class="preview-image" *ngIf="imageUrl !== ''">
+                                <div class="uploaded-image" style="width: 34.875rem;
+                                height: 126px; position: relative;">
+                                    <div class="close-icon" (click)="removeImage()" style="display: flex;
+                                    justify-content: flex-end; padding: 5px; position: absolute; right: 0; cursor: pointer;">
+                                        <img src="../../../../../../../assets/images/svg/cross-red.svg" />
+                                    </div>
+                                    <img style="width:100%; height: 100%; object-fit: contain;" [src]="imageUrl" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="col">
+                        <kendo-label class="field-labels required-field"
+                            text="Product Choice (You can always change later):" />
+                        <div class="customFlex" [ngClass]="{error: !productChoice && nextClicked}">
+                            <label class="estimate" [ngClass]="{active: productChoice === 'EST'}">
+                                <div class="kendoInput">
+                                    <input type="radio" formControlName="productChoice" value="EST" #estimate
+                                        kendoRadioButton id="estimateRadio" (click)="productChoice = 'EST'" />
+                                    <kendo-label class="field-labels" [for]="estimate"
+                                        text="Estimate on All Files"></kendo-label>
+                                    <p>By choosing this option, all files are submitted to us and our team of estimators
+                                        will create a
+                                        professional and thorough estimate for you. This estimate will be yours to
+                                        confidently present to the
+                                        insurance carrier.</p>
+                                </div>
+                            </label>
+
+                            <label class="platform" [ngClass]="{active: productChoice === 'PO'}">
+                                <div class="kendoInput">
+                                    <input type="radio" formControlName="productChoice" value="PO" #platform
+                                        kendoRadioButton id="platformRadio" (click)="productChoice = 'PO'" />
+                                    <kendo-label class="field-labels" [for]="platform"
+                                        text="Platform Only"></kendo-label>
+                                    <p>This is for those companies that write their own estimates, but want to use our
+                                        system for data
+                                        collection and job organization. You’ll always have the option to “elevate” a
+                                        file from your dashboard
+                                        to ours if you would like us to write your estimate. You can also opt to have us
+                                        handle the claim as
+                                        well.</p>
+                                </div>
+                            </label>
+                        </div>
+
+                        <kendo-formerror *ngIf="!productChoice && nextClicked">
+                            {{'MSG-REGISTRATION-FORM-INLINE-ERROR-PRODUCTCHOICEREQUIRED' | translate }}
+                        </kendo-formerror>
+                    </div> -->
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <div class="actions">
+            <button kendoButton size="medium" (click)="onBack()">Back</button>
+            <button kendoButton size="medium" (click)="onNext()">Next</button>
+        </div>
+    </form>
+</div>

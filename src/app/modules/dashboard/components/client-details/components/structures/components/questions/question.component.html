@@ -1,0 +1,44 @@
+<div class="question-container">
+  <!--BOOL TYPE-->
+  <div class="type" *ngIf=" questionType === 'BOOL'">
+    <div class="action" (click)="currentAnswer = action.enum_id" [ngClass]="{'active': currentAnswer === action.enum_id}"
+      *ngFor="let action of actions">
+      {{action.label}}
+    </div>
+  </div>
+
+  <!--CHOICE TYPE-->
+  <div class="grid-type" *ngIf=" questionType === 'CHOICE' || questionType ==='CHOICEOTHER'">
+    <div class="grid" (click)="currentAnswer = action.enum_id" [ngClass]="{'active': currentAnswer === action.enum_id}"
+      *ngFor="let action of actions">
+      {{action.label}}
+    </div>
+  </div>
+
+  <!--TEXT TYPE-->
+  <div class="type" *ngIf=" questionType === 'TEXT'">
+    <div class="action">
+      <kendo-textbox placeholder="Dwelling 1"></kendo-textbox>
+    </div>
+  </div>
+
+  <!--INPUT || DIMENSION TYPE-->
+  <div class="type action-border"  *ngIf=" questionType === 'INPUT' || questionType === 'DIMENSION'">
+    <div class="action-border action"  (click)="current = number;toggleActionSection()"
+      [ngClass]="{'active-number': current === number}"
+      *ngFor="let number of numbers">
+      {{number}}
+    </div>
+    <div class=" action-border action "  (click)="current = 10;toggleActionSection()"
+      [ngClass]="{'active-number': current >= 10}" >
+      9+
+    </div>
+    <div [ngClass]="{'active-input': actionSectionEnabled}" class="action-section">
+      <div class="action-button" (click)="performOperation('-')">-</div>
+      <kendo-numerictextbox class="custom-number-input" [autoCorrect]="true" [min]="10" [max]="100" format="'#" [step]="1"
+        [ngModel]="current !== null && current >= 10 ? current : 10" [readonly]="!actionSectionEnabled"
+        (valueChange)="current = $event"></kendo-numerictextbox>
+      <div class="action-button" (click)="performOperation('+')">+</div>
+    </div>
+  </div>
+</div>

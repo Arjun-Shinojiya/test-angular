@@ -1,0 +1,72 @@
+@import "../../../../../styles/variable";
+
+// THE CODE IS WRITTEN BY SHOZAB. I JUST FORMATTED IT
+
+body { margin: 0px; }
+.appbar-items { display: flex; justify-content: space-between; width: 100%; }
+.title { font-size: 18px; margin: 0; display: flex; justify-content: space-between;}
+.k-appbar-light { background-color: white }
+.k-appbar { box-shadow: none; }
+kendo-badge-container { margin-right: 8px; }
+ul { list-style-type: none; padding: 0; margin: 0; display: flex; }
+li { margin: 0 16px 0 16px; }
+li:hover { color: #306fd5; cursor: pointer;
+}
+.k-appbar-section { display: flex; }
+.content li { margin: 0; padding: 6px 5px; }
+.content ul { display: block; }
+.content { padding: 4px; }
+.links { font-size: 14px; }
+.btn { border-radius: 32px; padding: 6px 29px; }
+.show-titles { display: flex; align-items: center; }
+.btt-icons { background-color: #306fd5 !important; border-radius: 8px !important; -webkit-border-radius: 8px !important; -moz-border-radius: 8px !important; -ms-border-radius: 8px !important; -o-border-radius: 8px !important; color: white; }
+.d-flexcol { display: flex; flex-direction: column; } 
+.c-btn { min-width: 137px; min-height: 48px; font-weight: 600; font-size: 17px; }
+.primary-c-btn { background-color: #306fd5; width: 200px; border-radius: 48px; padding: 10px; color: white; cursor: pointer; justify-content: space-evenly; }
+.primary-c-btn:hover { background-color: #306fd5d7; }
+
+@media #{$laptop-device} 
+{ 
+  .c-btn { width: 137px; height: 48px; font-weight: 600; font-size: 17px; }
+  .primary-c-btn { background-color: #306fd5; padding: 20px; border-radius: 48px; color: white; cursor: pointer; justify-content: space-evenly; }
+  .links { font-size: 16px !important; }
+  li { margin: 0 21px 0 21px; }
+}
+
+@media #{$extra-large-device} 
+{
+  .links { font-size: 18px !important;}
+  li { margin: 0 21px 0 21px; }
+}
+
+.k-appbar 
+{
+  padding-top: 2px !important;
+  kendo-appbar-section { // I HAVE TO ADD THE BRACES AT THE END OTHER WISE I THINK WONT PICK THE TAG
+    justify-content: start !important;
+    ul.show-titles 
+    {
+      margin-left: 89px;
+      li.links 
+      {
+        font-size: 17px;
+        font-family: "AvenirNext-Medium";
+        span.active { color: #306fd5;}
+      }
+    }
+  }
+}
+
+@media (max-width:991px) {
+  kendo-appbar { // I HAVE TO ADD THE BRACES AT THE END OTHER WISE I THINK WONT PICK THE TAG
+    kendo-appbar-section { // I HAVE TO ADD THE BRACES AT THE END OTHER WISE I THINK WONT PICK THE TAG
+      .btt-icons { margin-left: auto;}
+    }
+  }
+}
+
+.auth-button { background-color: #306fd5; color: #fff; font-family: "AvenirNext-Medium"; font-size: 17px; font-style: normal; font-weight: 600; display: flex; justify-content: center; align-items: center; }
+.auth-button:hover{ background-color: #1B4EA3; color: #9BD0FF; }
+.active-auth-button {background-color: #1CE8CF; color: #0C1D3E;}
+.active-auth-button:hover{ filter: brightness(0.7); background-color: #1CE8CF; color: #0C1D3E; }
+a { color: inherit; text-decoration: none; }

@@ -1,0 +1,51 @@
+<div class="structure-type-container">
+  <div class="heading-block">
+    <div class="heading">
+      Property Details
+    </div>
+  </div>
+
+  <div class="form">
+    <form [formGroup]="structureTypeForm" class="structure-form">
+      <div class="block">
+        <div class="heading">Structure Name:</div>
+        <kendo-textbox formControlName="structureName"></kendo-textbox>
+        <kendo-formerror *ngIf="structureTypeForm.controls['structureName'].hasError('required')">Structure name is required</kendo-formerror>
+      </div>
+  
+      <div class="form-fields">
+        <kendo-formfield orientation="horizontal" showHints="initial">
+          <kendo-label text="Structure Type"></kendo-label>
+  
+          <ul class="k-radio-list k-list-horizontal">
+            <li class="k-radio-item">
+              <input type="radio" #dwelling value="dwelling" kendoRadioButton formControlName="structureType" (click)="onStructureTypeClick('dwelling')"/>
+              <kendo-label [for]="dwelling" text="Dwelling"></kendo-label>
+            </li>
+  
+            <li class="k-radio-item">
+              <input type="radio" #barn value="barn" kendoRadioButton formControlName="structureType" (click)="onStructureTypeClick('barn')"/>
+              <kendo-label [for]="barn" text="Barn"></kendo-label>
+            </li>
+  
+            <li class="k-radio-item">
+              <input type="radio" #garage value="garage" kendoRadioButton formControlName="structureType" (click)="onStructureTypeClick('garage')"/>
+              <kendo-label [for]="garage" text="Garage"></kendo-label>
+            </li>
+  
+            <li class="k-radio-item">
+              <input type="radio" #other value="other" kendoRadioButton formControlName="structureType"  (click)="onStructureTypeClick('other')"/>
+              <kendo-label [for]="other" text="Other"></kendo-label>
+            </li>
+          </ul>
+        </kendo-formfield>
+      </div>
+      <div class="block" *ngIf="showOtherType">
+        <div class="heading">Other Type:</div>
+        <kendo-textbox formControlName="otherType"></kendo-textbox>
+        <kendo-formerror *ngIf="structureTypeForm.controls['otherType'].hasError('required')">Please enter type</kendo-formerror>
+      </div>
+    </form>
+  </div>
+
+</div>

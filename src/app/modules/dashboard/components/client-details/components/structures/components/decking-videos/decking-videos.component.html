@@ -1,0 +1,90 @@
+<div class="decking-videos-container">
+  <div class="block" *ngIf="!showUpload">
+    <div class="select-all">
+      <img src="./assets/images/svg/Icon-tick.svg" alt="">
+      <span>Select All</span>
+    </div>
+
+    <div class="add-icon" (click)="onClickAdd(); $event.stopPropagation()">
+      <img src="./assets/images/svg/addIcon.svg" alt="">
+    </div>
+  </div>
+
+  <div class="block" *ngIf="showUpload">
+    <div class="add-icon"></div>
+
+    <div class="select-all" (click)="onClickCancel(); $event.stopPropagation()">
+      <img src="./assets/images/svg/cancelIcon.svg" alt="">
+      <span>Cancel</span>
+    </div>
+  </div>
+
+  <div class="upload-image-block" *ngIf="!imageUrl && showUpload">
+    <div class="add-Icon" (click)="onClickSelectFile(); $event.stopPropagation()">
+      <label for="selectFile">
+        <img src="./assets/images/svg/Icon-left-2.svg" alt="">
+      </label>
+      <input type="file" (change)="onFileSelected($event); $event.stopPropagation()" class="hidden" id="selectFile" hidden #files/>	
+    </div>
+    <div class="upload-file"><span (click)="onClickSelectFile()">Upload a file</span> or drag
+      and drop</div>
+    <div class="file-accepted">MP4 up to 50MB</div>
+  </div>
+
+  <div class="uploading-image" *ngIf="imageUrl">
+    <div class="wrapper">
+      <div class=" file-image">
+        <img [src]="imageUrl" alt="">
+      </div>
+      <div class="file-details">
+        <div class="file-name">{{ selectedFile?.name }}</div>
+        <div class="uploading-progress">
+          <kendo-progressbar
+            [min]="0"
+            [max]="100"
+            [value]="uploadProgress"
+          ></kendo-progressbar>
+        </div>
+        <div class="file-size">{{ formatFileSize(selectedFile?.size ?? 0) }}<span>&centerdot;</span> {{ uploadProgress }}% uploaded</div>
+      </div>
+      <div class="remove-icon" (click)="onRemove(); $event.stopPropagation()">
+        <img src="./assets/images/svg/remove.svg" alt="">
+      </div>
+    </div>
+  </div>
+
+  <div class="group-images">
+    <div class="image-first">
+      <img src="./assets/images/png/image4.png">
+      <div class="overlay">
+        <div class="delete-btn">
+          <div class="white-btn"></div>
+          <div class="delete-icon">
+            <img src="./assets/images/svg/deleteIcon.svg" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="play-btn" (click)="viewImage(); $event.stopPropagation()">
+        <div class="play-icon"><img src="./assets/images/svg/play-icon.svg" alt=""></div>
+        <div class="play" (click)="onClickPlay()">Play</div>
+      </div>
+    </div>
+
+    <div class="popup" *ngIf="show">
+      <kendo-dialog *ngIf="show" title="Video View" (close)="close()" [width]="900" [minHeight]="350">
+        <video width="450" height="250" controls>
+          <source src="./assets/images/svg/sampleVideo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+
+        <div class="action-buttons">
+          <div class="delete" (click)="close(); $event.stopPropagation()">
+            <img src="./assets/images/svg/delete 2.svg" alt="">
+            <span>Delete</span>
+          </div>
+          <div class="ok" (click)="close(); $event.stopPropagation()">OK</div>
+        </div>
+      </kendo-dialog>
+    </div>
+  </div>
+</div>

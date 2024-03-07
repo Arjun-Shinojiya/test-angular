@@ -1,0 +1,174 @@
+<app-create-users *ngIf="addUserButtonClicked" class="addUsercomponent" [companyTypeAfterclick]="companyTypeAfterLogin"
+	(usercClickBack)="userClickBack($event)" (addUserSuccess)="addUserSuccess()"></app-create-users>
+<div *ngIf="!addUserButtonClicked">
+	<div class="manage-files-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<div class="manage-top-list">
+					<div class="input-form-pages justify-content-between">
+						<div class="d-flex">
+							<kendo-formfield showHints="always" class="searchBar">
+								<kendo-textbox placeholder="Search . . . " [value]="searchQuery"
+									(input)="handleSearch($event)"></kendo-textbox>
+							</kendo-formfield>
+
+							<kendo-formfield showHints="always" class="checkbox-options">
+								<label>
+									<input type="checkbox" kendoCheckBox (change)="checkboxChange('selectAll')"
+										[(ngModel)]="selectAll" />
+									All
+								</label>
+								<label>
+									<input type="checkbox" kendoCheckBox (change)="checkboxChange('active')"
+										[(ngModel)]="activeOnly" />
+									Active
+								</label>
+								<label>
+									<input type="checkbox" kendoCheckBox (change)="checkboxChange('inActive')"
+										[(ngModel)]="inactiveOnly" />
+									Inactive
+								</label>
+							</kendo-formfield>
+						</div>
+						<div class="d-flex">
+							<kendo-formfield showHints="always" class="addUserButton">
+								<kendo-button class="addUser" (click)="addUser()">
+									<img src="../assets/images/svg/Variants3.svg" />
+								</kendo-button>
+							</kendo-formfield>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="table-main-wrapper">
+			<div class="grid table-responsive">
+				<kendo-grid [sortable]="true" [sort]="sort" [data]="userData" [pageSize]="dataTablePageSize"
+					id="user-list" [skip]="skip" [pageable]="false" [resizable]="true" class="dashboard-table-wrap"
+					size="small" [selectable]="true" [rowClass]="rowClass">
+					<!-- (pageChange)="pageChange($event)"> -->
+
+					<kendo-grid-column field="userName" title="User" [width]="250" class="header-table text-wrap">
+						<ng-template kendoGridCellTemplate let-dataItem>
+							{{ dataItem.userName }} {{ dataItem.lastName }} {{dataItem.user_id == userId ? "(You)" : ''}}
+						</ng-template>
+						<ng-template kendoGridHeaderTemplate>
+							<div class="block" (click)="sortBy('namefirst')">
+								<span class="title" >User</span>
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+									fill="none">
+									<path d="M5.83334 6.66667L10 2.5L14.1667 6.66667" stroke="#6B7280"
+										stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M14.1667 13.3333L10 17.5L5.83334 13.3333" stroke="#6B7280"
+										stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+								</svg>
+							</div>
+						</ng-template>
+					</kendo-grid-column>
+
+					<kendo-grid-column field="tsstatus" title="Status" [width]="130" class="header-table status">
+						<ng-template kendoGridCellTemplate let-dataItem>
+							<div class="status">
+								<div class="status-circles" [ngClass]="{
+                    'active-style': dataItem.tsstatus === 'A',
+                    'inactive-style': dataItem.tsstatus !== 'A'
+                  }">
+									<div class="status-data">
+										<img *ngIf="dataItem.tsstatus === 'A'" src="assets/images/svg/Variants2.svg"
+											alt="" />
+										<img *ngIf="dataItem.tsstatus === 'I'" src="assets/images/svg/Variants1.svg"
+											alt="" />
+									</div>
+								</div>
+							</div>
+						</ng-template>
+						<ng-template kendoGridHeaderTemplate>
+							<div class="block" (click)="sortBy('activestatus')">
+								<span class="title">Status</span>
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+									fill="none">
+									<path d="M5.83334 6.66667L10 2.5L14.1667 6.66667" stroke="#6B7280"
+										stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+										(click)="setOrder('asc')" />
+									<path d="M14.1667 13.3333L10 17.5L5.83334 13.3333" stroke="#6B7280"
+										stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+										(click)="setOrder('desc')" />
+								</svg>
+							</div>
+						</ng-template>
+					</kendo-grid-column>
+
+					<kendo-grid-column field="totalScopeRole" [width]="178" title="Total Scope Role"
+						class="header-table">
+						<ng-template kendoGridCellTemplate let-dataItem>
+							<div class="custom-border">
+								{{ dataItem.totalScopeRole }}
+							</div>
+						</ng-template>
+						<ng-template kendoGridHeaderTemplate>
+							<div class="block">
+								<span class="title">TotalScope Role</span>
+							</div>
+						</ng-template>
+					</kendo-grid-column>
+
+					<kendo-grid-column field="companyRole" title="Company Role(s):" [width]="400"
+						class="header-table text-wrap">
+						<ng-template kendoGridCellTemplate let-dataItem>
+							<div>
+								<div *ngFor="let role of dataItem.companyRole" class="role-item">
+									{{ role }}
+								</div>
+							</div>
+						</ng-template>
+						<ng-template kendoGridHeaderTemplate>
+							<div class="block">
+								<span class="title">Company Role(s):</span>
+							</div>
+						</ng-template>
+					</kendo-grid-column>
+
+					<!-- ... (previous code) ... -->
+
+					<kendo-grid-column title="Action" [width]="134" class="header-table">
+						<ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+							<div class="action-buttons" *ngIf="dataItem.showEditDeleteButtons">
+								<button kendoGridEditCommand class="edit-button" title="Edit"
+									(click)="editUser(dataItem, rowIndex)">
+									<img *ngIf="!dataItem.isMinusClicked"
+										src="../assets/images/svg/ContainerEdit.svg" />
+									<img *ngIf="dataItem.isMinusClicked"
+										src="../assets/images/svg/VariantseditOpen.svg" />
+								</button>
+								<button kendoGridRemoveCommand class="delete-button" title="Delete"
+									(click)="deleteUser(dataItem)">
+									<img src="assets/images/svg/delete 2.svg" />
+								</button>
+							</div>
+						</ng-template>
+
+						<ng-template kendoGridHeaderTemplate>
+							<div>
+								<span>Action</span>
+							</div>
+						</ng-template>
+					</kendo-grid-column>
+
+					<ng-template kendoGridDetailTemplate let-dataItem>
+						<app-create-users (expansionState)="changeExpantionState(dataItem)"
+						(usercClickBack)="onCancelClick(dataItem)"
+							[userDataAfterLoginEdit]="data" [companyTypeAfterclick]="companyTypeAfterLogin"
+							[userEditAfterLogin]="isEditOpen"></app-create-users>
+					</ng-template>
+
+					<ng-template kendoPagerTemplate let-totalPages="totalPages" let-currentPage="currentPage"
+						style="display: none">
+						<kendo-pager-prev-buttons></kendo-pager-prev-buttons>
+						<kendo-pager-numeric-buttons [buttonCount]="buttonCount"></kendo-pager-numeric-buttons>
+						<kendo-pager-next-buttons></kendo-pager-next-buttons>
+					</ng-template>
+				</kendo-grid>
+			</div>
+		</div>
+	</div>
+</div>

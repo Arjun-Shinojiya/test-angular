@@ -1,0 +1,120 @@
+.register_box 
+{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  // SET CARD
+  .k-card
+  {
+    box-shadow: 0px 0px 18px 6px rgba(0, 0, 0, 0.04);
+  }
+
+  .register_card 
+  {
+    display: block;
+    background-color: white;
+    height: 600px;
+    width: 64rem;
+    border-radius: 25px;
+    align-items: center;
+    position: relative;
+	transition: 0.8s;
+
+    .form_wrapper 
+    {
+      width: 49.46388rem;
+      height: 18.55056rem;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-top: 6rem;
+      .heading 
+      {
+        h1 { font-size: 1.75rem;  font-weight: 700; }
+        p { font-size: 1.0625rem;  font-weight: 400;  color: grey;  line-height: 1.375rem; }
+      }
+      .job{  font-size: 1.0625rem;  font-weight: 600;}
+    }
+  }
+
+  .kendoCard { border-radius: 1rem; }
+
+  .register_login 
+  {
+    a { display: flex; padding: 0.5625rem 1rem; font-weight: 600; font-size: 1.0625rem; text-decoration: none; align-items: center;}
+    p { display: flex; font-size: 1.0625rem; font-weight: 400; align-items: center; margin-bottom: 0 !important; }
+  }
+	.overview-popup {
+		position: absolute;
+		top: 550px;
+		width: 100%;
+		left: 0;
+		overflow: hidden;
+		transition: 0.8s;
+		background-color: #fff;
+		&.show {
+			height: 100%;
+			top: 0;
+			bottom: unset;
+			::ng-deep .footer-container {
+				hr {
+					top: 5px;	
+				}
+			}
+		}
+	}
+}
+
+form { display: flex;justify-content: space-between; }
+
+.active { border: 2px solid #306FD5 !important; }
+.kendoInput
+{
+  padding: 1.3125rem 1.31244rem 1.3125rem 1.8125rem;
+  border: 1px solid #D7D7D7;
+  width: 15.75rem;
+  height: 4rem;
+  display: flex;
+  border-radius: 0.5rem;
+  input { padding: 10px;margin-right: 1.12rem;color: #D7D7D7;border: 1px solid  #D7D7D7;}
+  kendo-label { font-size: 1.0625rem !important; font-weight: 600 !important; }
+}
+
+.kendo_register_btn
+{
+  display: flex;
+  justify-content: flex-end;
+  button{ padding: 0.5625rem 1rem; display: flex; justify-content: center; align-items: center; gap: 0.25rem; background-color: #306FD5; color: white; }
+}
+
+.register_footer 
+{
+  border-bottom: 1px solid lightgrey;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 64rem;
+  bottom: 22px;
+
+  button 
+  {
+    background-color: black;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    width: 100px;
+    height: 60px;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    margin-bottom: -10px;
+    margin-top: 0px;
+
+    .up_icon {  width: 10px;  height: 10px;  border-radius: 50%;  background-color: white;  margin-left: 38%;  color: #306FD5;}
+  }
+}

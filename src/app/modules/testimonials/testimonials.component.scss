@@ -1,0 +1,270 @@
+@import "../../../styles/variable";
+
+kendo-scrollview.k-scrollview-wrap,
+kendo-scrollview.k-scrollview,
+.k-scrollview {
+  border: none !important;
+}
+.k-scrollview-wrap .k-scrollview > li,
+.k-scrollview .k-scrollview-wrap > li {
+  display: inline-block;
+  // overflow: auto !important;
+  white-space: initial !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+li:hover {
+  color: black;
+  cursor: pointer;
+}
+.k-scrollview-next,
+.k-scrollview-prev {
+  color: black;
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: rgba(0, 0, 0, 0.3) 0 0 15px;
+  opacity: 0.7;
+  outline-width: 0;
+}
+// .k-svg-icon > svg {
+//   border-radius: 23px;
+//   fill: currentColor;
+//   flex: 1 1 auto;
+//   padding: 10px;
+//   color: #484848;
+//   width: 56px!important; 
+//   border-radius: 50%!important; 
+//   height: 56px!important;
+//   margin-top: 86px; 
+//   /* margin: 20px; */
+//   background-color: #f0f0f0;
+// }
+.k-scrollview-next,
+.k-scrollview-prev :hover {
+  color: black;
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: rgba(0, 0, 0, 0.3) 0 0 15px;
+  opacity: 0.7;
+  outline-width: 0;
+}
+
+.k-scrollview-wrap {
+  margin: 0 auto;
+}
+
+.quote-p {
+  position: relative;
+  padding: 70px;
+}
+.quote {
+  height: 60px;
+}
+.demo-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 15px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  font-size: 24px;
+}
+.t-main {
+  flex: 1;
+}
+.t-sub-main {
+  justify-content: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.t-heading-one {
+  font-family: "AvenirNext-Bold";
+
+  font-size: 20;
+  font-weight: 700;
+  line-height: 15.5px;
+}
+.t-p {
+  font-family: "AvenirNext";
+
+  font-size: 15px;
+  padding: 5px;
+  font-weight: 500;
+}
+.t-image {
+  height: 20.84px;
+  width: 150.67px;
+}
+.t-p-name {
+  font-family: "AvenirNext-Medium";
+  padding: 2px;
+  font-size: 15px;
+  font-weight: 600;
+  //   line-height: 10px;
+}
+.t-p-text {
+  font-family: "AvenirNext";
+
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 5px;
+}
+.star-div {
+  padding-bottom: 8.09px;
+  padding-top: 5px;
+  img {
+    padding-left: 3px;
+    height: 15.5px;
+    width: 15.5;
+  }
+}
+.t-commemts {
+  font-family: "AvenirNext";
+  font-size: 15;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.owl-carousel .owl-item img {
+	display: inline-block;
+	width: auto;
+} 
+
+.owl-nav .owl-prev, .owl-nav .owl-next {
+  position: absolute;
+  top: calc(50% + 44px);
+}
+.owl-nav .owl-next{right: 0px;}
+
+@media only screen and (max-width: 768px) {
+  .t-sub-main {
+    height: auto;
+    padding-top: 20px;
+  }
+  .t-p {
+    width: 286px;
+    text-align: center;
+  }
+  .t-image {
+    width: 212.67px;
+    height: 36.86px;
+  }
+  .quote-p {
+    padding: 0px;
+  }
+  .quote {
+    display: none;
+  }
+}
+@media only screen and (min-width: 679px) and (max-width: 999px) {
+  .quote-p {
+    padding: 0px;
+  }
+  .quote {
+    display: none;
+  }
+}
+@media only screen and (max-height: 872px) {
+  .q-p {
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .quote-p {
+    // padding: 0px;
+  }
+  .quote {
+    // display: none;
+  }
+}
+
+@media #{$laptop-device} {
+  .t-heading-one {
+    font-size: 46;
+    font-weight: 700;
+    line-height: 49.5px;
+  }
+  .t-p {
+    font-size: 20;
+    font-weight: 500;
+    line-height: 25px;
+    padding-bottom: 25px;
+  }
+  .t-image {
+    height: 36.84px;
+    width: 212.67px;
+  }
+  .t-p-name {
+    font-size: 22;
+    font-weight: 600;
+    line-height: 28px;
+  }
+  .t-p-text {
+    font-size: 22;
+    font-weight: 500;
+    line-height: 28px;
+  }
+  .star-div {
+    padding-bottom: 54.09px;
+    padding-top: 25px;
+    img {
+      padding-left: 3px;
+      height: 24.5px;
+      width: 24.5;
+    }
+  }
+  t-commemts {
+    font-size: 17;
+    font-weight: 400;
+    line-height: 22px;
+  }
+}
+@media #{$extra-large-device} {
+  .t-heading-one {
+    font-size: 46;
+    font-weight: 700;
+    line-height: 49.5px;
+  }
+  .t-p {
+    font-size: 20;
+    font-weight: 500;
+    line-height: 25px;
+    padding-bottom: 25px;
+  }
+  .t-image {
+    height: 36.84px;
+    width: 212.67px;
+  }
+  .t-p-name {
+    font-size: 22;
+    font-weight: 600;
+    line-height: 28px;
+  }
+  .t-p-text {
+    font-size: 22;
+    font-weight: 500;
+    line-height: 28px;
+  }
+  .star-div {
+    padding-bottom: 54.09px;
+    padding-top: 25px;
+    img {
+      padding-left: 3px;
+      height: 24.5px;
+      width: 24.5;
+    }
+  }
+  t-commemts {
+    font-size: 17;
+    font-weight: 400;
+    line-height: 22px;
+  }
+}

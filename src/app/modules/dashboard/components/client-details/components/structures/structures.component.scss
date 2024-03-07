@@ -1,0 +1,444 @@
+.clients-pannel-wrapper {
+    ::ng-deep kendo-panelbar {
+        border-radius: 8px;
+        height: auto;
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        background: #F3F4F6;
+        border: none;
+
+        .k-panelbar-item {
+            border-radius: 8px;
+            border: 1px solid #D1D5DB;
+            background: #FFF;
+
+            .k-content {
+                padding: 8px 11px;
+                border-radius: 0px 0px 10px 10px;
+                background: #F3F4F6;
+            }
+
+            kendo-icon-wrapper {
+                kendo-svg-icon {
+                    svg {
+                        fill: #1976D2;
+                    }
+                }
+            }
+
+            .k-link {
+                border-radius: 8px;
+                padding: 10px 11px 10px 16.574px;
+
+                .k-panelbar-item-text {
+                    color: #111827;
+                    font-size: 14px;
+                    font-weight: 600;
+                    line-height: 20px;
+                }
+
+                &.k-selected {
+                    padding: 10px 11px 10px 16.574px;
+                    border-radius: 8px;
+                    border: 1px solid #D1D5DB;
+                    background: #0D2040;
+                    color: #fff;
+
+                    .k-panelbar-item-text {
+                        color: #ffffff;
+                        font-size: 14px;
+                        font-weight: 500;
+                        line-height: 20px;
+                    }
+
+                    kendo-icon-wrapper {
+                        kendo-svg-icon {
+                            svg {
+                                fill: #ffffff;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .pannel-tab-wrap {
+            display: flex;
+            gap: 8px;
+            flex-direction: column;
+
+            .teamMate-wrap {
+                .group-call {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10.5px 10px 10.5px 12.266px;
+                    border-top-left-radius: 4px;
+                    border-top-right-radius: 4px;
+                    background: #F3F4F6;
+
+                    .button-wrap {
+                        display: flex;
+                        gap: 8px;
+                        justify-content: center;
+                        align-items: center;
+
+                        .btn-edit {
+                            display: flex;
+                            gap: 4px;
+                            align-items: center;
+                            padding: 5px;
+                            border-radius: 4px;
+                            border: 1px solid #E5E7EB;
+                            background: #F2F8FD;
+
+                            .svg-icon {
+                                svg {
+                                    width: 22px;
+                                    height: 22px;
+                                }
+                            }
+
+                            .number {
+                                border-radius: 24px;
+                                background: #306FD5;
+                                color: #FFF;
+                                font-size: 12px;
+                                font-weight: 500;
+                                width: 24px;
+                                height: 20px;
+                                line-height: 20px;
+                            }
+                            
+                            .empty
+                            {
+                                background-color: #111827 !important;
+                            }
+                        }
+                    }
+
+                    .main-title {
+                        color: #111827;
+                        font-size: 14px;
+                        font-weight: 500;
+                        line-height: 20px;
+                        margin: 0;
+
+                        span {
+                            color: #306FD5;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.scrollview-warp {
+    ::ng-deep {
+        kendo-scrollview {
+            border: none;
+            background-color: #F3F4F6;
+            padding: 10px;
+
+            .k-scrollview-view {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+                height: 50px !important;
+            }
+
+            .k-scrollview-next,
+            .k-scrollview-prev {
+                width: 40px;
+                height: 40px;
+                top: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 128px;
+                border: 1px solid #D1D5DB;
+                background: #FFFFFF;
+                box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+                margin-top: 15px;
+                margin-right: 5px;
+                margin-left: 5px;
+                background-color: #FFFFFF;
+
+            }
+
+            kendo-svgicon {
+                color: #D1D5DB;
+                width: 20px;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+
+            }
+
+            .k-scrollview-nav {
+                display: none;
+            }
+        }
+
+        .back-page, .next-page {
+            cursor: pointer;
+            margin-right: 20px;
+            margin-left: 20px;
+            margin-top: 10px;
+            
+            img {
+                width: 40px;
+            }
+        }
+
+        .back-page {
+            margin-left: 0px;
+        }
+
+        .slide-btn-wrap {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            align-items: center;
+
+            .button-data {
+                border-radius: 8px;
+                border: 1px solid var(--Gray-300, #D1D5DB);
+                background: var(--Base-White, #FFF);
+                box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+                padding: 8px 16px;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 20px;
+            }
+        }
+    }
+}
+
+.tabs-wraper {
+    .clients-pannel-wrapper {
+        ::ng-deep {
+            .k-panelbar-item {
+                border-radius: 8px;
+            }
+
+            .k-panelbar {
+                .k-link {
+
+                    background-color: #fff;
+                    display: flex;
+                }
+            }
+        }
+    }
+
+    ::ng-deep {
+        .clients-pannel-wrapper {
+            .k-panelbar {
+                .k-link {
+                    &.k-selected {
+                        background-color: #306FD5;
+                    }
+                }
+            }
+        }
+
+        .ng-trigger-toggle {
+            padding: 16px 10px;
+        }
+
+        .k-panelbar {
+            .k-expanded {
+                .k-link {
+                    border-radius: 8px 8px 0 0;
+                }
+            }
+
+            .k-link {
+                background-color: #0D2040;
+                border-radius: 8px;
+
+                &:hover {
+                    background-color: #0D2040;
+                }
+
+                &.k-panelbar-item {
+                    border-radius: 8px 8px 0 0;
+                }
+
+                .k-panelbar-item-text {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.panel-item-wrap {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+
+    ::ng-deep kendo-panelbar {
+        border-radius: 8px;
+        height: auto;
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        background: #F3F4F6;
+        border: none;
+
+        .k-panelbar-item {
+            border-radius: 8px;
+            border: 1px solid #D1D5DB;
+            background: #FFF;
+
+            .k-content {
+                padding: 8px 11px;
+                border-radius: 0px 0px 10px 10px;
+                background: #FFFFFF;
+            }
+
+            kendo-icon-wrapper {
+                kendo-svg-icon {
+                    svg {
+                        fill: #1976D2;
+                    }
+                }
+            }
+
+            .k-link {
+                display: flex !important;
+                border-radius: 8px;
+                padding: 10px 11px 10px 16.574px;
+
+                .k-panelbar-item-text {
+                    color: #111827;
+                    font-size: 14px;
+                    font-weight: 600;
+                    line-height: 20px;
+                }
+
+                &.k-selected {
+                    padding: 10px 11px 10px 16.574px;
+                    border-radius: 8px;
+                    border: 1px solid #D1D5DB;
+                    background: #306FD5 !important;
+                    // background: #0D2040;
+                    color: #fff;
+
+                    .k-panelbar-item-text {
+                        color: #ffffff;
+                        font-size: 14px;
+                        font-weight: 500;
+                        line-height: 20px;
+                    }
+
+                    kendo-icon-wrapper {
+                        kendo-svg-icon {
+                            svg {
+                                fill: #ffffff;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .pannel-tab-wrap {
+            display: flex;
+            gap: 8px;
+            flex-direction: column;
+
+            .teamMate-wrap {
+                .group-call {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10.5px 10px 10.5px 12.266px;
+                    border-top-left-radius: 4px;
+                    border-top-right-radius: 4px;
+                    background: #F3F4F6;
+
+                    .button-wrap {
+                        display: flex;
+                        gap: 8px;
+                        justify-content: center;
+                        align-items: center;
+
+                        .btn-edit {
+                            display: flex;
+                            gap: 4px;
+                            align-items: center;
+                            padding: 5px;
+                            border-radius: 4px;
+                            border: 1px solid #E5E7EB;
+                            background: #F2F8FD;
+
+                            .svg-icon {
+                                svg {
+                                    width: 22px;
+                                    height: 22px;
+                                }
+                            }
+
+                            .number {
+                                border-radius: 24px;
+                                background: #306FD5;
+                                color: #FFF;
+                                font-size: 12px;
+                                font-weight: 500;
+                                width: 24px;
+                                height: 20px;
+                                line-height: 20px;
+
+                                &.required-number {
+                                    background: #111827;
+                                }
+                            }
+                        }
+                    }
+
+                    .main-title {
+                        color: #111827;
+                        font-size: 14px;
+                        font-weight: 500;
+                        line-height: 20px;
+                        margin: 0;
+
+                        span {
+                            color: #306FD5;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+.slide-btn-wrap {
+    margin-top: 6px !important;
+}
+
+.active {
+    background-color: #306FD5 !important;
+    color: #FFFFFF;
+}
+
+.activeDecking {
+    background-color: #BFD3F2 !important;
+    border: 1px solid #306FD5 !important;
+}
+
+.icon
+{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}

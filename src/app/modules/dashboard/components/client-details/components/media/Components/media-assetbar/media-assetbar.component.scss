@@ -1,0 +1,31 @@
+.media-assetbar-container {
+  width: 120px;
+  height: 100%;
+  background-color: #FFF;
+  padding: 15px 5px;
+
+  .asset-wrapper {
+    margin: 0 auto;
+    width: 100px;
+    margin-top: 7px;
+
+    .asset {
+      width: 100px;
+      border-radius: 8px;
+      color: #374151;
+      font-size: 14px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #D1D5DB;
+      padding: 10px;
+      cursor: pointer;
+    }
+  }
+
+  .active {
+    background-color: #306FD5;
+    color: #FFFFFF !important;
+  }
+}

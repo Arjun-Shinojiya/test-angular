@@ -1,0 +1,162 @@
+<div class="payment-details-container">
+	<div class="wrapper">
+		<div class="instruction">
+			We value your trust and aim to provide a seamless and secure payment experience for all our users. Here, you
+			can securely store your payment information for future transactions,
+			ensuring hassle-free payments and uninterrupted access to our services.
+		</div>
+		<div class="payment-method">
+			<div class="payment-details-card">
+				<div class="kendoInput">
+					<input type="radio" kendoRadioButton [checked]="expandMode === 0" (change)="expandMode = 0" />
+					<kendo-label text="Card"></kendo-label>
+				</div>
+				<div class="payment-details-form" *ngIf="expandMode === 0">
+					<form [formGroup]="cardForm">
+						<div class="row">
+
+							<kendo-formfield class="col-5">
+								<div class="custom-input">
+									<kendo-label class="required-field" text="Card Number:"></kendo-label>
+									<div class="tab-icon">
+										<kendo-maskedtextbox [maskOnFocus]="true" [mask]="cardMask" formControlName="cardnumber"></kendo-maskedtextbox>
+										<div class="icon-wrapper">
+											<img src="../../../../../../../assets/images/png/card-payment.png" alt="">
+										</div>
+									</div>
+								</div>	
+								<kendo-formerror *ngIf="cardForm.controls.cardnumber.errors?.required">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-CARDNUMBERREQUIRED' | translate }}</kendo-formerror>
+								<kendo-formerror *ngIf="!cardForm.controls.cardnumber.errors?.required && cardForm.controls.cardnumber.invalid">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-CARDNUMBERINVALID' | translate }}</kendo-formerror>
+							</kendo-formfield>
+
+							<kendo-formfield class="col-4">
+								<div class="custom-input">
+									<kendo-label class="required-field" text="Expiration:"></kendo-label>
+									<div class="tab-icon">
+										<kendo-maskedtextbox id="expiration" [maskOnFocus]="true" [mask]="expirationDateMask" formControlName="expiration"></kendo-maskedtextbox>
+									</div>
+								</div>	
+								<kendo-formerror *ngIf="cardForm.controls.expiration.errors?.required">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-EXPIRATIONREQUIRED' | translate }}</kendo-formerror>
+								<kendo-formerror *ngIf="!cardForm.controls.expiration.errors?.required && cardForm.controls.expiration.invalid">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-EXPIRATIONINVALID' | translate }}</kendo-formerror>
+							</kendo-formfield>
+
+							<kendo-formfield class="col-3">
+								<div class="custom-input">
+									<kendo-label class="required-field" text="CVV:"></kendo-label>
+									<div class="tab-icon">
+										<kendo-maskedtextbox [maskOnFocus]="true" [mask]="cvvMask" formControlName="cvv"></kendo-maskedtextbox>
+										<div class="icon-wrapper">
+											<svg xmlns="http://www.w3.org/2000/svg" width="41" height="40"
+												viewBox="0 0 41 40" fill="none">
+												<path
+													d="M37.2236 20.7V3.33333C37.2236 2.62609 36.9427 1.94781 36.4426 1.44771C35.9425 0.947616 35.2642 0.666664 34.557 0.666664H3.8903C3.18306 0.666664 2.50478 0.947616 2.00468 1.44771C1.50458 1.94781 1.22363 2.62609 1.22363 3.33333V23.3333C1.22363 24.0406 1.50458 24.7189 2.00468 25.2189C2.50478 25.719 3.18306 26 3.8903 26H17.4036L37.2236 20.7Z"
+													fill="#D7D7D7" />
+												<path d="M1.22363 5.33333H37.2236V10.6667H1.22363V5.33333Z"
+													fill="#484848" />
+												<path
+													d="M33.89 14H19.2233C18.8551 14 18.5566 14.2985 18.5566 14.6667V17.3333C18.5566 17.7015 18.8551 18 19.2233 18H33.89C34.2582 18 34.5566 17.7015 34.5566 17.3333V14.6667C34.5566 14.2985 34.2582 14 33.89 14Z"
+													fill="white" />
+												<path
+													d="M28.557 39.3333C34.8162 39.3333 39.8903 34.2592 39.8903 28C39.8903 21.7408 34.8162 16.6667 28.557 16.6667C22.2977 16.6667 17.2236 21.7408 17.2236 28C17.2236 34.2592 22.2977 39.3333 28.557 39.3333Z"
+													fill="#F0F0F0" />
+												<path
+													d="M39.8903 28C39.8956 30.1224 39.2992 32.2028 38.1703 34H18.9436C17.8196 32.2006 17.2236 30.1216 17.2236 28C17.2236 25.8784 17.8196 23.7994 18.9436 22H38.1703C39.2992 23.7972 39.8956 25.8776 39.8903 28Z"
+													fill="#F0F0F0" />
+												<path
+													d="M15.223 15.3333H4.55632C4.3795 15.3333 4.20993 15.2631 4.08491 15.1381C3.95989 15.013 3.88965 14.8435 3.88965 14.6667C3.88965 14.4899 3.95989 14.3203 4.08491 14.1953C4.20993 14.0702 4.3795 14 4.55632 14H15.223C15.3998 14 15.5694 14.0702 15.6944 14.1953C15.8194 14.3203 15.8896 14.4899 15.8896 14.6667C15.8896 14.8435 15.8194 15.013 15.6944 15.1381C15.5694 15.2631 15.3998 15.3333 15.223 15.3333Z"
+													fill="#484848" />
+												<path
+													d="M15.2227 18H7.88932C7.71251 18 7.54294 17.9298 7.41792 17.8047C7.29289 17.6797 7.22266 17.5101 7.22266 17.3333C7.22266 17.1565 7.29289 16.987 7.41792 16.8619C7.54294 16.7369 7.71251 16.6667 7.88932 16.6667H15.2227C15.3995 16.6667 15.569 16.7369 15.6941 16.8619C15.8191 16.987 15.8893 17.1565 15.8893 17.3333C15.8893 17.5101 15.8191 17.6797 15.6941 17.8047C15.569 17.9298 15.3995 18 15.2227 18Z"
+													fill="#484848" />
+												<path
+													d="M23.2246 26.5987C23.4014 26.5987 23.571 26.6689 23.696 26.794C23.821 26.919 23.8913 27.0886 23.8913 27.2654C23.8913 27.4422 23.9615 27.6117 24.0865 27.7368C24.2116 27.8618 24.3811 27.932 24.5579 27.932C24.7348 27.932 24.9043 27.8618 25.0293 27.7368C25.1544 27.6117 25.2246 27.4422 25.2246 27.2654C25.2246 26.7349 25.0139 26.2262 24.6388 25.8512C24.2637 25.4761 23.755 25.2654 23.2246 25.2654C22.6942 25.2654 22.1855 25.4761 21.8104 25.8512C21.4353 26.2262 21.2246 26.7349 21.2246 27.2654V29.932C21.2246 30.4625 21.4353 30.9712 21.8104 31.3462C22.1855 31.7213 22.6942 31.932 23.2246 31.932C23.755 31.932 24.2637 31.7213 24.6388 31.3462C25.0139 30.9712 25.2246 30.4625 25.2246 29.932C25.2246 29.7552 25.1544 29.5857 25.0293 29.4606C24.9043 29.3356 24.7348 29.2654 24.5579 29.2654C24.3811 29.2654 24.2116 29.3356 24.0865 29.4606C23.9615 29.5857 23.8913 29.7552 23.8913 29.932C23.8913 30.1088 23.821 30.2784 23.696 30.4034C23.571 30.5285 23.4014 30.5987 23.2246 30.5987C23.0478 30.5987 22.8782 30.5285 22.7532 30.4034C22.6282 30.2784 22.5579 30.1088 22.5579 29.932V27.2654C22.5579 27.0886 22.6282 26.919 22.7532 26.794C22.8782 26.6689 23.0478 26.5987 23.2246 26.5987Z"
+													fill="#484848" />
+												<path
+													d="M30.0515 25.2853C29.88 25.2426 29.6985 25.2697 29.547 25.3607C29.3955 25.4517 29.2863 25.5992 29.2435 25.7707L28.5568 28.5167L27.8701 25.7707C27.8241 25.6027 27.7142 25.4595 27.5639 25.3715C27.4135 25.2836 27.2348 25.258 27.0658 25.3001C26.8969 25.3423 26.7511 25.4489 26.6597 25.5971C26.5683 25.7453 26.5386 25.9234 26.5768 26.0933L27.9101 31.4267C27.9463 31.5708 28.0295 31.6988 28.1467 31.7902C28.2639 31.8816 28.4082 31.9313 28.5568 31.9313C28.7054 31.9313 28.8498 31.8816 28.9669 31.7902C29.0841 31.6988 29.1674 31.5708 29.2035 31.4267L30.5368 26.0933C30.5796 25.9218 30.5524 25.7404 30.4614 25.5889C30.3704 25.4373 30.223 25.3282 30.0515 25.2853Z"
+													fill="#484848" />
+												<path
+													d="M35.3855 25.2853C35.214 25.2426 35.0325 25.2697 34.881 25.3607C34.7295 25.4517 34.6203 25.5992 34.5775 25.7707L33.8908 28.5167L33.2041 25.7707C33.1581 25.6027 33.0481 25.4595 32.8978 25.3715C32.7475 25.2836 32.5688 25.258 32.3998 25.3001C32.2309 25.3423 32.0851 25.4489 31.9937 25.5971C31.9023 25.7453 31.8726 25.9234 31.9108 26.0933L33.2441 31.4267C33.2803 31.5708 33.3635 31.6988 33.4807 31.7902C33.5978 31.8816 33.7422 31.9313 33.8908 31.9313C34.0394 31.9313 34.1838 31.8816 34.3009 31.7902C34.4181 31.6988 34.5013 31.5708 34.5375 31.4267L35.8708 26.0933C35.9135 25.9218 35.8864 25.7404 35.7954 25.5889C35.7044 25.4373 35.5569 25.3282 35.3855 25.2853Z"
+													fill="#484848" />
+											</svg>
+										</div>
+									</div>
+								</div>	
+								<kendo-formerror *ngIf="cardForm.controls.cvv.errors?.required">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-CVVREQUIRED' | translate }}</kendo-formerror>
+								<kendo-formerror *ngIf="!cardForm.controls.cvv.errors?.required && cardForm.controls.cvv.invalid">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-CVVINVALID' | translate }}</kendo-formerror>
+							</kendo-formfield>
+						</div>
+						<div class="custom-btn-wrapper">
+							<button class="btn-wrap">Save</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="payment-details-card">
+				<div class="kendoInput">
+					<input type="radio" kendoRadioButton [checked]="expandMode === 1" (change)="expandMode = 1" />
+					<kendo-label text="Bank Account"></kendo-label>
+				</div>
+				<div class="payment-details-form" *ngIf="expandMode === 1">
+					<form [formGroup]="bankAccountForm">
+						<div class="row">
+
+							<kendo-formfield class="col-6">
+								<div class="custom-input">
+									<kendo-label class="required-field" text="Full name:"></kendo-label>
+									<kendo-textbox formControlName="fullname" placeholder="Enter Full Name"></kendo-textbox>
+								</div>	
+								<kendo-formerror *ngIf="bankAccountForm.controls.fullname.errors?.required">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-FULLNAMEREQUIRED' | translate }}</kendo-formerror>
+								<kendo-formerror *ngIf="!bankAccountForm.controls.fullname.errors?.required && bankAccountForm.controls.fullname.invalid">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-FULLNAMEINVALID' | translate }}</kendo-formerror>
+							</kendo-formfield>
+
+							<kendo-formfield class="col-6">
+								<div class="custom-input">
+									<kendo-label class="required-field" text="Email:"></kendo-label>
+									<kendo-textbox formControlName="email" placeholder="Email"></kendo-textbox>
+								</div>	
+								<kendo-formerror *ngIf="bankAccountForm.controls.email.errors?.required">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-EMAILREQUIRED' | translate }}</kendo-formerror>
+							<kendo-formerror *ngIf="!bankAccountForm.controls.email.errors?.required && bankAccountForm.controls.email.invalid">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-EMAILINVALID' | translate }}</kendo-formerror>
+							</kendo-formfield>
+
+						</div>
+						<div class="row">
+
+							<kendo-formfield class="col-12 mt-3">
+								<div class="custom-input">
+									<kendo-label class="required-field" text="Bank Account:"></kendo-label>
+									<div class="tab-icon input-field input-wrap-tag">
+										<kendo-textbox formControlName="bankaccount" placeholder="Search for your bank"></kendo-textbox>
+										<div class="icon-wrapper-right">
+											<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+												viewBox="0 0 25 25" fill="none">
+												<path
+													d="M23.8866 22.5366L17.5937 16.2437C19.0016 14.5407 19.8486 12.3578 19.8486 9.98071C19.8486 4.55287 15.4327 0.136963 10.0049 0.136963C4.57704 0.136963 0.161133 4.55287 0.161133 9.98071C0.161133 15.4086 4.57704 19.8245 10.0049 19.8245C12.382 19.8245 14.5649 18.9775 16.2679 17.5695L22.5607 23.8624C22.9268 24.2285 23.5204 24.2285 23.8866 23.8624C24.2526 23.4963 24.2527 22.9027 23.8866 22.5366ZM10.0049 17.9495C5.61091 17.9495 2.03613 14.3747 2.03613 9.98071C2.03613 5.58674 5.61091 2.01196 10.0049 2.01196C14.3988 2.01196 17.9736 5.58674 17.9736 9.98071C17.9736 14.3747 14.3988 17.9495 10.0049 17.9495Z"
+													fill="#484848" />
+											</svg>
+										</div>
+									</div>
+								</div>	
+								<kendo-formerror *ngIf="bankAccountForm.controls.bankaccount.errors?.required">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-BANKACCOUNTREQUIRED' | translate }}</kendo-formerror>
+								<kendo-formerror *ngIf="!bankAccountForm.controls.bankaccount.errors?.required && bankAccountForm.controls.bankaccount.invalid">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-BANKACCOUNTINVALID' | translate }}</kendo-formerror>
+							</kendo-formfield>
+
+						</div>
+						<div class="row">
+							<div class="banks-wrapper">
+								<div class="box-wrap" *ngFor="let svg of svgArr" [innerHTML]="svg"></div>
+							</div>
+						</div>
+						<div class="custom-btn-wrapper justify-content-start">
+							<button class="btn-wrap">Save</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="actions">
+			<button class="btn-wrap" kendoButton size="medium" (click)="onBack()">Back</button>
+			<button class="btn-wrap" kendoButton size="medium" (click)="onNext()">Next</button>
+		</div>
+	</div>
+</div>

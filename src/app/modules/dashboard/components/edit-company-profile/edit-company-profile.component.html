@@ -1,0 +1,116 @@
+<div class="dashboard-content">
+	<div class="content d-flex">
+		<div class="company-section">
+			<p class="title-heading">Company Info</p>
+			<div class="form-group">
+				<label>Company name</label>
+				<input type="text" class="text-field" [(ngModel)]="companyDetails.entity"/>
+			</div>
+			<div class="form-group">
+				<label>Address:</label>
+				<input type="text" class="text-field" [(ngModel)]="companyDetails.address"/>
+			</div>
+			<div class="form-group d-flex">
+				<div class="address-info">
+					<label>City:</label>
+					<input type="text" class="text-field" [(ngModel)]="companyDetails.city" />
+				</div>
+				<div class="address-info">
+					<label>State:</label>
+					<input type="text" class="text-field" [(ngModel)]="companyDetails.state"/>
+				</div>
+				<div class="address-info no-margin">
+					<label>Zip:</label>
+					<input type="text" class="text-field" [(ngModel)]="companyDetails.zip"/>
+				</div>
+				
+			</div>
+			<div class="form-group d-flex">
+				<div class="extra-info">
+					<label>Phone:</label>
+					<input type="text" class="text-field" [(ngModel)]="companyDetails.entityphone" />
+				</div>
+				<div class="extra-info no-margin">
+					<label>Website:</label>
+					<input type="text" class="text-field" [(ngModel)]="companyDetails.websiteurl"/>
+				</div>
+			</div>
+			<div class="logo-container">
+				<label>Logo</label>
+				<div class="logo-section d-flex">
+					<div class="logo-img">
+						<img [src]="imageUrl" alt="" />
+					</div>
+					<div class="logo-meta">
+						<p class="logo-name">{{ selectedFile?.name ?? 'logo.png' }}</p>
+						<p class="logo-size">{{ formatFileSize(selectedFile?.size ?? 525) }}<span>&centerdot;</span> 100% uploaded</p>
+					</div>
+					<div class="logo-delete">
+						<img src="./assets/images/svg/delete.svg" alt="" />
+					</div>
+				</div>
+			</div>
+			<div class="upload-section" appDragDrop (onFileDropped)="onFileDrop($event)">
+				<input type="file" (change)="onFileSelected($event)" class="hidden" id="selectLogo" hidden #files/>	
+				<img src="./assets/images/png/Plus.png" alt=""/>
+				<p class="upload-text"><span (click)="onClickSelectFile()">Upload a file</span> or drag and drop</p>
+				<p class="restriction">PNG, JPG, , GIF up to 5MB</p>
+			</div>
+			<button class="start-new-btn" (click)="onUpdate()"><img src="assets/images/png/Vector.png" alt="" /> Update</button>
+		</div>
+		<div class="payment-section">
+			<p class="title-heading">Edit/Update Payment Option</p>
+			<div class="form-group">
+				<label>Primary</label>
+			</div>
+			<div class="primary-card">
+				<div class="card-info d-flex">
+					<div class="card-image">
+						<img src="./assets/images/png/image-23.png" alt="" />
+					</div>
+					<div class="card-number">
+						<p>Mastered xxxx xxxx xxxx 9879</p>
+						<p>expires 07/2023</p>
+					</div>
+					<div class="card-select">
+						<img src="./assets/images/png/checkbox_on-12.png" alt="" />
+					</div>
+				</div>
+				<div class="card-bottom d-flex">
+					<div class="card-left">
+						<p>Set as Secondary</p>
+					</div>
+					<div class="card-right">
+						<p>Remove</p>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Secondary</label>
+			</div>
+			<div class="secondary-card">
+				<div class="card-info d-flex">
+					<div class="card-image">
+						<img src="./assets/images/png/Visa-Logo-3.png" alt="" />
+					</div>
+					<div class="card-number">
+						<p class="number">Visa xxxx xxxx xxxx 7789</p>
+						<p class="date">expires 07/2023</p>
+					</div>
+					<div class="card-select">
+						<img src="./assets/images/png/checkbox-10.png" alt="" />
+					</div>
+				</div>
+				<div class="card-bottom d-flex">
+					<div class="card-left">
+						<p>Set as Primary</p>
+					</div>
+					<div class="card-right">
+						<p>Remove</p>
+					</div>
+				</div>
+			</div>
+			<a class="start-new-btn" routerLink="/dashboard/add-new-card"><img src="assets/images/svg/Icon-left.svg" alt="" /> Add New</a>
+		</div>
+	</div>
+</div>

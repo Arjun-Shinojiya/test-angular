@@ -1,0 +1,60 @@
+<section class="video-page">
+<div class="bg-color"> 
+  <h1 class="top-heading">How To Videos</h1>
+  <p class="video-p">
+    Our growing library of How-to videos will guide you on claim handling and
+    easily managing the process.
+  </p>
+
+  <div class="tabs container">
+    <div
+      [class]="active == 'tab1' ? 'tab active-tab' : 'tab'"
+      (click)="changeTab('tab1')"
+    >
+      How to Register
+    </div>
+    <div
+      [class]="active == 'tab2' ? 'tab active-tab' : 'tab'"
+      (click)="changeTab('tab2')"
+    >
+      How to Scope a Project
+    </div>
+    <div
+      [class]="active == 'tab3' ? 'tab active-tab' : 'tab'"
+      (click)="changeTab('tab3')"
+    >
+      How to Submit a File
+    </div>
+  </div>
+  <div *ngIf="active == 'tab1'">
+    <iframe
+      height="100%"
+      width="100%"
+      class="video"
+      *ngIf="mediaCards[0].videoSrc"
+      kendoCardMedia
+      [src]="mediaCards[0].videoSrc"
+    ></iframe>
+  </div>
+  <div class="video" *ngIf="active == 'tab2'">
+    <iframe
+      height="100%"
+      width="100%"
+      class="video"
+      *ngIf="mediaCards[0].videoSrc"
+      kendoCardMedia
+      [src]="mediaCards[0].videoSrc"
+    ></iframe>
+  </div>
+  <div class="video" *ngIf="active == 'tab3'">
+    <iframe
+      height="100%"
+      width="100%"
+      class="video"
+      *ngIf="mediaCards[0].videoSrc"
+      kendoCardMedia
+      [src]="mediaCards[0].videoSrc"
+    ></iframe>
+  </div>
+</div>
+</section>

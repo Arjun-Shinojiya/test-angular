@@ -1,0 +1,189 @@
+.content{
+    width: 500px;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.start-new-btn{
+    height: 40px;
+    width: 169px;
+    border-radius: 8px;
+    padding: 8px 20px 8px 20px;
+    background-color: #306FD5;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 10px;
+    box-shadow: none;
+    border: none;
+
+    a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 5px;
+    }
+}
+.bulk-file-purchasing{
+    height: 40px;
+    width: calc(100% - 169px);
+    border-radius: 8px;
+    padding: 8px 20px 8px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: none;
+    border: none;
+    background-color: #EAF0FB;
+    color:#306FD5;
+
+    .bulk-file-purchasing-underline{
+        text-decoration: unset;
+    }
+}
+
+.middle-section{
+    margin-top:20px;
+    
+    .feature{
+        width: 33%;
+        height:140px;
+        padding: 15px;
+        border-radius: 8px;
+        border:1px solid #E0E2E7;
+        margin-right: 8px;
+
+        .heading{
+            color:#667085;
+            margin-top:15px;
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        img{
+            width:40px;
+            height:40px;
+        }
+
+        .number-container{
+            display: flex;
+            .number{
+                font-family: "AvenirNext-Bold";
+                font-size: 24px;
+                line-height: 32px;
+                font-weight: 700;
+                color: #333843;
+            }
+            .percentage{
+                font-family: 'AvenirNext-Medium';
+                width:45px;
+                height:22px;
+                border-radius: 100px;
+                padding:2px 6px 2px 6px;
+                margin-left:8px;
+                font-size: 12px;
+                font-weight: 600;
+                text-align: center;
+                position: relative;
+                top:4px;
+            }
+            .green{
+                color:#1B5E20;
+                background-color:#C8E6C9;
+            }
+            .red{
+                color: #AD1457;
+                background-color: #F8BBD0;
+            }
+        }
+        
+    }
+
+    .no-mr{
+        margin-right: 0;
+    }
+  
+}
+
+.company{
+    margin-top:20px;
+    border: 1px solid #D7D7D7;
+    padding:0 15px;
+    border-radius: 8px;
+
+    .company-info {
+        padding: 10px 0;
+	    height: 84px;
+        border-bottom: 1px solid #D1D5DB;
+        .company-logo{
+            width:60px;
+            border-radius: 6px;
+            background-color:#F9FAFB;
+            text-align: center;
+            padding: 10px 0;
+            img{
+                width:52px;
+                vertical-align: middle;
+            }
+        }
+        .company-name{
+            padding-left: 10px;
+            padding-right: 10px;
+            width: calc(100% - 120px);
+	        padding-top: 5px;
+            h6{
+                font-family: 'AvenirNext-Medium';
+                color: #111827;
+                font-size: 18px;
+                font-weight: 500;
+            }
+            p{
+                color:#6B7280;
+                font-size: 18px;
+                font-weight: 400;
+            }
+        }
+        .company-action{
+            width:60px;
+            text-align: center;
+            margin: 0 auto;
+            padding-top: 10px;
+            .edit-btn{
+                padding:8px 15px;
+                border-radius: 8px;
+                border: 1px solid #D1D5DB;
+                color: #374151;
+                font-size: 14px;
+                font-weight:500;
+                text-align: center;
+                background-color:  #FFFFFF;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .company-meta{
+        padding:8px 16px 8px 16px;
+        .meta-data{
+            padding: 5px 0;
+
+            .meta-left{
+                font-family: 'AvenirNext-Medium';
+                font-size: 14px;
+                font-weight:500;
+                color: #111827;
+                width:150px;
+            }
+            .meta-right{
+                font-family: 'AvenirNext-Medium';
+                font-size: 14px;
+                font-weight:500;
+                color: #111827;
+                text-align: right;
+                width:  calc(100% - 150px);
+            }
+        }
+    }
+}
+
+

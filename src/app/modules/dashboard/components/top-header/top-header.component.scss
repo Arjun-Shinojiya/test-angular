@@ -1,0 +1,42 @@
+.top-header-container{
+    padding:10px;
+    border-bottom:1px solid  #D7D7D7;
+    height: 60px;
+}
+.top-bar{
+    width:100%;
+}
+.text-right
+{
+    text-align: right;
+}
+.right-side
+{
+    display: flex;
+    gap: 10px;
+    justify-content: end;
+}
+.right-side img{
+    height:40px;
+    cursor: pointer;
+}
+.mr-20{
+    margin-right:10px;
+}
+.user-detail
+{
+    cursor: pointer;
+
+    .user-name
+    {
+        font-size: 14px;
+        font-weight: 500;
+        color: #111827;
+    }
+    .company-name
+    {
+        font-size: 14px;
+        font-weight: 400;
+        color: #6B7280;
+    }
+}

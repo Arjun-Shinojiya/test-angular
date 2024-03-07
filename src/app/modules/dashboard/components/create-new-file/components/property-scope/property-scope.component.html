@@ -1,0 +1,14 @@
+<div class="property-scope-container">
+  <div class="property-scope-wrapper">
+    <div class="heading">Property Details</div>
+    <div class="scopes-block">
+      <div class="block-heading">Scopes:</div>
+      <div class="entity-container">
+        <div class="entity-block selected" [ngClass]="{'selected': item.active, 'disabled': item.preSelected}" *ngFor="let item of scopeItems; let i = index" (click)="selectScope(i)">
+          <div class="entity-icon"><img [src]='item.icon'/></div>
+          <div class="entity-name">{{item.name}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

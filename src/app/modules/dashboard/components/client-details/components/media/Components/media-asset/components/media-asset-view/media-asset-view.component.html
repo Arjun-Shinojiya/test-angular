@@ -1,0 +1,86 @@
+<div class="media-asset-view-container">
+  <div class="media-asset-wrapper">
+    <div class="asset-navbar">
+      <div class="icon">
+        <img src="./assets/images/svg/homeIcon.svg" alt="">
+      </div>
+      <div class="icon-wrapper">
+        <div class="greater-icon">
+          <img src="./assets/images/svg/right_icon.svg" alt="">
+        </div>
+        <div class="asset-folder">Roof</div>
+      </div>
+  
+      <div class="icon-wrapper">
+        <div class="greater-icon">
+          <img src="./assets/images/svg/right_icon.svg" alt="">
+        </div>
+        <div class="asset-name">Decking</div>
+      </div>
+    </div>
+  
+    <div class="grid-container">
+      <div class="grid-item" *ngFor="let asset of assets"  (click)="selectAsset(asset)" [ngClass]="{ 'active': asset.isSelected }" (dblclick)="onDoubleClick(asset.url)">
+        <div class="asset-icon">
+          <img [src]="asset.url" alt="">
+        </div>
+        <div class="asset-title">{{asset.title}}</div>
+      </div>
+
+      <!--Show PopUp-->
+    <div class="popup" *ngIf="show">
+      <kendo-dialog *ngIf="show" title="Image View" (close)="close()" [width]="900" [minHeight]="350">
+        <img [src]="popupURL">
+
+        <div class="action-buttons">
+          <div class="delete" (click)="close(); $event.stopPropagation()">
+            <img src="./assets/images/svg/delete 2.svg" alt="">
+            <span>Delete</span>
+          </div>
+          <div class="ok" (click)="close(); $event.stopPropagation()">OK</div>
+        </div>
+      </kendo-dialog>
+    </div>
+    </div>
+  </div>
+
+  <div class="select-block">
+    <div class="footer-buttons">
+      <div class="block">
+        <div class="tick-icon">
+          <img src="./assets/images/svg/Icon-tick.svg" alt="">
+        </div>
+        <div class="button-name">Select All</div>
+      </div>
+
+      <div class="buttons" *ngIf="showButtons">
+        <div class="block">
+          <div class="tick-icon">
+            <img src="./assets/images/svg/delete 2.svg" alt="">
+          </div>
+          <div class="button-name">Delete</div>
+        </div>
+  
+        <div class="block">
+          <div class="tick-icon">
+            <img src="./assets/images/svg/download.svg" alt="">
+          </div>
+          <div class="button-name">Download</div>
+        </div>
+
+        <div class="block">
+          <div class="tick-icon">
+            <img src="./assets/images/svg/g369.svg" alt="">
+          </div>
+          <div class="button-name">Export to ZIP</div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="add-button">
+        <img src="./assets/images/svg/Icon-left.svg" alt="">
+    </div>
+  </div>
+</div>

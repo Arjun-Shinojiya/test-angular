@@ -1,0 +1,197 @@
+.payment-details-container
+{
+	max-width: 1350px;
+	min-width: 1300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	.wrapper
+	{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		min-width: 1175px;
+
+		.instruction
+		{
+			font-weight: 400;
+			font-size: 17px;
+			width: 1003px;
+			margin: 0 auto 24px auto;
+			text-align: center;
+			line-height: 22px;
+		}
+		.payment-method 
+		{
+			display: flex;
+			flex-direction: column;
+			gap: 24px;
+			.payment-details-card
+			{
+				
+				border-radius: 8px;
+				border:2px solid #D7D7D7;
+				.kendoInput
+				{
+					padding: 22px 20px;
+					width: 15.75rem;
+					height: 4rem;
+					display: flex;
+					input 
+					{ 
+					padding: 10px;
+					margin-right: 1.12rem;
+					color: #D7D7D7;
+					}
+				kendo-label { font-size: 1.0625rem; font-weight: 600; }
+				width: 100%;
+			}
+			
+			
+			.payment-details-form 
+			{
+				padding: 22px 20px;
+				::ng-deep {
+					.k-form-field-error {
+						.k-form-error {
+							position: unset;
+						}
+					}
+				}
+				.k-form-field{
+					padding: 0 8px;
+				}
+				.custom-btn-wrapper 
+				{
+					display: flex;
+					justify-content: flex-end;
+					align-items: center;
+					padding: 10px 0 0px;
+				
+	
+				}
+				label 
+				{
+					color: #303030;
+					font-size: 15px;
+					font-style: normal;
+					font-weight: 500;
+					line-height: 20px; 
+				}
+				.custom-input 
+				{
+					display: flex;
+					flex-direction: column;
+					gap: 8px;
+					align-items: flex-start;
+					input 
+					{
+						width: 100%;
+						line-height: 45px;
+						padding: 0 12px;
+						border-radius: 4px;
+						border: 1px solid #484848;
+						background: #FFF;
+						&::placeholder 
+						{
+							overflow: hidden;
+							color: #484848;
+							text-overflow: ellipsis;
+							white-space: nowrap;font-size: 17px;
+							font-style: normal;
+							font-weight: 400;
+							line-height: 22px; 
+						}
+					}
+					.input-field 
+					{
+						position: relative;
+						width: 100%;
+						input 
+						{
+							padding-left: 40px;
+						}
+						.icon-wrapper-right 
+						{
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+							left: 11px;
+						}
+					}
+					::ng-deep .input-wrap-tag {
+						width: 100%;
+						.k-input {
+							input {
+								padding-left: 40px;
+							}
+						}
+					}
+					.tab-icon 
+					{
+						width: 100%;
+						position: relative;
+
+						.k-input-solid, .k-picker-solid
+						{
+							height: 47.8px;
+						}
+					
+						.icon-wrapper 
+						{
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+							right: 5px;
+						}
+						
+					}
+				}
+				.banks-wrapper
+				{
+					display: grid;
+					grid-template-columns: repeat(6, 1fr);
+					gap: 8px;
+					margin-top: 16px;
+					.box-wrap 
+					{
+						border-radius: 4px;
+						border: 1px solid #D7D7D7;
+						background: #FFF;
+						padding: 9px 24px 9px 25px;
+	
+					}
+				}
+			}
+			}
+		}
+
+		
+
+	}
+}
+
+.btn-wrap 
+{
+	border-radius: 4px;
+	border: 1px solid var(--Blue, #306FD5);
+	background: var(--Blue, #306FD5);
+	color: var(--White, #FFF);
+	text-align: center;
+	font-size: 17px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 40px;
+	padding: 0 16px;
+}
+
+.actions 
+{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 24px 0 0;
+	
+}

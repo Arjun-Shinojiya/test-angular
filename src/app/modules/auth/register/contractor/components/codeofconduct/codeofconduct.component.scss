@@ -1,0 +1,132 @@
+.code-container 
+{
+	max-width: 1350px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+
+	.wrapper 
+	{
+		.instruction 
+		{
+			font-weight: 400;
+			font-size: 17px;
+			width: 1090px;
+			margin: 0 auto 24px auto;
+			text-align: center;
+			line-height: 22px;
+		}
+
+		.conduct-main 
+		{
+			border: 1px solid #d7d7d7;
+			border-radius: 8px;
+			padding: 20px;
+
+			.conduct-head 
+			{
+				color: #303030;
+				font-size: 17px;
+				font-weight: 600;
+				line-height: 22px;
+				margin-bottom: 35px;
+			}
+
+			.conduct-wrapper 
+			{
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 10px;
+				column-gap: 10px;
+				row-gap: 5px;
+
+				.conduct-card 
+				{
+					border-radius: 8px;
+					border: 1px solid #d7d7d7;
+					background: #fff;
+					padding: 15px 20px;
+					display: flex;
+					align-items: flex-start;
+					gap: 8px;
+					cursor: pointer;
+					min-height: 172px;
+
+					.conduct-card-detail 
+					{
+						.card-detail-head 
+						{
+							color: #0c1d3e;
+							font-size: 15px;
+							font-weight: 500;
+							line-height: 20px;
+							margin-bottom: 5px;
+						}
+
+						.card-detail-list 
+						{
+							flex-direction: column;
+							gap: 5px;
+							list-style-image: url("../../../../../../../assets/images/svg/bullet.svg");
+							margin-left: 10px;
+
+							.card-list 
+							{
+								color: #0c1d3e;
+								font-size: 13px;
+								font-weight: 400;
+								line-height: 18px;
+								margin: 0;
+							}
+						}
+
+						.card-detail-sub-list 
+						{
+							flex-direction: column;
+							gap: 5px;
+							margin-left: 10px;
+							list-style: disc;
+							list-style-image: none;
+							margin-top: 5px;
+
+							.card-sub-list 
+							{
+								color: #0c1d3e;
+								font-size: 13px;
+								font-weight: 400;
+								line-height: 18px;
+								margin: 0;
+							}
+						}
+					}
+
+					&.active {border-color: #306fd5;}
+				}
+			}
+		}
+	}
+}
+
+.btn-wrap 
+{
+	border-radius: 4px;
+	border: 1px solid #306fd5;
+	background: #306fd5;
+	color: #fff;
+	text-align: center;
+	font-size: 17px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 40px;
+	padding: 0 16px;
+}
+
+.actions 
+{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 24px;
+}

@@ -1,0 +1,47 @@
+<section class="login_screen text-center">
+    <div class="login_box">
+        <h4>{{'INSTR-WEB-LOGIN-FIRST-LABEL-SIGNIN' | translate}}</h4>
+        <p>{{'INSTR-BOTH-LOGIN-FIRST-TEXT-ACCESSTOYOURACCOUNT' | translate}}</p>
+        <form [formGroup]="loginForm" (ngSubmit)="submit()">
+            <div class="form-group">
+                <kendo-formfield>
+                    <kendo-textbox class="form-control" formControlName="email" placeholder="{{'INSTR-BOTH-LOGIN-FIRST-INLINETEXT-EMAILADDRESS' | translate}}"></kendo-textbox>
+                    <kendo-formerror *ngIf="loginForm.controls.email.errors?.required">{{'MSG-ADDNEWCLIENT-FORM-INLINE-ERROR-EMAILADDRESSREQUIRED' | translate }}</kendo-formerror>
+                    <kendo-formerror *ngIf="!loginForm.controls.email.errors?.required && loginForm.controls.email.invalid">{{'MSG-ADDNEWCLIENT-FORM-INLINE-ERROR-EMAILADDRESSINVALID' | translate }}</kendo-formerror>
+                </kendo-formfield>
+            </div>
+            <div class="form-group">
+                <kendo-formfield>
+                    <kendo-textbox class="form-control" #textbox placeholder="{{'INSTR-BOTH-LOGIN-FIRST-INLINETEXT-PASSWORD' | translate}}" formControlName="password">
+                        <ng-template kendoTextBoxSuffixTemplate>
+                          <button
+                            kendoButton
+                            look="clear"
+                            [svgIcon]="eyeIcon"
+                            (click)="toggleVisibility()"
+                            type="button"
+                          ></button>
+                        </ng-template>
+                    </kendo-textbox>
+                    <kendo-formerror *ngIf="loginForm.controls.password.errors?.required">{{'MSG-LOGIN-FORM-INLINE-ERROR-PASSWORDREQUIRED' | translate }}</kendo-formerror>
+                    <span class="k-form-error k-text-start" 
+                    *ngIf="
+                    !loginForm.controls.email.invalid 
+                    && !loginForm.controls.email.errors?.required 
+                    && !loginForm.controls.password.errors?.required 
+                    && showCredentialError"
+                    >{{'MSG-LOGIN-FORM-INLINE-ERROR-INVALIDCREDENTIALS' | translate}}</span>
+                </kendo-formfield>
+            </div>
+            <a routerLink="/reset-password"  class="forgot_link">{{'INSTR-BOTH-LOGIN-FIRST-LINKTEXT-FORGOTPASSWORD' | translate}}</a>
+            <button class="btn btn-primary w100p btn-block">{{'INSTR-BOTH-LOGIN-FIRST-BUTTON-CONTINUE' | translate}} <span></span></button>
+            <div class="or">
+                <span>{{'INSTR-WEB-LOGIN-FIRST-TEXT-OR' | translate}}</span>
+            </div>
+            <div class="dont_account pb-2">
+                {{'INSTR-WEB-LOGIN-FIRST-TEXT-NEEDANACCOUNT' | translate}}
+            </div>
+            <a routerLink="/register/company-type" class="btn btn-dark w100p btn-block mt-2" type="submit">{{'INSTR-WEB-LOGIN-FIRST-BUTTON-REGISTER' | translate}} <span></span></a>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,44 @@
+<div class="personal-info-container">
+  <div class="heading-block">
+    <div class="heading">Add New Owner</div>
+    <div class="sub-heading">Create property owner profile</div>
+  </div>
+  <div class="form">
+    <form [formGroup]="profileForm">
+      
+      <div class="form-fields">
+        <kendo-formfield class="form-field">
+          <kendo-label [for]="firstName" text="First Name:"></kendo-label>
+          <kendo-textbox formControlName="firstName" #firstName required></kendo-textbox>
+          <kendo-formerror *ngIf="profileForm.controls.firstName.errors?.['required']">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-FISTNAMEREQUIRED' | translate }}</kendo-formerror>
+          <kendo-formerror *ngIf="!profileForm.controls['firstName'].errors?.['required'] && profileForm.controls.firstName.invalid">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-FISTNAMEINVALID' | translate }}</kendo-formerror>
+        </kendo-formfield>
+
+        <kendo-formfield class="form-field">
+          <kendo-label [for]="lastName" text="Last Name:"></kendo-label>
+          <kendo-textbox formControlName="lastName" #lastName required></kendo-textbox>
+          <kendo-formerror *ngIf="profileForm.controls['lastName'].hasError('required')">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-LASTNAMEREQUIRED' | translate }}</kendo-formerror>
+          <kendo-formerror *ngIf="!profileForm.controls['lastName'].hasError('required') && profileForm.controls.lastName.invalid">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-LASTNAMEINVALID' | translate }}</kendo-formerror>
+        </kendo-formfield>
+      </div>
+
+      <div class="form-fields">
+        <kendo-formfield class="form-field">
+          <kendo-label [for]="phone" text="Phone:"></kendo-label>
+          <kendo-maskedtextbox #phone [maskOnFocus]="true" [mask]="phoneMask"
+					formControlName="phone"></kendo-maskedtextbox>
+          <kendo-formerror *ngIf="profileForm.controls['phone'].hasError('required')">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-PHONENUMBERREQUIRED' | translate }}</kendo-formerror>
+          <kendo-formerror *ngIf="!profileForm.controls['phone'].hasError('required') && profileForm.controls.phone.errors">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-PHONENUMBERINVALID' | translate }}</kendo-formerror>
+        </kendo-formfield>
+
+        <kendo-formfield class="form-field">
+          <kendo-label [for]="email" text="Email:"></kendo-label>
+          <kendo-textbox formControlName="email" #email required></kendo-textbox>
+          <kendo-formerror *ngIf="profileForm.controls['email'].hasError('required')">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-EMAILREQUIRED' | translate }}</kendo-formerror>
+          <kendo-formerror *ngIf="profileForm.controls['email'].hasError('email')">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-EMAILINVALID' | translate }}</kendo-formerror>
+        </kendo-formfield>
+      </div>
+
+    </form>
+  </div>
+</div>

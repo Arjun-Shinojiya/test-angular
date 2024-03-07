@@ -1,0 +1,7 @@
+<div class="footer-container">
+	<hr>
+	<div class="overview-button-container">
+		<img class="overview-button" *ngIf="!showOverview" src="assets/images/svg/overview-button.svg" (click)="updateShowOverview()" alt="logo">
+		<img class="overview-button" *ngIf="showOverview" src="assets/images/svg/overview-button-close.svg" (click)="updateShowOverview()" alt="logo">
+	</div>
+</div>

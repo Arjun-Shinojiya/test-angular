@@ -1,0 +1,160 @@
+.clients-pannel-wrapper {
+    ::ng-deep kendo-panelbar {
+        border-radius: 8px;
+        height: auto;
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        background: #E5E7EB;
+        border: 0;
+
+        .file-owner .k-panelbar-item .k-link{
+            margin: 5px;           
+        }
+
+        .k-panelbar-item {
+            border-radius: 8px;
+            border: 1px solid #D1D5DB;
+            background: #FFF;
+
+            .k-content {
+                padding: 8px 11px;
+                border-radius: 0px 0px 10px 10px ;
+            }
+
+            kendo-icon-wrapper{
+                kendo-svg-icon{
+                    svg{
+                        fill: #1976D2;
+                    }
+                }
+            }
+
+            .k-link {
+                border-radius: 8px;
+                padding: 10px 11px 10px 16.574px;
+                .k-panelbar-item-text {
+                    color:  #111827;
+                    font-size: 14px;
+                    font-weight: 600;
+                    line-height: 20px; 
+                }
+                &.k-selected {
+                    padding: 10px 11px 10px 16.574px;
+                    border-radius: 8px;
+                    border: 1px solid #D1D5DB;
+                    background: #306FD5;
+                   color: #fff;
+
+                   .k-panelbar-item-text {
+                    color:  #ffffff;
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 20px; 
+                   }
+
+                   kendo-icon-wrapper{
+                    kendo-svg-icon{
+                        svg{
+                            fill: #ffffff;
+                        }
+                    }
+                }
+                }
+            }
+        }
+
+        .teamMate {
+            .mate-info {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 16px;
+                padding: 5px 6px;
+                 &.border-heading{
+                    border-bottom: 1px solid #D1D5DB;
+                    padding: 11px 0px;
+                 }
+                 .main-title{
+                    color: #111827;
+                    font-size: 16px;
+                    font-weight: 600;
+                    line-height: 24px;
+                    margin: 0;
+                    text-transform: capitalize;
+                }
+
+                .btn-edit {
+                    border-radius: 8px;
+                    border: 1px solid #D1D5DB;
+                    background: #FFF;
+                    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+                    color: #374151;
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 20px;
+                    padding: 8px 16px;
+                }
+
+                .title , .details{
+                    color:  #111827;
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 20px; 
+                }
+            }
+        }
+    }
+    .file-owner-info {
+        padding: 0px 5px;
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        color: #111827 !important;
+
+        .title {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0px;
+        }
+    }
+
+    .block {
+        margin-bottom: 15px;
+
+        .block-heading {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #000000;
+        }
+
+        .block-wrapper {
+            padding: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #D1D5DB;
+            border-radius: 8px;
+
+
+        }
+        .order-report {
+            background-color: #306FD5;
+            color: #FFFFFF;
+            padding: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #D1D5DB;
+            border-radius: 8px;
+            margin-top: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+        }
+    }
+
+}

@@ -1,0 +1,82 @@
+<div class="property-type-container">
+  <div class="heading-block">
+    <div class="heading">
+      Property Details
+    </div>
+  </div>
+  <div class="form">
+    <form [formGroup]="propertyDetailsForm" class="property-form">
+
+      <div class="form-fields">
+        <kendo-formfield orientation="horizontal" showHints="initial">
+          <kendo-label text="Property Type"></kendo-label>
+
+          <ul class="k-radio-list k-list-horizontal">
+            <li class="k-radio-item">
+              <input type="radio" #sf value="SINGLE FAMILY" kendoRadioButton formControlName="propertyType" />
+              <kendo-label [for]="sf" text="Single Family"></kendo-label>
+            </li>
+
+            <li class="k-radio-item">
+              <input type="radio" #commercial value="COMMERCIAL" kendoRadioButton formControlName="propertyType" />
+              <kendo-label [for]="commercial" text="Commercial"></kendo-label>
+            </li>
+          </ul>
+        </kendo-formfield>
+      </div>
+
+      <div class="form-fields">
+        <kendo-formfield orientation="horizontal" showHints="initial">
+          <kendo-label text="Estimate Type Required"></kendo-label>
+
+          <ul class="k-radio-list k-list-horizontal">
+            <li class="k-radio-item">
+              <input type="radio" #ic value="Insurance Claim" kendoRadioButton formControlName="estimateType" />
+              <kendo-label [for]="ic" text="Insurance Claim"></kendo-label>
+            </li>
+
+            <li class="k-radio-item">
+              <input type="radio" #re value="Retail Estimate" kendoRadioButton formControlName="estimateType" />
+              <kendo-label [for]="re" text="Retail Estimate"></kendo-label>
+            </li>
+          </ul>
+        </kendo-formfield>
+      </div>
+
+    </form>
+  </div>
+  <!--Upload Image Section-->
+  <div class="upload-image-container">
+    <div class="heading">Upload a picture of property:</div>
+    <div class="upload-image-block" *ngIf="!imageUrl">
+      <div class="add-Icon" (click)="onClickSelectFile()">
+        <label for="selectFile">
+          <img src="./assets/images/svg/Icon-left-2.svg" alt="">
+        </label>
+        <input type="file" (change)="onFileSelected($event)" class="hidden" id="selectFile" hidden #files />
+      </div>
+      <div class="upload-file"><span (click)="onClickSelectFile()">Upload a file</span> or drag
+        and drop</div>
+      <div class="file-accepted">PNG, JPG, , GIF up to 50MB</div>
+    </div>
+
+    <div class="uploading-image" *ngIf="imageUrl">
+      <div class="wrapper">
+        <div class=" file-image">
+          <img [src]="imageUrl" alt="">
+        </div>
+        <div class="file-details">
+          <div class="file-name">{{ selectedFile?.name }}</div>
+          <div class="uploading-progress">
+            <kendo-progressbar [min]="0" [max]="100" [value]="uploadProgress"></kendo-progressbar>
+          </div>
+          <div class="file-size">{{ formatFileSize(selectedFile?.size ?? 0) }}<span>&centerdot;</span> {{ uploadProgress
+            }}% uploaded</div>
+        </div>
+        <div class="remove-icon" (click)="onRemove()">
+          <img src="./assets/images/svg/remove.svg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

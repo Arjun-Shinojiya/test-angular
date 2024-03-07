@@ -1,0 +1,10 @@
+<div class="full-page-loader" *ngIf="this.loaderService.getLoading()">
+    <div>
+        <kendo-loader
+        [type]="loader.type"
+        [themeColor]="loader.themeColor"
+        [size]="loader.size"
+      >
+      </kendo-loader>   
+    </div> 
+</div>

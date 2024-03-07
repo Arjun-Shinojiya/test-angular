@@ -1,0 +1,636 @@
+.container
+{
+	max-width: 1350px;
+	min-width: 1300px;
+	display: contents;
+	flex-direction: column;
+	// height: 570px;
+	justify-content: center;
+	align-items: center;
+
+	.wrapper
+	{
+		
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		min-width: 1130px;
+
+		.instruction
+		{
+			font-weight: 400;
+			font-size: 17px;
+			width: 1003px;
+			margin: 2px auto 32px auto;
+			text-align: center;
+			line-height: 20px;
+		}
+
+		.user-create
+		{
+			overflow-y: auto;
+			
+
+			.user
+			{
+				padding: 12px 19px;
+				width: 100%;
+				
+				border: 1px solid #D7D7D7;
+				&.contractor-border {
+					border-color: white; // Change border color for 'contractor'
+				  }
+				border-radius: 8px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+
+				.userInfo
+				{
+					display: flex;
+					justify-content: space-between;
+					width: fit-content;
+					
+
+					.userRole
+					{
+						margin-left: 30px;
+						display: flex;
+						width: 420px;
+
+						.roleLabel
+						{
+							font-size: 11px;
+							font-weight: 400;
+							color: #303030;
+							margin: 0px 10px;
+							.totalscope-role {
+								text-align: center;
+							}
+						}
+
+						.role
+						{
+							padding: 4px 8px;
+							background-color: #306FD5;
+							color: #FFFFFF;
+							font-size: 11px;
+							font-weight: 700;
+							border-radius: 4px;
+						}
+
+						.companyRole
+						{
+							display: flex;
+
+							.role
+							{
+								background-color: #303030;
+								color: #FFFFFF;
+								font-size: 11px;
+								font-weight: 700;
+								border-radius: 4px;
+								padding: 4px 8px;
+								margin-right: 5px;
+
+							}
+						}
+					}
+				}
+
+				.userActivity
+				{
+					display: flex;
+					align-items: center;
+					width: 160px;
+					justify-content: flex-end;
+
+					.userStatus
+					{
+						display: flex;
+						align-items: center;
+
+						.status
+						{
+							margin-right: 5px;
+							font-size: 17px;
+							font-weight: 600;
+							color: #303030;
+						}
+
+						.button
+						{
+							background-color: #1CE8CF;
+							width: 56px;
+							height: 28px;
+							border-radius: 20px;
+							cursor: pointer;
+
+							.showActive
+							{
+								margin: 4px;
+								width: 20px;
+								height: 20px;
+								border-radius: 50%;
+								background-color: #FFFFFF;
+								margin-left: 32px;
+							}
+						}
+					}
+
+					.editMode
+					{
+						cursor: pointer;
+					}
+				}
+			}
+
+			.form
+			{
+				padding: 20px;
+				border: 1px solid #D7D7D7;
+				border-radius: 8px;
+				
+				.saveChanges{
+					margin-top: 10px;
+					display: flex;
+					justify-content: space-between;
+					width: 100%;
+					button{
+						padding: 0;
+					}
+				}
+
+				.newUser
+				{
+					display: flex;
+					align-items: center;
+					margin-bottom: 10px;
+
+					.number
+					{
+						width: 30px;
+						height: 30px;
+						background-color: #9BD0FF;
+						border-radius: 50%;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						font-size: 15px;
+						font-weight: 600;
+						
+					}
+
+					.new
+					{
+						font-size: 17px;
+						font-weight: 600;
+						margin-left: 10px;
+					}
+				}
+
+				.row
+				{
+					margin: 0px;
+					gap: 15px;
+				}
+
+				.field-labels
+				{
+					margin-top: 20px;
+					margin-bottom: 8px;
+					font-size: 15px;
+					font-weight: 500;
+					display: block;
+					text-align: justify !important;
+					color: black;
+					line-height: 20px;
+				}
+
+				.col
+				{
+					padding: 0;
+					&.email-error-wrapper {
+						color: #dc3545;
+						.k-textbox {
+							border: 1px solid #dc3545;
+						}
+						.email-error {
+						margin-top: 4px;
+							display: flex;
+							font-size: 0.75rem;
+							font-style: normal;
+							color: #dc3545;
+                        }
+                    }
+				}
+
+				.caution
+				{
+					border: 1px solid rgba(48, 111, 213, 0.30);
+					border-radius: 4px;
+					display: flex;
+					align-items: center;
+					padding: 10px;
+					background: #F2F8FD;
+					margin-bottom: 16px;
+					justify-content: space-between;
+					height: 40px;
+					padding: 6px 14px;
+
+					.cautionMaterial
+					{
+						font-size: 15px;
+						font-weight: 400;
+					}
+				}
+
+				.toggle
+				{
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: space-between;
+				}
+
+				.website-roles,
+				.company-roles
+				{
+					width: 49% !important;
+
+					.select-options
+					{
+						display: flex;
+						background-color: #F0F0F0;
+						padding: 3px 1px;
+						border-radius: 4px;
+						gap: 3px;
+
+						.select-option
+						{
+							background-color: white;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							flex: 1;
+							height: 40px;
+							padding: 10px 20px;
+							border-radius: 4px;
+							border: 1px solid #D7D7D7;
+							font-size: 15px;
+							font-weight: 600;
+							cursor: pointer;
+							color: #0c1d3e;
+
+							.kendo-check-box
+							{
+								margin-right: 10px;
+							}
+						}
+
+						.active
+						{
+							background-color: #306FD5;
+							color: white;
+						}
+					}
+
+					.create-website-role
+					{
+                        margin:0 0 8px;
+                        display: block;
+                    }
+				}
+
+				.company-roles
+				{
+					.select-options
+					{
+						background-color: inherit;
+
+						.select-option
+						{
+							justify-content: start;
+						}
+					}
+				}
+
+
+				.saveBtn
+				{
+					display: flex;
+					justify-content: flex-end;
+					margin-top: 16px;
+
+					.btn
+					{
+						padding: 9px 16px;
+						background-color: #306FD5;
+						color: #FFFFFF;
+						font-size: 17px;
+						font-weight: 600;
+						width: 69px;
+						border-radius: 4px;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+
+		.addUser
+		{
+			background-color: #F0F0F0;
+			height: 80px;
+			border-radius: 8px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 19px 0 27px;
+			gap: 12px;
+
+			.addIcon
+			{
+				cursor: pointer;
+			}
+
+			.text
+			{
+				font-size: 17px;
+				font-weight: 600;
+			}
+		}
+
+		.actions
+		{
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+			// padding: 0px 15px;
+
+			button
+			{
+				background-color: #306FD5;
+				color: white;
+				padding: 0.5625rem 1rem;
+				font-size: 1.0625rem;
+				font-weight: 600;
+			}
+			
+
+			kendo-label
+			{
+				font-size: 0.9375rem;
+				font-weight: 400;
+
+				a
+				{
+					text-decoration: none;
+					color: #306FD5;
+					font-size: 0.9375rem;
+					font-weight: 400;
+				}
+			}
+		}
+	}
+
+
+}
+.userlogged{
+		display: flex;
+			justify-content: space-between;
+			// width: 100%;
+		margin: -5px 4px;
+}
+
+.user-number
+{
+	display: flex;
+	align-items: center;
+	margin-bottom: 5px;
+	gap: 5px;
+
+	.spacer
+	{
+		flex: 1;
+	}
+
+	.number
+	{
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		background-color: #9BD0FF;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 17px;
+		font-weight: 600;
+		color: #303030;
+	}
+
+	.name
+	{
+		font-size: 18px;
+		font-weight: 600;
+		min-width: 200px;
+		line-height: 18px;
+	}
+}
+
+::-webkit-scrollbar
+{
+	width: 3px;
+}
+
+/* TRACK */
+::-webkit-scrollbar-track
+{
+	background: #f1f1f1;
+}
+
+/* HANDLE */
+::-webkit-scrollbar-thumb
+{
+	background: #888;
+}
+
+/* HANDLE ON HOVER */
+::-webkit-scrollbar-thumb:hover
+{
+	background: #555;
+}
+
+.popup-dialog
+{
+	background: rgba(12, 29, 62, 0.80);
+
+	img
+	{
+		height: 20px;
+		width: 20px;
+	}
+
+	.cross-button
+	{
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		padding: 10px;
+
+		img
+		{
+			cursor: pointer;
+		}
+	}
+
+	.body
+	{
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		height: 100%;
+		margin: 40px;
+		margin-top: 0px;
+
+		.title
+		{
+			text-align: center;
+			font-size: 22px;
+			font-weight: 600;
+		}
+
+		.table
+		{
+			.table-header
+			{
+				display: flex;
+
+				.action
+				{
+					display: flex;
+					align-items: center;
+					border-bottom: 1px solid rgba(48, 111, 213, 0.30);
+					background-color: #F2F8FD;
+					border-top-right-radius: 10px;
+					border-top-left-radius: 10px;
+
+					.action-title
+					{
+						flex: 1;
+						text-align: center;
+						background-color: inherit;
+						font-size: 15px;
+						font-weight: 600;
+					}
+				}
+			}
+
+			.table-body
+			{
+				.table-row
+				{
+					display: flex;
+					align-items: center;
+					border-bottom: 1px solid rgba(48, 111, 213, 0.30);
+					background-color: #F2F8FD;
+					border-top-left-radius: 10px;
+
+					.label
+					{
+						display: flex;
+						align-items: center;
+						background-color: inherit;
+						font-size: 15px;
+						padding: 10px 20px;
+						font-weight: 600;
+					}
+
+					.action
+					{
+						display: flex;
+						align-items: center;
+						background-color: inherit;
+
+						.action-title
+						{
+							flex: 1;
+							text-align: center;
+							background-color: inherit;
+						}
+					}
+
+				}
+
+				.rounded-bottom
+				{
+					border-bottom-right-radius: 10px;
+				}
+			}
+
+			.label,
+			.action
+			{
+				flex: 1;
+			}
+		}
+
+		.ok-button
+		{
+			cursor: pointer;
+			border-radius: 4px;
+			border: 1px solid #306FD5;
+			background: #306FD5;
+			padding: 5px 10px;
+			color: #FFF;
+			text-align: center;
+			font-size: 17px;
+			font-weight: 700;
+		}
+	}
+}
+
+.langauge-switch
+{
+	text-align: center;
+	padding: 5px 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: flex-end;
+	> span {
+		color: var(--black, #303030);
+		font-size: 15px;
+		font-style: normal;
+		font-weight: 400;
+		opacity: 0.5;
+		padding: 0 10px;
+		line-height: 20px;
+		&.en{color: var(--black, #303030);opacity: 1;}
+	}
+}
+
+.error {border: 1px solid red;}
+
+.new-user-wrap {
+	.k-form-field {
+		margin: 0 0 16px 0;
+		&.k-form-field-error {
+			margin:0 0 5px 0;
+		}
+}
+	.k-form-error {
+		position: unset;
+	}
+}
+
+.k-button-solid-base {
+    border-color: #ffffff;
+    color: #212529;
+    background-color: #ffffff;
+}
+
+.user-title {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}

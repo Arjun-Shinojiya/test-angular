@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 8" width="7" height="8">
+	<title>Bullet</title>
+	<defs>
+		<image  width="7" height="8" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAIBAMAAADHKvg1AAAAAXNSR0IB2cksfwAAAC1QTFRFMG/WMHDPAAAAMG/VMG/VMG/VMG3UMHDXMG/UMHDUMG/WMHDTMG/VMHDTMHDP0sVEpQAAAA90Uk5TryAA/5/fYCC/MN9A74AQyYxi9gAAACZJREFUeJxjYFRSUmAwdgQRpklAwti0AEh0AlmrgWJnHwGJR0AlAIt+CHdygE5lAAAAAElFTkSuQmCC"/>
+	</defs>
+	<style>
+	</style>
+	<use id="Background" href="#img1" x="0" y="0"/>
+</svg>

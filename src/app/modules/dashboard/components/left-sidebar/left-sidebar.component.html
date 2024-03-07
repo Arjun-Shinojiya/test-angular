@@ -1,0 +1,32 @@
+<div class="left-sidebar">
+	<div class="logo-sidebar d-flex">
+		<div class="logo">
+			<img src="assets/images/svg/dashboard-logo.svg" alt="" />
+		</div>
+		<div class="burger">
+			<img src="assets/images/svg/burger.svg" alt="" />
+		</div>
+		
+	</div>
+	<div class="menu top">
+		<ul>
+			<li *ngIf="helper.checkPermission('PERMISSION-VIEW-PROFILEANDDASHBOARD')" [ngClass]="{'active': isLinkActive('/dashboard')}"><a routerLink="/dashboard"><img src="{{isLinkActive('/dashboard') ? 'assets/images/svg/door-active.svg': 'assets/images/svg/door.svg'}}" alt="" />Dashboard</a></li>
+			<li *ngIf="helper.checkPermission('PERMISSION-SUBMIT-FILE')" [ngClass]="{'active': isLinkActive('/dashboard/manage-files')}"><a routerLink="/dashboard/manage-files"><img src="{{isLinkActive('/dashboard/manage-files') ? 'assets/images/svg/edit-active.svg': 'assets/images/svg/edit.svg'}}" alt="" />Manage Files</a> <span>14</span></li>
+			<li *ngIf="helper.checkPermission('PERMISSION-CREATE-REPORT')" [ngClass]="{'active': isLinkActive('/dashboard/reports')}"><a routerLink="/dashboard/reports"><img src="{{isLinkActive('/dashboard/reports') ? 'assets/images/svg/mailbox-active.svg': 'assets/images/svg/mailbox.svg'}}" alt="" />Reports</a></li>
+		</ul>
+		<ul class="center-list">
+			<li *ngIf="helper.checkPermission('PERMISSION-VIEW-ACCOUNTFILE')" [ngClass]="{'active': isLinkActive('/dashboard/accounts')}"><a routerLink="/dashboard/accounts"><img src="{{isLinkActive('/dashboard/accounts') ? 'assets/images/svg/user-active.svg': 'assets/images/svg/user.svg'}}" alt="" />Users</a></li>
+		</ul>
+		<ul class="no-border">
+			<li [ngClass]="{'active': isLinkActive('/dashboard/messages')}"><a routerLink="/dashboard/messages"><img src="{{isLinkActive('/dashboard/messages') ? 'assets/images/svg/Chat-Left-Smile-active.svg': 'assets/images/svg/Chat-Left-Smile.svg'}}" alt="" />Messages</a> <span>6</span></li>
+			<li [ngClass]="{'active': isLinkActive('/dashboard/payments')}"><a routerLink="/dashboard/payments"><img src="{{isLinkActive('/dashboard/payments') ? 'assets/images/svg/cash-01-active.svg': 'assets/images/svg/cash-01.svg'}}" alt="" />Payments</a></li>
+			<li [ngClass]="{'active': isLinkActive('/dashboard/settings')}"><a routerLink="/dashboard/settings"><img src="{{isLinkActive('/dashboard/settings') ? 'assets/images/svg/gear-active.svg': 'assets/images/svg/gear.svg'}}" alt="" />Settings</a></li>
+		</ul>
+		
+	</div>
+	<div class="menu bottom">
+		<ul class="no-border logout-bottom">
+			<li (click)="logout()"><img src="assets/images/svg/Logout4.svg" alt=""/>Logout</li>
+		</ul>
+	</div>
+</div>

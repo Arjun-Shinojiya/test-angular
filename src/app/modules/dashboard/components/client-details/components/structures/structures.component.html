@@ -1,0 +1,77 @@
+<div class="clients-pannel-wrapper">
+
+  <kendo-panelbar [expandMode]="0" *ngIf="scopes.length">
+
+    <kendo-panelbar-item [title]="scope.structure_name" [selected]="expandedIndex == 0" [expanded]="expandedIndex == 0"
+      class="dwelling-1" (click)="updateTabsContent(scope)" *ngFor="let scope of scopes">
+      <ng-template kendoPanelBarContent>
+
+        <div class="scrollview-warp" *ngIf="tabs.length">
+          <kendo-scrollview [data]="tabs" [width]="width" [height]="height" [arrows]="true" [pageable]="true" [endless]="false">
+            <ng-template let-item="item">
+              <div class="slide-btn-wrap" *ngFor="let subScope of item">
+                <button kendoButton class="button-data" [ngClass]="{'active': activeScroll === subScope.scope_id}" (click)="currentScroll(subScope)">{{ subScope.label }}</button>
+              </div>
+            </ng-template>
+          </kendo-scrollview>
+        </div>
+
+        <div class="panel-item-wrap" *ngIf="activeSubScopes.length">
+
+          <kendo-panelbar [expandMode]="0">
+            <kendo-panelbar-item [title]="subScope.label" [selected]="activeSubScroll == subScope.label" [expanded]="activeSubScroll == subScope.label" (click)="onPanelSelect(subScope)" *ngFor="let subScope of activeSubScopes">
+              <ng-template kendoPanelBarContent>
+                <div class="pannel-tab-wrap" (click)=" $event.stopPropagation()">
+                  <div *ngFor="let question of questions">
+                    <div class="teamMate-wrap">
+  
+                      <div class="group-call" (click)="question.currentDecking = ''; $event.stopPropagation()">
+                        <h4 class="main-title">
+                          {{ question.question }} 
+                          <span>{{ question.questionType === 'INPUT' ? question.currentAnswer : getAnswerFromAction(question.currentAnswer,question.action)}}
+                          </span>
+                          <span (click) = "question.edit = true">
+                            <img class="icon" src="assets/images/svg/edit-tool.svg" alt="">
+                          </span>
+                        </h4>
+                        <div class="button-wrap">
+                          <button kndoButton class="btn-edit" [ngClass]="{'activeDecking': question.currentDecking === 'images'}" (click)="question.currentDecking = 'images'; $event.stopPropagation()">
+                            <span class="svg-icon"><img src="./assets/images/svg/camra_image.svg" ></span>
+                            <span class="number" [ngClass]="{'empty': !question.asset.image.length }">{{question.asset.image.length}}</span>
+                          </button>
+                          <button kndoButton class="btn-edit" [ngClass]="{'activeDecking': question.currentDecking === 'notes'}" (click)="question.currentDecking = 'notes'; $event.stopPropagation()">
+                            <span class="svg-icon"><img src="./assets/images/svg/notes.svg" ></span>
+                            <span class="number" [ngClass]="{'empty': !question.asset.note.length }">{{question.asset.note.length}}</span>
+                          </button>
+  
+                          <button kndoButton class="btn-edit" [ngClass]="{'activeDecking': question.currentDecking === 'videos'}" (click)="question.currentDecking = 'videos'; $event.stopPropagation()">
+                            <span class="svg-icon"><img src="./assets/images/svg/video.svg" ></span>
+                            <span class="number" [ngClass]="{'empty': !question.asset.video.length }">{{question.asset.video.length}}</span>
+                          </button>
+                          <button kndoButton class="btn-edit" [ngClass]="{'activeDecking': question.currentDecking === 'audios'}" (click)="question.currentDecking = 'audios'; $event.stopPropagation()">
+                            <span class="svg-icon"><img src="./assets/images/svg/audio.svg" ></span>
+                            <span class="number" [ngClass]="{'empty': !question.asset.voice.length }">{{question.asset.voice.length}}</span>
+                          </button>
+                        </div>
+  
+  
+                      </div>
+                    </div>
+                    <div class="group-images">
+                      <app-question *ngIf="question.edit && !question.currentDecking" [questionType]="question.questionType" [actions]="question.action" [currentAnswer]="question.currentAnswer"></app-question>
+                      <app-decking-images *ngIf="question.currentDecking === 'images'" [data]="question.asset.image" ></app-decking-images>
+                      <app-decking-notes *ngIf="question.currentDecking === 'notes'" [data]="question.asset.note"></app-decking-notes>
+                      <app-decking-videos *ngIf="question.currentDecking === 'videos'" [data]="question.asset.video"></app-decking-videos>
+                      <app-decking-audios *ngIf="question.currentDecking === 'audios'" [data]="question.asset.voice"></app-decking-audios>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </kendo-panelbar-item>
+          </kendo-panelbar>
+
+        </div>
+      </ng-template>
+    </kendo-panelbar-item>
+  </kendo-panelbar>
+</div>

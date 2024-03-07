@@ -1,0 +1,36 @@
+<div class="howe-wrapper">
+  <div class="container">
+    <div class="order-1">
+      <app-future-estimate></app-future-estimate>
+    </div>
+    <div class="order-2 home_page" style="display: flex; align-items: start">
+      <div class="main">
+        <div class="sectionOne">
+          <div class="heading1">
+            Estimates that save you time and communication with the carrier
+          </div>
+          <div class="sectionTwo">
+            <app-estimate-card *ngFor="let item of items" [estimateCardData]="item"></app-estimate-card>
+          </div>
+        </div>
+        <div class="qr">
+          <div>
+            Download <span style="color: #1ce8cf; font-weight: 700"> FREE </span>
+          </div>
+          <div style="margin-bottom: 4px">TotalScope Mobile App</div>
+
+          <div>
+            <img class="app-store" src="assets/images/svg/google-play.svg" alt="google" />
+            &nbsp;
+            <img class="app-store" src="assets/images/svg/app-store.svg" alt="app" />
+          </div>
+          <div>
+            <img class="qr-image" src="assets/images/svg/qrcode.svg" alt="qrcode" />
+            &nbsp;
+            <img class="qr-image" src="assets/images/svg/qrcode.svg" alt="qrcode" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

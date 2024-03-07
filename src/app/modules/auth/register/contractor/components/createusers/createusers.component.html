@@ -1,0 +1,431 @@
+<div class="container" [ngStyle]="{'display':  companyTypeAfterclick=='contractor'? 'block' : ''}" [ngStyle]="{'display':  userEditAfterLogin==='true'? 'contents' : ''}"  >
+	<div class="wrapper">
+		<div class="instruction" *ngIf="companyTypeAfterclick!=='contractor'">
+			Add users to your company. Provide their contact information, and choose not only the roles they play in your
+			company, but also when they log on to TotalScope on both web and mobile apps.
+		</div>
+
+		<div class="user-create" > 
+			<div *ngFor="let form of formArray.controls; let formIndex = index;" [formGroup]="formArray">
+
+				<!-- INCASE OF FORM IS COLLAPSED -->
+				<div class="user"   *ngIf="expandedIndex !== formIndex && companyTypeAfterclick!=='contractor'">
+					
+					<div class="userInfo">
+						<div class="user-number">
+							<div class="number">{{formIndex + 1}}</div>
+							<div class="name">{{form.get('namefirst').value + ' ' + form.get('namelast').value}}</div>
+						</div>
+
+						<div class="userRole">
+							<div class="roleLabel">
+								<kendo-label [for]="" class="label" text="TotalScope Role:"></kendo-label>
+								<div class="totalscope-role" [ngClass]="{ role: form.get('totalScopeRole').value}">{{form.get('totalScopeRole').value}}</div>								
+							</div>
+							<div class="border">
+								<img src="/assets/images/svg/seperator.svg" alt="">
+							</div>
+
+							<div class="roleLabel">
+								<kendo-label [for]="" class="label" text="Company Role(s):"></kendo-label>
+								<div class="companyRole">
+									<div class="role" *ngIf="form.get('salesManager').value">Sales Manager</div>
+									<div class="role" *ngIf="form.get('salesRep').value">Sales Rep</div>
+									<div class="role" *ngIf="form.get('claimHandler').value">Claim Handler</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="userActivity">
+						<div class="userStatus" [formGroup]="form">
+							<!-- <div class="langauge-switch">
+								<span class="en">{{'INSTR-BOTH-LOGIN-FIRST-SWITCHLEFT-ENGLISH' | translate}}</span>
+								<kendo-switch formControlName="checkedLanguage"></kendo-switch>
+								<span>{{'INSTR-BOTH-LOGIN-FIRST-SWITCHRIGHT-SPANISH' | translate}}</span>
+							</div> -->
+							<div class="headerSwitch">
+								<kendo-label [for]="" class="form-label" [text]="formArray.controls[formIndex].get('activestatus').value ? 'Active: ' : 'Inactive: '"></kendo-label>
+								<kendo-switch formControlName="activestatus" (valueChange)="updateReactiveFormValue($event, 'activestatus', form); onStatusChange($event)"></kendo-switch>
+							</div>
+						</div>
+						<div style="cursor: pointer; margin-left: 20px;" (click)="editForm(formIndex)">
+							<img src="assets/images/svg/black_circle_edit.svg" alt="">
+						</div>
+					</div>
+				</div>
+
+				<!-- INCASE OF FORM IS EXPANDED -->
+				<form class="w-100 my-2 form" [ngStyle]="{'border':  companyTypeAfterclick=='contractor'? '0px solid white' : ''}" [formGroup]="form" *ngIf="expandedIndex === formIndex">
+					<div class="user-number">
+						<div *ngIf="companyTypeAfterclick!=='contractor'" class="user-title">
+						<div class="number">{{formIndex + 1}}</div>
+
+						<div class="name" >{{(form.get('namefirst').value && form.get('namelast').value) ? (form.get('namefirst').value + ' ' + form.get('namelast').value) : 'New User'}}</div>
+
+						
+					</div>
+					<div class="name" *ngIf="companyTypeAfterclick==='contractor' && userEditAfterLogin!=='true'">Add New User</div>
+					<div class="spacer" *ngIf="userEditAfterLogin!=='true'" ></div>
+						<!-- <div class="langauge-switch" *ngIf="companyTypeAfterclick==='contractor'  ">
+							<span [ngClass]="checked ? '' : 'en'">{{'INSTR-BOTH-LOGIN-FIRST-SWITCHLEFT-ENGLISH' | translate }}</span>
+							<kendo-switch (valueChange)="onChange($event)" [checked]="checked" ></kendo-switch>
+							<span [ngClass]="checked ? 'en' : ''">{{'INSTR-BOTH-LOGIN-FIRST-SWITCHRIGHT-SPANISH' | translate }}</span>
+						</div> -->
+						<div class="spacer" *ngIf="userEditAfterLogin==='true'"></div>
+
+						<div class="headerSwitch" *ngIf="companyTypeAfterclick!=='contractor'||userEditAfterLogin==='true'">
+							<kendo-label [for]="" class="form-label" [text]="formArray.controls[formIndex].get('activestatus').value ? 'Active: ' : 'Inactive: '"></kendo-label>
+							<kendo-switch formControlName="activestatus" (valueChange)="updateReactiveFormValue($event, 'activestatus', form); onStatusChange($event)"></kendo-switch>
+						</div>
+
+						<div style="cursor: pointer; margin-left: 20px;" (click)="deleteForm(formIndex)" *ngIf="companyTypeAfterclick!=='contractor'">
+							<img src="assets/images/svg/black_circle_delete.svg" alt="">
+						</div>
+
+					</div>
+
+					<div class="row w-100 new-user-wrap">
+						<kendo-formfield class="col" *ngIf="shouldHideField">
+							<kendo-textbox formControlName="user_id"></kendo-textbox>
+						</kendo-formfield>
+
+						<kendo-formfield class="col">
+							<kendo-label class="field-labels " text="First Name:"></kendo-label>
+							<kendo-textbox formControlName="namefirst"></kendo-textbox>
+							<kendo-formerror *ngIf="form.controls.namefirst.errors?.required">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-FISTNAMEREQUIRED' | translate }}</kendo-formerror>
+							<kendo-formerror *ngIf="!form.controls.namefirst.errors?.required && form.controls.namefirst.invalid">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-FISTNAMEINVALID' | translate }}</kendo-formerror>
+						</kendo-formfield>
+
+						<kendo-formfield class="col">
+							<kendo-label class="field-labels " text="Last Name:" />
+							<kendo-textbox formControlName="namelast"></kendo-textbox>
+							<kendo-formerror *ngIf="form.controls.namelast.errors?.required">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-LASTNAMEREQUIRED' | translate }}</kendo-formerror>
+							<kendo-formerror *ngIf="!form.controls.namelast.errors?.required && form.controls.namelast.invalid">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-LASTNAMEINVALID' | translate }}</kendo-formerror>
+						</kendo-formfield>
+
+						<kendo-formfield class="col">
+							<kendo-label class="field-labels " text="Mobile:" />
+							<kendo-maskedtextbox [maskOnFocus]="true" [mask]="phoneMask" [maskValidation]="false" formControlName="mobilephone"></kendo-maskedtextbox>
+							<kendo-formerror *ngIf="form.controls.mobilephone.errors?.required">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-PHONENUMBERREQUIRED' | translate }}</kendo-formerror>
+							<kendo-formerror *ngIf="!form.controls.mobilephone.errors?.required && form.controls.mobilephone.errors">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-PHONENUMBERINVALID' | translate }}</kendo-formerror>
+						</kendo-formfield>
+
+						<kendo-formfield class="col" [class.email-error-wrapper]="errorMessage && (errorIndex === formIndex)">
+							<kendo-label class="field-labels " text="Email:" />
+							<kendo-textbox formControlName="email" (valueChange)="onChangeEmail()"></kendo-textbox>
+							<kendo-formerror *ngIf="form.controls.email.errors?.required">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-EMAILREQUIRED' | translate }}</kendo-formerror>
+							<kendo-formerror *ngIf="!form.controls.email.errors?.required && form.controls.email.invalid">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-EMAILINVALID' | translate }}</kendo-formerror>
+							<span class="email-error" *ngIf="errorMessage && (errorIndex === formIndex)">{{errorMessage}}</span>
+						</kendo-formfield>
+					</div>
+
+					<div class="caution">
+						<div class="cautionMaterial">
+							Below, check the level of permission you want for this user when logged-in to TotalScope. For more information,
+							click the button on the right.
+						</div>
+						<div class="icon">
+							<img src="/assets/images/svg/cautionIcon.svg" alt="" (click)="show = true" style="cursor: pointer;">
+						</div>
+					</div>
+
+					<div class="toggle" *ngIf="companyType === 'contractor' || companyTypeAfterclick==='contractor'" [ngClass]="{error: !isRoleValid}">
+						<div class="website-roles">
+							<div class="field-labels create-website-role">
+								Please select the role this user will play on the TotalScope website:
+							</div>
+							<div class="select-options">
+								<button kendoButton class="select-option"
+									[disabled]="isSuperAdminSet && form.get('totalScopeRole').value !== 'Super Admin'"
+									[ngClass]="{ active: form.get('totalScopeRole').value === 'Super Admin'}"
+									(click)="changeTotalScopeRole('Super Admin'); checkRoleValid(formIndex)">
+									Super Admin
+								</button>
+								<button kendoButton class="select-option"
+									[ngClass]="{ active: form.get('totalScopeRole').value === 'Admin' }"
+									(click)="changeTotalScopeRole('Admin'); checkRoleValid(formIndex)">
+									Admin
+								</button>
+								<button kendoButton class="select-option"
+									[ngClass]="{ active: form.get('totalScopeRole').value === 'Oversight' }"
+									(click)="changeTotalScopeRole('Oversight'); checkRoleValid(formIndex)">
+									Oversight
+								</button>
+							</div>
+						</div>
+						
+						<div class="company-roles">
+							<div class="field-labels create-website-role">
+								Please check all the roles this user plays at your company:
+							</div>
+							<div class="select-options">
+								<div class="select-option" [ngClass]="{ active: form.get('salesManager').value }"
+									(click)="updateReactiveFormValue(!form.get('salesManager').value, 'salesManager', form);checkRoleValid(formIndex)">
+									<input type="checkbox" [checked]="form.get('salesManager').value" class="kendo-check-box"  kendoCheckBox />
+									Sales Manager
+								</div>
+								<div class="select-option" [ngClass]="{ active: form.get('salesRep').value }" (click)="updateReactiveFormValue(!form.get('salesRep').value, 'salesRep', form);checkRoleValid(formIndex)">
+									<input type="checkbox" [checked]="form.get('salesRep').value" class="kendo-check-box" kendoCheckBox />
+									Sales Rep
+								</div>
+								<div class="select-option" [ngClass]="{ active: form.get('claimHandler').value }"
+									(click)="updateReactiveFormValue(!form.get('claimHandler').value, 'claimHandler', form);checkRoleValid(formIndex)" >
+									<input type="checkbox" [checked]="form.get('claimHandler').value" class="kendo-check-box"  kendoCheckBox />
+									Claim Handler
+								</div>
+							</div>
+						</div>
+					</div>	
+					<kendo-formerror *ngIf="!isRoleValid">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-TOTALSCOPEROLEREQUIRED' | translate }}</kendo-formerror>				
+					<div class="toggle" *ngIf="companyType === 'claimhandler'">
+						<div class="website-roles">
+							<div class="field-labels">
+								Please select the role this user plays at your company:
+							</div>
+							<div class="select-options">
+								<div class="select-option" [ngClass]="{ active: form.get('totalScopeRole').value === 'Super Admin' }"
+									(click)="updateReactiveFormValue('Super Admin', 'totalScopeRole', form)">
+									Lead Claim Handlers
+								</div>
+								<div class="select-option" [ngClass]="{ active: form.get('totalScopeRole').value === 'Admin' }"
+									(click)="formIndex !== 0 ? updateReactiveFormValue('Admin', 'totalScopeRole', form) : ''">
+									Junior Claim Handlers
+								</div>
+							</div>							
+						</div>
+
+						<div class="website-roles">
+							<div class="field-labels">
+								Associate with:
+							</div>
+							<div class="select-options">
+								<div class="select-option" [ngClass]="{ active: form.get('totalScopeRole').value === 'Super Admin' }"
+									(click)="updateReactiveFormValue('Super Admin', 'totalScopeRole', form)">
+									John Smith
+								</div>
+								<div class="select-option" [ngClass]="{ active: form.get('totalScopeRole').value === 'Admin' }"
+									(click)="formIndex !== 0 ? updateReactiveFormValue('Admin', 'totalScopeRole', form) : ''">
+									Maria John
+								</div>
+							</div>
+						</div>
+						<div class="website-roles">
+							<div class="field-labels">
+								Please check all the roles this user plays at your company:
+							</div>
+							<div class="select-options">
+								<div class="select-option" [ngClass]="{ active: form.get('totalScopeRole').value === 'Super Admin' }"
+									(click)="updateReactiveFormValue('Super Admin', 'totalScopeRole', form)">
+									Super Admin
+								</div>
+								<div class="select-option" [ngClass]="{ active: form.get('totalScopeRole').value === 'Admin' }"
+									(click)="formIndex !== 0 ? updateReactiveFormValue('Admin', 'totalScopeRole', form) : ''">
+									Admin
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="saveBtn" *ngIf="companyTypeAfterclick!=='contractor'" [ngStyle]="{'display':  userEditAfterLogin==='true'? 'none' : ''}" >
+						<div class="btn" (click)="saveForm(form)">
+							Save
+						</div>
+						
+					</div>
+					<div class="saveChanges">
+						<button kendoButton size="medium" (click)="onEditCancel()" *ngIf="companyTypeAfterclick==='contractor'&&userEditAfterLogin==='true'"><img src="../assets/images/svg/Styles1.svg" alt="..."></button>
+						<button kendoButton size="medium" (click)="onSaveChanges(form)"  *ngIf="companyTypeAfterclick==='contractor'&&userEditAfterLogin==='true'"><img src="../assets/images/svg/saveChanges.svg" alt="..."></button>	
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="addUser" (click)="addNewUser()" *ngIf="companyTypeAfterclick!=='contractor'">
+			<div class="addIcon">
+				<img src="/assets/images/svg/addIcon.svg" alt="" >
+			</div>
+			<div class="text">Add Another User</div>
+		</div>
+
+		<div class="actions" *ngIf="companyTypeAfterclick!=='contractor'">
+			<button kendoButton size="medium" (click)="onBack()">Back</button>
+			<button kendoButton size="medium" (click)="onNext()">Next</button>
+		</div>
+		<div class="userlogged" *ngIf="companyTypeAfterclick==='contractor'">
+			<button kendoButton size="medium" (click)="onBack()" *ngIf="companyTypeAfterclick==='contractor'&&userEditAfterLogin!=='true'" ><img src="../assets/images/svg/Styles1.svg" alt="..."></button>
+			<button kendoButton size="medium" (click)="onAddNewUser(formArray.controls[0])" *ngIf="companyTypeAfterclick==='contractor'&&userEditAfterLogin!=='true'" ><img src="../assets/images/svg/Styles.svg" alt="..."></button>
+			
+		</div>
+		
+	</div>
+
+	<kendo-popup class="popup-dialog" (anchorViewportLeave)="show = false" *ngIf="show">
+		<div class="cross-button">
+			<img src="assets/images/svg/gray-cross-icon.svg" alt="" (click)="show = false">
+		</div>
+		<div class="body">
+			<div class="title">
+				Please consult this table to find the permissions <br> for the roles on the Totalscope site.
+			</div>
+			<div class="table">
+				<div class="table-header">
+					<div class="label"> </div>
+					<div class="action">
+						<div class="action-title" style="border-top-left-radius: 10px;">
+							Super Admin
+						</div>
+						<div class="action-title">
+							Admin
+						</div>
+						<div class="action-title" style="border-top-right-radius: 10px;">
+							Oversight
+						</div>
+					</div>
+				</div>
+				<div class="table-body">
+
+					<div class="table-row">
+						<div class="label" style="border-top-left-radius: 10px;">
+							Submit/delete files
+						</div>
+						<div class="action">
+							<div class="action-title">
+								<img src="assets/images/svg/green-tick-icon.svg" alt="">
+							</div>
+							<div class="action-title">
+								<img src="assets/images/svg/green-tick-icon.svg" alt="">
+							</div>
+							<div class="action-title">
+								<img src="assets/images/svg/red-cross-icon.svg" alt="">
+							</div>
+						</div>
+					</div>
+
+					<div class="table-row">
+						<div class="label">
+							Edit all files
+						</div>
+						<div class="action">
+							<div class="action-title">
+								<img src="assets/images/svg/green-tick-icon.svg" alt="">
+							</div>
+							<div class="action-title">
+								<img src="assets/images/svg/green-tick-icon.svg" alt="">
+							</div>
+							<div class="action-title">
+								<img src="assets/images/svg/red-cross-icon.svg" alt="">
+							</div>
+						</div>
+					</div>
+
+					<div class="table-row">
+						<div class="label">
+							Move files
+						</div>
+						<div class="action">
+							<div class="action-title">
+								<img src="assets/images/svg/green-tick-icon.svg" alt="">
+							</div>
+							<div class="action-title">
+								<img src="assets/images/svg/green-tick-icon.svg" alt="">
+							</div>
+							<div class="action-title">
+								<img src="assets/images/svg/red-cross-icon.svg" alt="">
+							</div>
+						</div>
+					</div>
+
+					<div class="table-row">
+						<div class="label">
+							See all activity of those that have submitted files
+						</div>
+						<div class="action">
+							<div class="action-title">
+								<img src="assets/images/svg/green-tick-icon.svg" alt="">
+							</div>
+							<div class="action-title">
+								<img src="assets/images/svg/green-tick-icon.svg" alt="">
+							</div>
+							<div class="action-title">
+								<img src="assets/images/svg/green-tick-icon.svg" alt="">
+							</div>
+						</div>
+					</div>
+
+					<div class="table-row">
+						<div class="label">
+							Move sales reps
+						</div>
+						<div class="action">
+							<div class="action-title">
+								<img src="assets/images/svg/green-tick-icon.svg" alt="">
+							</div>
+							<div class="action-title">
+								<img src="assets/images/svg/green-tick-icon.svg" alt="">
+							</div>
+							<div class="action-title">
+								<img src="assets/images/svg/red-cross-icon.svg" alt="">
+							</div>
+						</div>
+					</div>
+
+					<div class="table-row">
+						<div class="label">
+							Add/delete employees
+						</div>
+						<div class="action">
+							<div class="action-title">
+								<img src="assets/images/svg/green-tick-icon.svg" alt="">
+							</div>
+							<div class="action-title">
+								<img src="assets/images/svg/red-cross-icon.svg" alt="">
+							</div>
+							<div class="action-title">
+								<img src="assets/images/svg/red-cross-icon.svg" alt="">
+							</div>
+						</div>
+					</div>
+
+					<div class="table-row">
+						<div class="label">
+							Add/delete admins
+						</div>
+						<div class="action">
+							<div class="action-title">
+								<img src="assets/images/svg/green-tick-icon.svg" alt="">
+							</div>
+							<div class="action-title">
+								<img src="assets/images/svg/red-cross-icon.svg" alt="">
+							</div>
+							<div class="action-title">
+								<img src="assets/images/svg/red-cross-icon.svg" alt="">
+							</div>
+						</div>
+					</div>
+
+					<div class="table-row rounded-bottom">
+						<div class="label" style="border-bottom-left-radius: 10px;">
+							Edit credit card info
+						</div>
+						<div class="action">
+							<div class="action-title">
+								<img src="assets/images/svg/green-tick-icon.svg" alt="">
+							</div>
+							<div class="action-title">
+								<img src="assets/images/svg/red-cross-icon.svg" alt="">
+							</div>
+							<div class="action-title">
+								<img src="assets/images/svg/red-cross-icon.svg" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ok-button" (click)="show = false">
+				OK
+			</div>
+		</div>
+	</kendo-popup>
+
+</div>

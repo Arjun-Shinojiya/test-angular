@@ -1,0 +1,74 @@
+<div class="dashboard-content">
+	<div class="content">
+		<div class="top-section d-flex">
+			<button class="start-new-btn"><img src="assets/images/svg/Icon-left.svg" alt="" /> <a routerLink="/dashboard/create-new-file/1">Start New File</a></button>
+			<button class="bulk-file-purchasing"><a class="bulk-file-purchasing-underline" routerLink="/dashboard/bulk-purchase"><img src="assets/images/svg/Icon-left-2.svg" alt="" routerLinkActive="router-link-active" /> Bulk File Purchasing and Credits</a></button>
+		</div>
+		<div class="middle-section d-flex">
+			<div class="feature">
+				<img src="assets/images/svg/bagde.svg" alt=""/>
+				<p class="heading">In Progress</p>
+				<div class="number-container"><div class="number">{{fileStatus?.INPROCESS	}}</div><div class="percentage green">+10%</div></div>
+			</div>
+			<div class="feature">
+				<img src="assets/images/svg/bagde2.svg" alt=""/>
+				<p class="heading">Closed Files</p>
+				<div class="number-container"><div class="number">{{ fileStatus?.COMPLETED }}</div><div class="percentage green">+20%</div></div>
+			</div>
+			<div class="feature no-mr">
+				<img src="assets/images/svg/bagde3.svg" alt=""/>
+				<p class="heading">Rejected Files</p>
+				<div class="number-container"><div class="number">{{ fileStatus?.REJECTRETURN	}}</div><div class="percentage red">-10%</div></div>
+			</div>
+		</div>
+		<div class="company">
+			<div class="company-info d-flex">
+				<div class="company-logo">
+					<img src="assets/images/svg/company-logo.svg" alt=""/>
+				</div>
+				<div class="company-name">
+					<h6>Company Info</h6>
+					<p>{{ companyDetails?.entity }}</p>
+				</div>
+				<div class="company-action">
+					<a class="edit-btn" routerLink="/dashboard/edit-company-profile">Edit</a>
+				</div>
+			</div>
+			<div class="company-meta">
+				<div class="meta-data d-flex">
+					<div class="meta-left">Address</div>
+					<div class="meta-right">{{companyDetails?.streetnumber + ' ' + companyDetails?.streetname}}</div>
+				</div>
+				<div class="meta-data d-flex">
+					<div class="meta-left">City</div>
+					<div class="meta-right">{{companyDetails?.city}}</div>
+				</div>
+				<div class="meta-data d-flex">
+					<div class="meta-left">State</div>
+					<div class="meta-right">{{companyDetails?.state}}</div>
+				</div>
+				<div class="meta-data d-flex">
+					<div class="meta-left">Zip</div>
+					<div class="meta-right">{{companyDetails?.zip}}</div>
+				</div>
+				<div class="meta-data d-flex">
+					<div class="meta-left">Phone</div>
+					<div class="meta-right">{{companyDetails?.entityphone}}</div>
+				</div>
+				<div class="meta-data d-flex">
+					<div class="meta-left">Website</div>
+					<div class="meta-right">{{companyDetails?.websiteurl}}</div>
+				</div>
+				<div class="meta-data d-flex">
+					<div class="meta-left">Roof Count</div>
+					<div class="meta-right">{{companyDetails?.expectedmonthlyroofcompletions}}</div>
+				</div>
+				<div class="meta-data d-flex">
+					<div class="meta-left">Roofing Job</div>
+					<div class="meta-right" *ngIf="companyDetails?.jobtypesdone === 'R'">Residential</div>
+					<div class="meta-right" *ngIf="companyDetails?.jobtypesdone != 'R'">Commercial</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

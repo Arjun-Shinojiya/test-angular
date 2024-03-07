@@ -1,0 +1,181 @@
+<div class="container">
+	<div class="instruction">
+		Fill in the required company information such as company name,
+		address, contact details, and any other relevant fields.
+	</div>
+	<form [formGroup]="contractorProfileForm" class="w-100 my-2 form">
+		<div class="row w-100">
+			<kendo-formfield class="col">
+				<kendo-label [for]="" class="field-labels required-field" text="Company Name:"></kendo-label>
+				<kendo-textbox formControlName="companyname"></kendo-textbox>
+				<kendo-formerror
+					*ngIf="contractorProfileForm.controls.companyname.errors?.required">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-COMPANYNAMEREQUIRED'
+					| translate }}</kendo-formerror>
+				<kendo-formerror
+					*ngIf="!contractorProfileForm.controls.companyname.errors?.required && contractorProfileForm.controls.companyname.invalid">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-COMPANYNAMEINVALID'
+					| translate }}</kendo-formerror>
+			</kendo-formfield>
+
+			<kendo-formfield class="col">
+				<kendo-label class="field-labels required-field" text="Street Number:" />
+				<kendo-textbox formControlName="streetnumber"></kendo-textbox>
+				<kendo-formerror
+					*ngIf="contractorProfileForm.controls.streetnumber.errors?.required">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-STREETNUMBERREQUIRED'
+					| translate }}</kendo-formerror>
+				<kendo-formerror
+					*ngIf="!contractorProfileForm.controls.streetnumber.errors?.required && contractorProfileForm.controls.streetnumber.invalid">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-STREETNUMBERINVALID'
+					| translate }}</kendo-formerror>
+			</kendo-formfield>
+
+			<kendo-formfield class="col">
+				<kendo-label class="field-labels required-field" text="Street Name:" />
+				<kendo-textbox formControlName="streetname"></kendo-textbox>
+				<kendo-formerror
+					*ngIf="contractorProfileForm.controls.streetname.errors?.required">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-STREETNAMEREQUIRED'
+					| translate }}</kendo-formerror>
+				<kendo-formerror
+					*ngIf="!contractorProfileForm.controls.streetname.errors?.required && contractorProfileForm.controls.streetname.invalid">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-STREETNAMEINVALID'
+					| translate }}</kendo-formerror>
+			</kendo-formfield>
+
+			<div class="col">
+				<kendo-label class="field-labels" text="POB Address:" />
+				<kendo-textbox formControlName="pobaddress"></kendo-textbox>
+			</div>
+		</div>
+
+		<div class="row w-100">
+			<kendo-formfield class="col">
+				<kendo-label class="field-labels required-field" text="Zip:" />
+				<kendo-textbox formControlName="zip" (blur)="zipChange()"></kendo-textbox>
+				<kendo-formerror
+					*ngIf="contractorProfileForm.controls.zip.errors?.required">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-ZIPREQUIRED'
+					| translate }}</kendo-formerror>
+				<kendo-formerror
+					*ngIf="!contractorProfileForm.controls.zip.errors?.required && contractorProfileForm.controls.zip.invalid">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-ZIPINVALID'
+					| translate }}</kendo-formerror>
+			</kendo-formfield>
+
+			<kendo-formfield class="col">
+				<kendo-label class="field-labels required-field" text="City:" />
+				<kendo-textbox formControlName="city"></kendo-textbox>
+				<kendo-formerror
+					*ngIf="contractorProfileForm.controls.city.errors?.required">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-CITYREQUIRED'
+					| translate }}</kendo-formerror>
+				<kendo-formerror
+					*ngIf="(!contractorProfileForm.controls.city.errors?.required && contractorProfileForm.controls.city.invalid) || (!contractorProfileForm.controls.city.errors?.required && contractorProfileForm.controls.city.invalidCity)">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-CITYINVALID'
+					| translate }}</kendo-formerror>
+			</kendo-formfield>
+
+			<kendo-formfield class="col">
+				<kendo-label class="field-labels required-field" text="State:" />
+				<kendo-textbox formControlName="statename"></kendo-textbox>
+				<kendo-formerror
+					*ngIf="contractorProfileForm.controls.statename.errors?.required">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-STATEREQUIRED'
+					| translate }}</kendo-formerror>
+				<kendo-formerror
+					*ngIf="(!contractorProfileForm.controls.statename.errors?.required && contractorProfileForm.controls.statename.invalid) || (!contractorProfileForm.controls.statename.errors?.required && contractorProfileForm.controls.statename.invalidState)">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-STATEINVALID'
+					| translate }}</kendo-formerror>
+			</kendo-formfield>
+
+			<kendo-formfield class="col">
+				<kendo-label class="field-labels required-field" text="Email:" />
+				<kendo-textbox formControlName="email"></kendo-textbox>
+				<kendo-formerror
+					*ngIf="contractorProfileForm.controls.email.errors?.required">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-EMAILREQUIRED'
+					| translate }}</kendo-formerror>
+				<kendo-formerror
+					*ngIf="!contractorProfileForm.controls.email.errors?.required && contractorProfileForm.controls.email.invalid">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-EMAILINVALID'
+					| translate }}</kendo-formerror>
+			</kendo-formfield>
+		</div>
+
+		<div class="row w-100 ">
+			<kendo-formfield class="col">
+				<kendo-label class="field-labels required-field" text="Phone:" />
+				<kendo-maskedtextbox [maskOnFocus]="true" [mask]="phoneMask"
+					formControlName="mobilephone" [maskValidation]="false"></kendo-maskedtextbox>
+				<kendo-formerror
+					*ngIf="contractorProfileForm.controls.mobilephone.errors?.required">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-PHONENUMBERREQUIRED'
+					| translate }}</kendo-formerror>
+				<kendo-formerror
+					*ngIf="!contractorProfileForm.controls.mobilephone.errors?.required && contractorProfileForm.controls.mobilephone.errors">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-PHONENUMBERINVALID'
+					| translate }}</kendo-formerror>
+			</kendo-formfield>
+
+			<div class="col">
+				<kendo-label class="field-labels" text="Website:" />
+				<kendo-textbox formControlName="websiteurl"></kendo-textbox>
+				<kendo-formerror
+					*ngIf="contractorProfileForm.controls.websiteurl.invalid">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-WEBSITEINVALID'
+					| translate }}</kendo-formerror>
+			</div>
+
+			<kendo-formfield class="col">
+				<kendo-label class="field-labels required-field" text="Number of roofs completed per month:" />
+				<kendo-textbox formControlName="expectedmonthlyroofcompletions"></kendo-textbox>
+				<kendo-formerror
+					*ngIf="contractorProfileForm.controls.expectedmonthlyroofcompletions.errors?.required">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-ROOFQUANTITYREQUIRED'
+					| translate }}</kendo-formerror>
+				<kendo-formerror
+					*ngIf="!contractorProfileForm.controls.expectedmonthlyroofcompletions.errors?.required && contractorProfileForm.controls.expectedmonthlyroofcompletions.invalid">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-ROOFQUANTITYINVALID'
+					| translate }}</kendo-formerror>
+			</kendo-formfield>
+
+			<div class="col">
+				<kendo-label class="field-labels dropdown-text" text="How did you hear about TotalScope?" />
+				<kendo-dropdownlist class="dropdown" formControlName="howdidyouhear" [data]="howDidYouHearList"
+					textField="text" valueField="value" [size]="'small'">
+				</kendo-dropdownlist>
+			</div>
+		</div>
+		<div class="uploading-main">
+			<div class="uploading" *ngIf="companyType !== 'contractor'">
+				<div class="upload-image">
+					<ng-container *ngIf="imageUrl === ''">
+						<div (click)="files.click(); $event.stopPropagation()" (drop)="onDrop($event)"
+							(dragover)="onDragOver($event)" class="file-drop">
+							<img src="assets/images/svg/Frame 37.svg" alt="">
+							<div class="text">
+								<span class="click-here">Click here</span> to upload or drag and drop <br> SVG or PNG
+								(max.
+								800x400px)
+							</div>
+						</div>
+						<input type="file" id="uploadImage" (change)="onFileUpload($event); $event.stopPropagation()"
+							hidden #files>
+					</ng-container>
+
+					<ng-container *ngIf="imageUrl !== ''">
+						<div class="preview-image">
+							<div class="uploaded-image">
+								<img [src]="imageUrl" />
+								<div class="img-detail">
+									<p class="img-name"> {{file.name}} </p>
+									<p class="img-size"> {{file.size}} </p>
+								</div>
+								<div class="close-icon">
+									<img src="assets/images/svg/images/cross-red.svg" (click)="removeImage()" />
+								</div>
+							</div>
+						</div>
+					</ng-container>
+				</div>
+			</div>
+		</div>
+
+		<div class="actions-main">
+			<div class="actions" [class.action-margin-top]="companyType !== 'contractor'">
+				<div class="terms">
+					<input type="checkbox" #notification formControlName="agreeCheck" kendoCheckBox #agreeCheckTick />
+					<kendo-label class="k-checkbox-label" [for]="notification" text=""> &nbsp;I have read and agree to
+						the <a href="">Terms
+							of use</a> and <a href="">Privacy Policy</a></kendo-label>
+				</div>
+				<button kendoButton size="medium"
+					[disabled]="!(contractorProfileForm.valid && contractorProfileForm.get('agreeCheck').value)"
+					(click)="onNext()">Next</button>
+			</div>
+		</div>
+	</form>
+</div>

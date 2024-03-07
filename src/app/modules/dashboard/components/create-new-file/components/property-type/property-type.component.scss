@@ -1,0 +1,138 @@
+.property-type-container {
+  margin-top: 10px;
+
+  .heading-block {
+    text-align: center;
+
+    .heading {
+      font-size: 20px;
+      font-weight: 500;
+      color: #0C1D3E;
+    }
+  }
+
+  .form {
+    width: 100%;
+
+    .property-form {
+      display: flex;
+      gap: 10px;
+
+      .form-fields {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+        background-color: #F3F4F6;
+        padding: 10px 10px;
+        text-align: center;
+        border-radius: 8px;
+        width: 50% !important;
+      }
+    }
+  }
+
+  .upload-image-container {
+    margin-top: 10px;
+
+    .heading {
+      font-size: 14px;
+      font-weight: 500;
+      color: #0C1D3E;
+      margin-bottom: 5px;
+      margin-top: 20px;
+
+    }
+
+    .upload-image-block {
+      border: 1px solid #E5E7EB;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      background-color: #FFF;
+
+      .add-Icon {
+        width: 30px;
+        cursor: pointer;
+        margin-bottom: 10px;
+
+        img {
+          width: 30px;
+          cursor: pointer;
+        }
+      }
+
+      .upload-file {
+        font-size: 16px;
+        font-weight: 400;
+        color: #111827;
+
+        span {
+          color: #306FD5;
+          cursor: pointer;
+        }
+      }
+
+      .file-accepted {
+        font-size: 14px;
+        font-weight: 400;
+        color: #6B7280;
+        margin-top: 5px;
+      }
+    }
+
+    .uploading-image {
+      border: 1px solid #E5E7EB;
+      background-color: #FFF;
+      border-radius: 8px;
+      width: 100%;
+      padding: 30px;
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+
+        .file-image {
+          img {
+            width: 35px;
+            border-radius: 4px;
+          }
+        }
+
+        .file-details {
+          width: 100%;
+          margin-left: 10px;
+          margin-right: 10px;
+
+          .file-name {
+            font-size: 16px;
+            font-weight: 400;
+            color: #111827;
+          }
+
+          .uploading-progress {}
+
+          .file-size {
+            font-size: 14px;
+            font-weight: 400;
+            color: #6B7280;
+
+            span {
+              margin-left: 5px;
+              font-weight: 900;
+            }
+          }
+        }
+
+        .remove-icon {
+          cursor: pointer;
+        }
+      }
+
+    }
+  }
+
+
+}

@@ -1,0 +1,33 @@
+<div class="media-container">
+  <app-media-navbar></app-media-navbar>
+  <div class="media-asset">
+    <div class="asset-bar">
+      <app-media-assetbar></app-media-assetbar>
+    </div>
+    <div class="asset">
+      <app-media-asset></app-media-asset>
+    </div>
+  </div>
+
+  <div class="links-container">
+    <div class="title">Links</div>
+    <div class="links">
+      <img src="./assets/images/svg/link2.svg" alt="">
+      <img src="./assets/images/svg/link3.svg" alt="">
+      <img src="./assets/images/svg/link2.svg" alt="">
+      <img src="./assets/images/svg/link3.svg" alt="">
+    </div>
+
+    <div class="copy-link">
+      <kendo-textbox>
+        <ng-template kendoTextBoxPrefixTemplate>
+          <div class="copy-url">https://companycam.com/user/linkname</div>
+          <div class="copy-button">
+            <div class="copy">Copy</div>
+            <div class="icon"><img src="./assets/images/svg/Icon-right.svg" alt=""></div>
+          </div>
+      </ng-template>
+      </kendo-textbox>
+    </div>
+  </div>
+</div>

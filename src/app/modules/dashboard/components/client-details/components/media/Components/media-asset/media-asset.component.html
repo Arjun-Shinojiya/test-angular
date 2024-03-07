@@ -1,0 +1,27 @@
+<div class="media-asset-container" *ngIf="!assetView">
+  <div class="asset-navbar">
+    <div class="icon">
+      <img src="./assets/images/svg/homeIcon.svg" alt="">
+    </div>
+    <div class="icon-wrapper">
+      <div class="greater-icon">
+        <img src="./assets/images/svg/right_icon.svg" alt="">
+      </div>
+      <div class="asset-name">Roof</div>
+    </div>
+  </div>
+
+  <div class="grid-container">
+    <div class="grid-item" *ngFor="let asset of assets">
+      <div class="asset-icon" (click)="viewAsset(asset)">
+        <img src="./assets/images/svg/fileIcon.svg" alt="">
+      </div>
+      <div class="asset-title">{{asset}}</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="media-asset-container" *ngIf="assetView">
+  <app-media-asset-view></app-media-asset-view>
+</div>

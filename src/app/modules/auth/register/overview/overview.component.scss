@@ -1,0 +1,31 @@
+.overview_box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+
+  .switch-language {
+    margin-top: 15px;
+    span{
+      margin: 0px 10px;
+    }
+  }
+
+  .overview-video {
+  
+    text-align: center;
+    max-height: 514px;
+    max-width: 929px;
+    margin-bottom: 45px;
+
+    iframe {
+      border-radius: 20px;
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+}

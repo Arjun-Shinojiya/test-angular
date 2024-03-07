@@ -1,0 +1,30 @@
+<div class="create-new-file-container">
+	<div class="wrapper">
+		<div class="stepper">
+			<kendo-stepper [steps]="steps" [stepType]="stepType" [(currentStep)]="current" [style.width.px]="570">
+			</kendo-stepper>
+		</div>
+		<div class="component">
+			<app-personal-info *ngIf="current === 0"  [current]="current + 1" (isValid)="updateValidStep(0,$event)" (currentPage)="jumpStep($event)"></app-personal-info>
+			<app-property-details *ngIf="current === 1" [current]="current + 1" (isValid)="updateValidStep(1,$event)" (currentPage)="jumpStep($event)"></app-property-details>
+			<app-property-type *ngIf="current === 2"  [current]="current + 1" (isValid)="updateValidStep(2,$event)" (currentPage)="jumpStep($event)"></app-property-type>
+			<app-structure-type *ngIf="current === 3" [current]="current + 1" (isValid)="updateValidStep(3,$event)" (currentPage)="jumpStep($event)"></app-structure-type>
+			<app-property-scope *ngIf="current === 4" [current]="current + 1" (isValid)="updateValidStep(4,$event)" (currentPage)="jumpStep($event)"></app-property-scope>
+		</div>
+	</div>
+
+	<div class="buttons">
+		<div class="btn-block" (click)="prev()" *ngIf="current != 0">
+			<div class="icon">
+				<img src="./assets/images/svg/arrow-back.svg" alt="">
+			</div>
+			<div class="title">Back</div>
+		</div>
+		<div class="btn-block" (click)="next()">
+			<div class="title">Next</div>
+			<div class="icon">
+				<img src="./assets/images/svg/right-arrow.svg" alt="">
+			</div>
+		</div>
+	</div>
+</div>

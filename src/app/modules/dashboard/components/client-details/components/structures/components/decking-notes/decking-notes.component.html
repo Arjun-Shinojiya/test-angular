@@ -1,0 +1,77 @@
+<div class="decking-notes-container">
+  <div class="block" *ngIf="showAdd">
+    <div class="select-all">
+      <img src="./assets/images/svg/Icon-tick.svg" alt="">
+      <span>Select All</span>
+    </div>
+
+    <div class="add-icon" (click)="onClickAdd(); $event.stopPropagation()">
+      <img src="./assets/images/svg/addIcon.svg" alt="">
+    </div>
+  </div>
+
+  <div class="note-block" (click)="$event.stopPropagation()" [ngClass]="{'active': checked}">
+    <div class="note-nav">
+      <div class="checkbox">
+        <input type="checkbox" #select [(ngModel)]="checked" kendoCheckBox />
+      </div>
+
+      <div class="edit-dlt-block">
+        <div class="dlt-icon">
+          <img src="./assets/images/svg/dlt.svg" alt="">
+        </div>
+        <div class="edit-icon">
+          <img src="./assets/images/svg/edit.svg" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      Our roof decking needs replacement. Seeking estimate for roof decking replacement. Additionally, any insights or
+      recommendations regarding materials and the timeline for completion would be invaluable.
+    </div>
+
+  </div>
+  <!--Note Box-->
+  <div class="add-note" *ngIf="!showAdd" (click)="$event.stopPropagation()">
+    <div class="notebox">
+      <kendo-textarea placeholder="Type note here . . ." [rows]="5"></kendo-textarea>
+    </div>
+
+    <div class="block">
+      <div class="add-icon">
+        <img src="./assets/images/svg/Icon-left.svg" alt="">
+        <span>Add Note</span>
+      </div>
+
+      <div class="select-all" (click)="onClickCancel(); $event.stopPropagation()">
+        <img src="./assets/images/svg/cancelIcon.svg" alt="">
+        <span>Cancel</span>
+      </div>
+    </div>
+  </div>
+
+  <!--Note Box If Checked-->
+  <div class="note-block" *ngIf="checked" (click)="$event.stopPropagation()">
+    <div class="note-nav">
+      <div class="checkbox">
+        <input type="checkbox" kendoCheckBox />
+      </div>
+
+      <div class="edit-dlt-block">
+        <div class="dlt-icon">
+          <img src="./assets/images/svg/dlt.svg" alt="">
+        </div>
+        <div class="edit-icon">
+          <img src="./assets/images/svg/edit.svg" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      The roof planks require replacement.
+    </div>
+
+  </div>
+
+</div>

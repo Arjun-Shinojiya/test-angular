@@ -1,0 +1,53 @@
+<div class="register_box">
+    <kendo-card class="kendoCard" width="64rem" height="45rem">
+        <div class="register_card">
+            <div class="form_wrapper">
+                <div class="heading">
+                    <h1>Registration | Choose Your Company Type</h1>
+                    <p>Please select the nature of your company</p>
+                </div>
+                <div class="job">Job Type:</div>
+                <div *ngIf="ifCheck">
+                    <kendo-dialog title=" " [minWidth]="250" [width]="450" *ngIf="opened" (close)="close('cancel')">
+                        <p style="margin: 30px; text-align: center;" *ngIf="jobType">
+                            The online registration for Claim Handler and Public Adjuster is not yet available.
+                        </p>
+                        <p style="margin: 30px; text-align: center;" *ngIf="jobType===''">
+                            Please select a Job Type to proceed with the registration.
+                        </p>
+                    </kendo-dialog>
+                </div>
+                
+                <div class="form">
+                    <form>
+                        <div class="kendoInput" (click)="jobType='contractor'"
+                            [ngClass]="{active: jobType === 'contractor'}">
+                            <input type="radio" name="jobType" [(ngModel)]="jobType" value="contractor" #contractor
+                                kendoRadioButton />
+                            <kendo-label [for]="contractor" text="Contractor"></kendo-label>
+                        </div>
+                        <div class="kendoInput" (click)="jobType='claimHandler'"
+                            [ngClass]="{active: jobType === 'claimHandler'}">
+                            <input type="radio" name="jobType" [(ngModel)]="jobType" value="claimHandler" #claimHandler
+                                kendoRadioButton />
+                            <kendo-label [for]="claimHandler" text="Claim Handler"></kendo-label>
+                        </div>
+                        <div class="kendoInput" (click)="jobType='publicAdjuster'"
+                            [ngClass]="{active: jobType === 'publicAdjuster'}">
+                            <input type="radio" name="jobType" [(ngModel)]="jobType" value="publicAdjuster"
+                                #publicAdjuster kendoRadioButton />
+                            <kendo-label [for]="publicAdjuster" text="Public Adjuster"></kendo-label>
+                        </div>
+                    </form>
+                </div>
+                <div class="kendo_register_btn">
+                    <button kendoButton size="medium" (click)="navigate()">Register</button>
+                </div>
+            </div>
+        </div>
+		<div  class="overview-popup" [ngClass]="{show: showOverview}">
+			<app-footer (emitShowOverview)="showOverview = $event"></app-footer>
+			<app-overview *ngIf="showOverview"></app-overview>
+		</div>
+    </kendo-card>
+</div>

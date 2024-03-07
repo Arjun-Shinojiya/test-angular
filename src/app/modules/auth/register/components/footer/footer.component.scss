@@ -1,0 +1,23 @@
+.footer-container {
+	position: relative;
+	hr 
+	{
+		top: 12px;
+		width: 100%;
+		height: 1px;
+		position: absolute;
+	}
+	.overview-button-container 
+	{
+		display: flex;
+		margin: auto;
+		width: 100%;
+		.overview-button 
+		{
+			height: 50px;
+			cursor: pointer;
+			margin: 0px auto;
+			z-index: 1;
+		}
+	}
+}

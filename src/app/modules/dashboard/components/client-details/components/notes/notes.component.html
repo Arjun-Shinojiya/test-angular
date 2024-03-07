@@ -1,0 +1,87 @@
+<div class="content-node-wrap">
+    <h2>
+        Notes
+    </h2>
+    <ul class="user-details">
+        <li class="user-avatar">
+            <img src="../../../../../../../assets/images/png/Styles.png" alt="">
+            <span>Michael</span>
+        </li>
+        
+        <li>Sep 21, 2023</li>
+        <li>Notified 5 people</li>
+    </ul>
+    <h4>   Dear team, </h4>
+    <p>I'd like to bring to your attention an important update regarding our invoicing process. Moving forward, please ensure that all invoices are sent to the following email address: payables@mmhomeremodeling.onmicrosoft.com. This change is designed to streamline our financial operations and ensure that payments are processed efficiently. Your cooperation in implementing this change is greatly appreciated. If you have any questions or concerns, please feel free to reach out to me.</p>
+    <h5>Thanks</h5>
+</div><br>
+<div class="notified-wrap">
+    <div *ngFor="let data of dataArr">
+        <div class="user-description-wrapper">
+            <div class="user-info-date">
+                <h4>{{data.date}}</h4>
+                <p>Notified {{data.notified}} People</p>
+            </div>
+            <div class="user-content">
+            <div class="user-name">
+                <div class="userWrap"> 
+                    <img src="../../../../../../../assets/images/png/Styles.png" alt="">
+                    <h5>{{data.name}}</h5>
+                </div>
+                <h6>{{data.type}}</h6>
+            </div>
+                <p>{{data.content}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="subscriber-wrapper">
+    <div class="title">
+        <h5>Subscribers</h5>
+        <span>5 people</span>
+    </div>
+    <div class="search-wrapper-chip">
+        <div class="search-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none" (click)="addClassOnClick()">
+                <path d="M21.5317 21.7441L15.5317 15.7441M17.5317 10.7441C17.5317 14.6441 14.4317 17.7441 10.5317 17.7441C6.63174 17.7441 3.53174 14.6441 3.53174 10.7441C3.53174 6.84414 6.63174 3.74414 10.5317 3.74414C14.4317 3.74414 17.5317 6.84414 17.5317 10.7441Z" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <kendo-chip
+        class="k-chip-wrapper"
+        *ngFor="let contact of selectedContacts"
+        avatarClass="user-avatar"
+        [removable]="true"
+        (remove)="onRemove($event)"
+        [removeSvgIcon]="svgX"
+      >
+            {{contact.label}}
+      </kendo-chip>
+    </div>
+    <div class="search-wrapper-input" [class.add] = "isClassAdded">
+        <kendo-autocomplete
+          #contactslist
+          [data]="contacts"
+          class="contacts"
+          valueField="label"
+          [kendoDropDownFilter]="{ operator: 'contains' }"
+          [filterable]="true"
+          placeholder="Search Here . . ."
+          (valueChange)="valueChange($event)"
+        >
+        </kendo-autocomplete>
+    </div>
+    <div class="search-wrapper-textarea" [formGroup]="notesForm">
+    <kendo-formfield>
+          <kendo-textarea
+            placeholder="Tell us a little bit about yourself..."
+            [rows]="7"
+            resizable="vertical"
+            formControlName="intro"
+          ></kendo-textarea>
+      </kendo-formfield>
+      </div>
+
+      <button class="add-btn-wrap" kendoButton>
+        Add Note
+      </button>
+</div>

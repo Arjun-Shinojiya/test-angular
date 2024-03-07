@@ -1,0 +1,266 @@
+<div class="clients-details-wrapper">
+  <div class="heading-of-title">
+    <div class="address">{{ownerDetail?.streetnumber}} {{ ownerDetail?.streetname}} </div>
+    <h6 class="client-heading"><span class="title-text">Client:</span>
+      <span class="owner-name">{{ ownerDetail?.owner_full_name }}</span>
+    </h6>
+  </div>
+  <div class="date-button-wrap">
+    <div class="date-wrap">
+      <h5> File Creation Date:</h5>
+      <span>{{ ownerDetail?.datetimecreated}}</span>
+    </div>
+    <div class="button-group">
+      <button kendoButton class="button-file">
+        Withdraw File
+      </button>
+      <button kendoButton class="button-submit" (click)="showPopup()">
+        Submit File
+      </button>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="main-tab-wrapper">
+  <div class="row h-100">
+    <div class="col-8 p-0">
+      <div class="node-warp">
+        <kendo-tabstrip (tabSelect)="onSelect($event)">
+          <kendo-tabstrip-tab title="Notes" [selected]="tabSection === 'Notes'">
+            <ng-template kendoTabContent>
+              <app-notes></app-notes>
+            </ng-template>
+          </kendo-tabstrip-tab>
+          <kendo-tabstrip-tab title="Structures" [selected]="tabSection === 'Structures'">
+            <ng-template kendoTabContent>
+              <app-structures [propertyId]="propertyId"></app-structures>
+            </ng-template>
+          </kendo-tabstrip-tab>
+          <kendo-tabstrip-tab title="Media" [selected]="tabSection === 'Media'">
+            <ng-template kendoTabContent>
+              <app-media></app-media>
+            </ng-template>
+          </kendo-tabstrip-tab>
+          <kendo-tabstrip-tab title="Insurance Docs" [selected]="tabSection === 'Insurance'">
+            <ng-template kendoTabContent>
+              <app-insurance-docs></app-insurance-docs>
+            </ng-template>
+          </kendo-tabstrip-tab>
+          <kendo-tabstrip-tab title="Misc. Docs" [selected]="tabSection === 'Misc'">
+            <ng-template kendoTabContent>
+              <app-mics-docs></app-mics-docs>
+            </ng-template>
+          </kendo-tabstrip-tab>
+          <kendo-tabstrip-tab title="Measurements" [selected]="tabSection === 'Measurements'">
+            <ng-template kendoTabContent>
+              <app-measurements></app-measurements>
+            </ng-template>
+          </kendo-tabstrip-tab>
+        </kendo-tabstrip>
+      </div>
+    </div>
+    <div class="col-4 p-0">
+      <div class="clinet-side-info">
+        <app-client-info></app-client-info>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!--Show PopUp-->
+<div class="popup" *ngIf="show">
+  <kendo-dialog [width]="560" [minHeight]="557">
+    <!--close Section-->
+    <div class="close-icon">
+      <img src="./assets/images/svg/remove.svg" alt="" (click)="close()">
+    </div>
+
+    <!--Wrapper-->
+    <div class="popup-wrapper">
+      <!--Heading-->
+      <div class="heading">Almost Done! Just a few more questions.</div>
+      <!--Sub Heading-->
+      <div class="sub-heading">(This will allow us to complete this file much faster)</div>
+
+      <!--Question-->
+      <div class="question">Would you like Claim Handling for this file?</div>
+
+      <div class="block">
+        <div class="block-wrapper">
+          <input class="input" type="radio" id="no" kendoCheckBox name="claimHandling"
+            [(ngModel)]="selectedClaimHandling" [value]="false" (change)="onClaimHandlingChange(false)" />
+          <label class="k-radio-label" for="no">No</label>
+        </div>
+        <div class="block-wrapper">
+          <input class="input" type="radio" id="yes" kendoCheckBox name="claimHandling"
+            [(ngModel)]="selectedClaimHandling" [value]="true" (change)="onClaimHandlingChange(true)" />
+          <label class="k-radio-label" for="yes">Yes</label>
+        </div>
+      </div>
+
+       <!--Question-->
+       <div class="question-section" *ngIf="selectedClaimHandling">
+         <div class="question">Is Carrier Approval for Repair or Replacement?</div>
+  
+         <div class="block">
+           <div class="block-wrapper">
+             <input class="input" type="radio" id="replacement" kendoCheckBox name="carrierApproval"
+               [(ngModel)]="selectedCarrierApproval" [value]="'replacement'" (change)="onCarrierApproval('replacement')" />
+             <label class="k-radio-label" for="replacement">Replacement</label>
+           </div>
+           <div class="block-wrapper">
+             <input class="input" type="radio" id="repair" kendoCheckBox name="carrierApproval"
+               [(ngModel)]="selectedCarrierApproval" [value]="'repair'"  (change)="onCarrierApproval('repair')" />
+             <label class="k-radio-label" for="repair">Repair</label>
+           </div>
+         </div>
+       </div>
+
+        <!--Question-->
+        <div class="question-section" *ngIf="selectedClaimHandling && selectedCarrierApproval === 'repair'">
+          <div class="question">Is YOUR INTENTION for Replacement or Repair?</div>
+   
+          <div class="block">
+            <div class="block-wrapper">
+              <input class="input" type="radio" id="repairIntention" kendoCheckBox name="intention"
+                [(ngModel)]="selectedIntention" [value]="'repairIntention'"  (change)="onIntentionChange('repairIntention')" />
+              <label class="k-radio-label" for="repairIntention">Repair</label>
+            </div>
+
+            <div class="block-wrapper">
+              <input class="input" type="radio" id="replacementIntention" kendoCheckBox name="intention"
+                [(ngModel)]="selectedIntention" [value]="'replacementIntention'" (change)="onIntentionChange('replacementIntention')" />
+              <label class="k-radio-label" for="replacementIntention">Replacement</label>
+            </div>
+          </div>
+
+          <div *ngIf="selectedIntention === 'repairIntention'">
+            <div class="question with-input">Any applicable notes for why a repair greater than approved is necessary?</div>
+            <kendo-textarea
+                [style.width.%]="100"
+                [rows]="3"
+              >
+              </kendo-textarea>
+          </div>
+
+          <div *ngIf="selectedIntention === 'replacementIntention'">
+            <div class="question">Why is Repair not possible?</div>
+            <div class="not-possible-block">
+
+              <div class="block-wrapper">
+                <input class="input" type="radio" id="damaged" kendoCheckBox name="notPossible"
+                  [(ngModel)]="selectedNotPossibleReason" [value]="'damaged'"  (change)="onNotPossibleChange('damaged')" />
+                <label class="k-radio-label" for="damaged">Damaged missed by carrier</label>
+              </div>
+
+              <div class="block-wrapper">
+                <input class="input" type="radio" id="repairabilityConcerns" kendoCheckBox name="notPossible"
+                  [(ngModel)]="selectedNotPossibleReason" [value]="'repairabilityConcerns'"  (change)="onNotPossibleChange('repairabilityConcerns')" />
+                <label class="k-radio-label" for="repairabilityConcerns">Repairability concerns</label>
+              </div>
+
+              <div class="block-wrapper">
+                <input class="input" type="radio" id="discontinuedShingle" kendoCheckBox name="notPossible"
+                  [(ngModel)]="selectedNotPossibleReason" [value]="'discontinuedShingle'"  (change)="onNotPossibleChange('discontinuedShingle')" />
+                <label class="k-radio-label" for="discontinuedShingle">Discontinued shingle</label>
+              </div>
+
+              <div class="block-wrapper">
+                <input class="input" type="radio" id="other" kendoCheckBox name="notPossible"
+                  [(ngModel)]="selectedNotPossibleReason" [value]="'other'"  (change)="onNotPossibleChange('other')" />
+                <label class="k-radio-label" for="other">Other</label>
+              </div>
+
+              <kendo-textarea
+                placeholder="Other - please fill in reason here"
+                [disabled]="selectedNotPossibleReason != 'other'"
+                [style.width.%]="100"
+                [rows]="1"
+              >
+              </kendo-textarea>
+            </div>
+          </div>
+        </div>
+
+      <!--Note-->
+      <div class="note">
+        (Fee is 5% of the increase, in addition to the estimate cost, invoice sent post-settlement) <span>Click here</span> for more
+        information. This cannot be changed by user after submission. TotalScope must be contacted if Claim Handling is
+        requested after submission.
+      </div>
+
+      <!--Submit Button-->
+      <div class="sub-btn" *ngIf="!selectedClaimHandling" (click)="onSubmit()">Submit File</div>
+      <div class="sub-btn" *ngIf="selectedClaimHandling" (click)="onSubmitForClaim()">Submit File for Claim Handling</div>
+    </div>
+  </kendo-dialog>
+</div>
+
+
+
+
+<!--Show Second PopUp-->
+<div class="popup" *ngIf="show2">
+  <kendo-dialog [width]="560" [minHeight]="557">
+    <!--close Section-->
+    <div class="close-icon">
+      <img src="./assets/images/svg/remove.svg" alt="" (click)="close()">
+    </div>
+
+    <!--Wrapper-->
+    <div class="popup-wrapper">
+      
+      <!--Heading-->
+      <div class="heading">Almost Done! Just a few more questions.</div>
+      
+      <!--Sub Heading-->
+      <div class="sub-heading">(This will allow us to complete this file much faster)</div>
+      
+      <!--Term and Conditions-->
+      <div class="term-section">
+        <div class="term-heading">You are requesting to have TotalClaim handle this communication with the insurance carrier on your behalf.</div>
+        <div class="terms" *ngFor="let term of terms">
+          <div class="icon">
+            <img src="./assets/images/svg/term-bullet.svg" alt=""> 
+          </div>
+          <div class="term">{{ term }}</div>
+        </div>
+
+        <!--Agreement Check-->
+        <div class="block-wrapper">
+          <input class="input" type="checkbox" #agree kendoCheckBox />
+          <label class="k-radio-label" for="agree">I Agree to the Above Terms</label>
+        </div>
+
+        <div class="question with-input">Please include the following here or in file notes.</div>
+
+        <div class="alert-message">If not included, file will be rejected in order to obtain this required information.</div>
+
+        <div class="block-wrapper">
+          <label class="label" for="ic">Insurance Carrier:</label>
+          <kendo-textbox #ic></kendo-textbox>
+        </div>
+
+        <div class="block-wrapper">
+          <label class="label" for="cn">Claim Number:</label>
+          <kendo-textbox #cn></kendo-textbox>
+        </div>
+
+        <div class="block-wrapper">
+          <label class="label" for="pn">Policy Number (optional):</label>
+          <kendo-textbox #pn></kendo-textbox>
+        </div>
+
+      </div>
+
+      <!--Submit Button-->
+      <div class="buttons">
+        <div class="cancel-btn" (click)="close()">Cancel</div>
+        <div class="sub-btn" (click)="close()">Submit File for Claim Handling</div>
+      </div>
+    </div>
+  </kendo-dialog>
+</div>

@@ -1,0 +1,78 @@
+<div class="property-details-container">
+  <div class="heading-block">
+    <div class="heading">
+      Property Details
+    </div>
+  </div>
+  <div class="form">
+    <form [formGroup]="propertyDetailsForm">
+      <div class="form-fields">
+        <kendo-formfield class="form-field">
+          <kendo-label [for]="streetNumber" text="Street Number:"></kendo-label>
+          <kendo-textbox formControlName="streetNumber" #streetNumber></kendo-textbox>
+          <kendo-formerror *ngIf="propertyDetailsForm.controls['streetNumber'].hasError('required')">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-STREETNUMBERREQUIRED'
+            | translate }}</kendo-formerror>
+          <kendo-formerror
+          *ngIf="!propertyDetailsForm.controls.streetNumber.errors?.['required'] && propertyDetailsForm.controls.streetNumber.invalid">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-STREETNUMBERINVALID'
+          | translate }}</kendo-formerror>
+        </kendo-formfield>
+        <kendo-formfield class="form-field">
+          <kendo-label [for]="streetName" text="Street Name:"></kendo-label>
+          <kendo-textbox formControlName="streetName" #streetName></kendo-textbox>
+          <kendo-formerror *ngIf="propertyDetailsForm.controls['streetName'].hasError('required')">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-STREETNAMEREQUIRED'
+            | translate }}</kendo-formerror>
+        </kendo-formfield>
+      </div>
+      <div class="form-fields">
+        <kendo-formfield>
+          <kendo-label [for]="zip" text="Zip:"></kendo-label>
+          <kendo-textbox formControlName="zip" (blur)="zipChange()" #zip></kendo-textbox>
+          <kendo-formerror *ngIf="propertyDetailsForm.controls['zip'].hasError('required')">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-ZIPREQUIRED'
+            | translate }}</kendo-formerror>
+          <kendo-formerror *ngIf="!propertyDetailsForm.controls['zip'].hasError('required') && propertyDetailsForm.controls.zip.invalid">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-ZIPINVALID'
+            | translate }}</kendo-formerror>
+        </kendo-formfield>
+        <kendo-formfield>
+          <kendo-label [for]="city" text="City:"></kendo-label>
+          <kendo-textbox formControlName="city" #city></kendo-textbox>
+          <kendo-formerror *ngIf="propertyDetailsForm.controls['city'].hasError('required')">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-CITYREQUIRED'
+            | translate }}</kendo-formerror>
+          <kendo-formerror
+					*ngIf="(!propertyDetailsForm.controls.city.errors?.['required'] && propertyDetailsForm.controls.city.invalid) || (!propertyDetailsForm.controls.city.errors?.['required'] && propertyDetailsForm.controls.city.hasError('invalidCity'))">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-CITYINVALID'
+					| translate }}</kendo-formerror>
+        </kendo-formfield>
+        <kendo-formfield>
+          <kendo-label [for]="state" text="State:"></kendo-label>
+          <kendo-textbox formControlName="state" #state></kendo-textbox>
+          <kendo-formerror *ngIf="propertyDetailsForm.controls['state'].hasError('required')">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-STATEREQUIRED'
+            | translate }}</kendo-formerror>
+         <kendo-formerror
+         *ngIf="(!propertyDetailsForm.controls.state.errors?.['required'] && propertyDetailsForm.controls.state.invalid) || (!propertyDetailsForm.controls.state.errors?.['required'] && propertyDetailsForm?.controls?.state?.hasError('stateValidator'))">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-STATEINVALID'
+         | translate }}</kendo-formerror>
+        </kendo-formfield>
+      </div>
+      <div class="links-block">
+        <div class="heading">Add Links:</div>
+        <div class="links">
+          <div class="block" *ngFor="let data of linksData; let i = index;" (click)="currentActive(i)"
+            [ngClass]="{'active': activeOption.name === data.name}">
+            <div class="company-logo">
+              <img [src]="data.asset" alt="">
+            </div>
+            <div class="check" *ngIf="data.link && activeOption.name === data.name">
+              <img src="./assets/images/svg/green-tick-icon.svg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-link" *ngIf="activeOption">
+        <div class="heading">{{activeOption.name | titlecase}} Portfolio Link:</div>
+        <kendo-textbox formControlName="portfolioLink" (blur)="updateLink()">
+          <ng-template kendoTextBoxPrefixTemplate>
+            <img src="./assets/images/svg/Icon-right.svg" alt="">
+          </ng-template>
+        </kendo-textbox>
+      </div>
+    </form>
+  </div>
+</div>

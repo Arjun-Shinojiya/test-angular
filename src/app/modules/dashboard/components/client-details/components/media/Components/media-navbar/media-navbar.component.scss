@@ -1,0 +1,125 @@
+.media-navbar-container {
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #E5E7EB;
+  border-radius: 8px;
+
+  .media-sorting {
+    display: flex;
+
+    .sort {
+      display: flex;
+      
+      .sort-up , .sort-down {
+        background-color: #FFFFFF;
+        height: 30px;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+      }
+      
+      .sort-up {
+        border-radius: 8px 0px 0px 8px;
+
+        img {
+          transform: rotate(180deg);
+          cursor: pointer;
+          width: 15px;
+        }
+      }
+
+      .sort-down {
+        border-radius: 0px 8px 8px 0px;
+        margin-left: 2px;
+
+        img {
+          cursor: pointer;
+          width: 16px;
+        }
+      }
+    }
+
+    .sort-by {
+      display: flex;
+      margin-left: 5px;
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      color: #374151;
+      
+      .sort-up , .sort-down {
+        background-color: #FFFFFF;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0px 10px
+
+      }
+      
+      .sort-up {
+        border-radius: 8px 0px 0px 8px;
+        padding: 0px 10px;
+      }
+
+      .sort-down {
+        border-radius: 0px 8px 8px 0px;
+        margin-left: 2px;
+
+        img {
+          cursor: pointer;
+          width: 16px;
+        }
+      }
+    }
+
+    .view-type {
+      display: flex;
+      margin-left: 5px;
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      color: #374151;
+      
+      .view-list , .view-grid {
+        background-color: #FFFFFF;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0px 10px
+
+      }
+      
+      .view-list {
+        border-radius: 8px 0px 0px 8px;
+        padding: 0px 10px;
+
+        img {
+          cursor: pointer;
+          width: 16px;
+        }
+      }
+
+      .view-grid {
+        border-radius: 0px 8px 8px 0px;
+        margin-left: 2px;
+        background-color: #306FD5;
+
+        img {
+          cursor: pointer;
+          width: 16px;
+        }
+      }
+    }
+  }
+
+  .media-search {
+    width: 200px;
+    height: 30px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #111827;
+  }
+}

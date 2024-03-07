@@ -1,0 +1,47 @@
+<div class="register_box">
+  <kendo-card width="80rem" height="45rem">
+    <div class="form">
+      <div class="header" *ngIf="companyType === 'contractor'">Registration | Roofing Contractor</div>
+      <div class="header" *ngIf="companyType === 'claimhandler'">Registration | Roofing Claim Handler</div>
+      <div class="header" *ngIf="companyType === 'publicadjuster'">Registration | Roofing Public Adjuster</div>
+
+      <div class="stepper">
+        <kendo-stepper #stepper [steps]="steps" [linear]="false" [stepType]="'full'" [(currentStep)]="current"
+          [style.width.px]="1000" (activate)="onStepActivate($event)">
+        </kendo-stepper>
+      </div>
+      <div *ngIf="current === 0">
+        <app-contractor-profile [current]="current + 1" [companyType]="companyType" (currentPage)="jumpStep($event)"
+          (isValid)="updateValidStep(0,$event)"/>
+      </div>
+	    
+      <div *ngIf="companyType === 'contractor' && current === 1">
+        <app-contractor-details [current]="current + 1" [companyType]="companyType" (currentPage)="jumpStep($event)"
+          (isValid)="updateValidStep(1,$event)" />
+      </div>
+      <div *ngIf="(companyType === 'contractor' && current === 2) || (companyType === 'claimhandler' && current === 1)">
+        <app-create-users [current]="current + 1" [companyType]="companyType"
+          (currentPage)="jumpStep($event)"  (isValid)="updateValidStep(2,$event)"></app-create-users>
+      </div>
+      <div
+        *ngIf="(companyType === 'contractor' && current === 3) || (companyType === 'claimhandler' && current === 2) || (companyType === 'publicadjuster' && current === 1)">
+        <!-- <app-paymentdetails [current]="current" [companyType]="companyType" (currentPage)="current = $event"></app-paymentdetails>  -->
+        <app-payment-card [current]="current + 1" [companyType]="companyType"
+		        (currentPage)="jumpStep($event)" (isValid)="updateValidStep(3,$event)"></app-payment-card>
+      </div>
+      <div
+        *ngIf="(companyType === 'contractor' && current === 4) || (companyType === 'claimhandler' && current === 3) || (companyType === 'publicadjuster' && current === 2)">
+        <app-codeofconduct [current]="current + 1" [companyType]="companyType"
+          (currentPage)="jumpStep($event)" (isValid)="updateValidStep(4,$event)"></app-codeofconduct>
+      </div>
+      <div
+        *ngIf="(companyType === 'contractor' && current === 5) || (companyType === 'claimhandler' && current === 4) || (companyType === 'publicadjuster' && current === 3)">
+        <app-conclusion></app-conclusion>
+      </div>
+    </div>
+    <div class="overview-popup" [ngClass]="{show: showOverview}">
+      <app-footer (emitShowOverview)="showOverview = $event"></app-footer>
+      <app-overview *ngIf="showOverview"></app-overview>
+    </div>
+  </kendo-card>
+</div>

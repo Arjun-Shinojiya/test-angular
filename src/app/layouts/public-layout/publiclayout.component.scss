@@ -1,0 +1,36 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.fit-content {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  flex: 1;
+}
+.app-navbar {
+  flex: 0;
+}
+.main-content {
+  flex: 1;
+  // overflow: auto;
+}
+
+.footer-flex {
+  flex: 0;
+}
+
+.main-one {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

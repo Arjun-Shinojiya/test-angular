@@ -1,0 +1,44 @@
+
+h2
+{
+    color:  #303030;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 34px; 
+    margin: 22px 0;
+}
+p{
+    color:  #303030;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+}
+
+
+    .notFound_wrapper{
+        position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    }
+
+
+@media (max-width: 768px){
+    h2 {
+        font-size: 22px;
+        line-height: 26px;
+        margin: 10px 0;
+    }
+    .notFound_wrapper{
+        width: 90%;
+    }
+    p {
+        font-size: 15px;
+        line-height: 20px;
+    }
+    p br{
+        display: none;
+    }
+}

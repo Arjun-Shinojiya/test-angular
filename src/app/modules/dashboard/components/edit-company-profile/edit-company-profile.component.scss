@@ -1,0 +1,295 @@
+.company-section{
+    padding:15px 25px;
+    width: calc(100% - 480px);
+
+    .title-heading{
+        font-size: 17px;
+        height: 22px;
+        line-height: 22px;
+        font-weight: 600;
+        color:#0C1D3E;
+    }
+}
+.payment-section{
+    padding:15px 45px;
+    width:480px;
+    background-color: #F3F4F6;
+    min-height: calc(100vh - 60px);
+
+    .title-heading{
+        font-size: 17px;
+        font-weight: 600;
+        color:#0C1D3E;
+    }
+}
+.form-group{
+    width:100%;
+    height: 64px;
+    margin-bottom: 10px;
+    label{
+        font-family: 'AvenirNext-Medium';
+        width:100%;
+        font-size: 14px;
+        height: 20px;
+        line-height: 20px;
+        font-weight: 500;
+        color:#111827;
+        margin-bottom: 8px;
+    }
+    .address-info
+    {
+        width:33.3%;
+        margin-right: 20px;
+    }
+
+    .extra-info{
+        width:50%;
+        margin-right: 20px;
+    }
+
+    .no-margin{
+        margin: 0px;
+    }
+    .text-field{
+        height: 40px;
+        padding:10px 12px 10px 12px;
+        border-radius: 8px;
+        border: 1px solid #D1D5DB;
+        color:#111827;
+        font-size: 14px;
+        font-weight: 400;
+        width: 100%;
+        margin-bottom:15px;
+    }
+}
+
+.primary-card{
+    background-color: #306FD5;
+    border-radius: 8px;
+    padding:15px;
+    margin-bottom: 15px;
+
+    .card-info
+    {
+        padding-bottom: 15px;
+        border-bottom: 1px solid #6FA8F6;
+        margin-bottom: 10px;
+    }
+    .card-image{
+        background-color: #77AFFB;
+        height:35px;
+        text-align: center;
+        padding: 3px;
+        margin-right: 10px;
+        border-radius: 3px;
+        margin-top: 5px;
+        width: 15%;
+    }
+    .card-number{
+        width: 75%;
+    }
+    .card-number p{
+        color:#fff;
+        font-size: 15px;
+        font-weight: 500;
+        margin-bottom: 0px;
+       
+    }
+    .card-select{
+        text-align: right;
+        width: 30%;
+        cursor: pointer;
+    }
+    .card-left{
+        width:50%;
+        p{
+            text-align: left;
+            margin-bottom: 0;
+            font-size: 15px;
+            font-weight: 400;
+            color:#fff;
+            cursor: pointer;
+        }
+    }
+    .card-right{
+        width:50%;
+        p{
+            text-align: right;
+            margin-bottom: 0;
+            font-size: 15px;
+            font-weight: 400;
+            color:#fff;
+            cursor: pointer;
+        }
+    }
+}
+
+.secondary-card
+{
+    background-color: #fff;
+    border-radius: 8px;
+    padding:15px;
+    margin-bottom: 25px;
+    border:1px solid #D9E1E7;
+
+    .card-info
+    {
+        padding-bottom: 15px;
+        border-bottom: 1px solid #E1E7EC;
+        margin-bottom: 10px;
+    }
+
+    .card-image{
+        background-color: #F1F4F9;
+        height:35px;
+        text-align: center;
+        padding: 3px;
+        margin-right: 10px;
+        border-radius: 3px;
+        margin-top: 5px;
+        width: 15%;
+    }
+    .card-number{
+        width: 75%;
+    }
+    .card-number .number{
+        color:#0C1D3E;
+        font-size: 15px;
+        font-weight: 500;
+        margin-bottom: 0px;
+       
+    }
+
+    .card-number .date{
+        color:#8E9394;
+        font-size: 15px;
+        font-weight: 500;
+        margin-bottom: 0px;
+       
+    }
+    .card-select{
+        text-align: right;
+        width: 30%;
+        cursor: pointer;
+    }
+    .card-left{
+        width:50%;
+        p{
+            text-align: left;
+            margin-bottom: 0;
+            font-size: 15px;
+            font-weight: 400;
+            color:#8E9394;
+            cursor: pointer;
+        }
+    }
+    .card-right{
+        width:50%;
+        p{
+            text-align: right;
+            margin-bottom: 0;
+            font-size: 15px;
+            font-weight: 400;
+            color:#8E9394;
+            cursor: pointer;
+        }
+    }
+}
+
+.logo-section{
+    margin-bottom: 15px;
+}
+
+.logo-img{
+    background-color: #F9FAFB;
+    border:1px solid #D7D7D7;
+    border-radius: 6px;
+    width: 44px;
+    height:45px;
+    margin-right:15px;
+
+    img{
+        text-align: center;
+        width:36px;
+        height:27px;
+        margin-top: 5px;
+        margin-left: 4px;
+    }
+}
+
+.logo-meta{
+    width:98%;
+
+    .logo-name{
+        width:100%;
+        font-size: 16px;
+        color:#111827;
+        font-weight: 400;
+        margin: 0;
+    }
+
+    .logo-size{
+        width:100%;
+        font-size: 14px;
+        color:#6B7280;
+        font-weight: 400;
+        margin: 0;
+        span{
+            font-family: "AvenirNext-Heavy";
+        }
+    }
+}
+
+.logo-delete{
+    img{
+        margin-top:10px;
+        cursor: pointer;
+    }
+}
+
+.upload-section{
+    background-color: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding:16px;
+    margin-bottom:15px;
+    text-align: center;
+
+    img{
+        margin-bottom: 10px;
+    }
+
+    .upload-text{
+        color: #111827;
+        font-size: 16px;
+        font-weight:400;
+        margin-bottom: 5px;
+
+        span{
+            color:#306FD5;
+            cursor: pointer;
+        }
+    }
+    .restriction{
+        color: #6B7280;
+        font-size: 14px;
+        font-weight:400;
+        margin:0;
+    }
+}
+
+.hidden{
+    opacity: 0;
+}
+
+.start-new-btn{
+    background-color: #306FD5;
+    color:#fff;
+    padding:8px 20px 8px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    border: 1px solid #306FD5;
+    text-decoration: none;
+}

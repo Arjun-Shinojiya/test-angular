@@ -1,0 +1,208 @@
+<div class="clients-pannel-wrapper">
+    <kendo-panelbar [expandMode]="0">
+        <kendo-panelbar-item title="Client Info" [selected]="expandedIndex == 0" [expanded]="expandedIndex == 0" >
+            <ng-template kendoPanelBarContent>
+                <div>
+                    <div class="teamMate">
+                        <!-- <img [src]="imageUrl('andrew')" alt="Andrew Fuller" /> -->
+                        <span class="mate-info border-heading">
+                            <h4 class="main-title">{{ clientInfo?.namefirst}} {{clientInfo?.namelast}}</h4>
+
+                            <button kndoButton class="btn-edit">
+                                edit
+                            </button>
+
+                        </span>
+                    </div>
+                    <div class="teamMate">
+                        <!-- <img  alt="Nancy Leverling" /> -->
+                        <span class="mate-info">
+                            <h4 class="title">Address</h4>
+                            <h5 class="details">{{ clientInfo?.streetnumber }} {{ clientInfo?.streetname }}</h5>
+                        </span>
+                    </div>
+                    <div class="teamMate">
+                        <!-- <img [src]="imageUrl('robert')" alt="Robert King" /> -->
+                        <span class="mate-info">
+                            <h4 class="title">City</h4>
+                            <h5 class="details">{{ clientInfo?.city }}</h5>
+                        </span>
+                    </div>
+                    <div class="teamMate">
+                        <!-- <img [src]="imageUrl('robert')" alt="Robert King" /> -->
+                        <span class="mate-info">
+                            <h4 class="title">State</h4>
+                            <h5 class="details">{{ clientInfo?.state }}</h5>
+                        </span>
+                    </div>
+                    <div class="teamMate">
+                        <!-- <img [src]="imageUrl('robert')" alt="Robert King" /> -->
+                        <span class="mate-info">
+                            <h4 class="title">Zip</h4>
+                            <h5 class="details">{{ clientInfo?.zip }}</h5>
+                        </span>
+                    </div>
+                    <div class="teamMate">
+                        <!-- <img [src]="imageUrl('robert')" alt="Robert King" /> -->
+                        <span class="mate-info">
+                            <h4 class="title">Phone</h4>
+                            <h5 class="details">{{ clientInfo?.mobilephone }}</h5>
+                        </span>
+                    </div>
+                    <div class="teamMate">
+                        <!-- <img [src]="imageUrl('robert')" alt="Robert King" /> -->
+                        <span class="mate-info">
+                            <h4 class="title">Email</h4>
+                            <h5 class="details">{{ clientInfo?.email }}</h5>
+                        </span>
+                    </div>
+                </div>
+            </ng-template>
+        </kendo-panelbar-item>
+        <kendo-panelbar-item title="File Owner Info" class="file-onwer" [selected]="expandedIndex == 1" [expanded]="expandedIndex == 1">
+            <ng-template kendoPanelBarContent>
+                <div class="file-owner-info">
+                    <div class="title">
+                        <div class="label">Name:</div>
+                        <div class="label-data">{{ fileOwnerInfo?.namefirst}} {{fileOwnerInfo?.namelast}}</div>
+                    </div>
+
+                    <div class="title">
+                        <div class="label">Email:</div>
+                        <div class="label-data">{{ fileOwnerInfo?.email }}</div>
+                    </div>
+
+                    <div class="title">
+                        <div class="label">Phone:</div>
+                        <div class="label-data">{{ fileOwnerInfo?.mobilephone }}</div>
+                    </div>
+                </div>
+            </ng-template>
+        </kendo-panelbar-item>
+
+        <kendo-panelbar-item title="Sales Manager Info" [selected]="expandedIndex == 2" [expanded]="expandedIndex == 2">
+            <ng-template kendoPanelBarContent>
+                <div class="file-owner-info">
+                    <div class="title">
+                        <div class="label">Name:</div>
+                        <div class="label-data">{{ salesManagerInfo?.salesrepnamefirst }} {{ salesManagerInfo?.salesrepnamelast }}</div>
+                    </div>
+
+                    <div class="title">
+                        <div class="label">Email:</div>
+                        <div class="label-data">{{ salesManagerInfo?.salesrepemail }}</div>
+                    </div>
+
+                    <div class="title">
+                        <div class="label">Phone</div>
+                        <div class="label-data">{{ salesManagerInfo?.salesrepmobilephone }}</div>
+                    </div>
+                </div>
+            </ng-template>
+        </kendo-panelbar-item>
+        <kendo-panelbar-item title="Type" [selected]="expandedIndex == 3" [expanded]="expandedIndex == 3">
+            <ng-template kendoPanelBarContent>
+
+                <div class="block">
+                    <div class="block-heading">Property Type:</div>
+                    <div class="block-wrapper">
+                        <input type="radio" id="sf" kendoCheckBox name="propertyType" [(ngModel)]="selectedPropertyType"
+                            [value]="'SINGLE FAMILY'" (change)="onPropertyTypeChange('SINGLE FAMILY')" />
+                        <label class="k-radio-label" for="sf">Single Family</label>
+                        <input type="radio" id="commercial" kendoCheckBox name="propertyType"
+                            [(ngModel)]="selectedPropertyType" [value]="'COMMERCIAL'"
+                            (change)="onPropertyTypeChange('COMMERCIAL')" />
+                        <label class="k-radio-label" for="commercial">Commercial</label>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <div class="block-heading">Estimate Type Requested:</div>
+                    <div class="block-wrapper">
+                        <input type="radio" id="ic" kendoCheckBox name="estimateType" [(ngModel)]="selectedEstimateType"
+                            [value]="'Insurance Claim'" (change)="onEstimateTypeChange('Insurance Claim')" />
+                        <label class="k-radio-label" for="ic">Insurance Claim</label>
+                        <input type="radio" id="re" kendoCheckBox name="estimateType" [(ngModel)]="selectedEstimateType"
+                            [value]="'Retail Estimate'" (change)="onEstimateTypeChange('Retail Estimate')" />
+                        <label class="k-radio-label" for="re">Retail Estimate</label>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <div class="block-heading">Claim Handling:</div>
+                    <div class="block-wrapper">
+                        <input type="radio" id="yes" kendoCheckBox name="claimHandling"
+                            [(ngModel)]="selectedClaimHandling" [value]="true" (change)="onClaimHandlingChange(true)" />
+                        <label class="k-radio-label" for="yes">Yes</label>
+                        <input type="radio" id="no" kendoCheckBox name="claimHandling"
+                            [(ngModel)]="selectedClaimHandling" [value]="false"
+                            (change)="onClaimHandlingChange(false)" />
+                        <label class="k-radio-label" for="no">No</label>
+                    </div>
+                </div>
+
+
+                <div class="block">
+                    <div class="block-heading">Carrier</div>
+                    <kendo-textbox placeholder="Enter Carrier Number"></kendo-textbox>
+                </div>
+
+                <div class="block">
+                    <div class="block-heading">Claim Number</div>
+                    <kendo-textbox placeholder="Enter Claim Number"></kendo-textbox>
+                </div>
+
+            </ng-template>
+        </kendo-panelbar-item>
+
+        <kendo-panelbar-item title="Telemetry Report" [selected]="expandedIndex == 4" [expanded]="expandedIndex == 4">
+            <ng-template kendoPanelBarContent>
+                <div class="block">
+                    <div class="block-heading">Attached:</div>
+                    <div class="block-wrapper">
+                        <input type="radio" id="yes" kendoCheckBox name="telemetryReport"
+                            [(ngModel)]="selectedTelemetryReport" [value]="true" (change)="onTelemetryReportChange(true)" />
+                        <label class="k-radio-label" for="yes">Yes</label>
+                        <input type="radio" id="no" kendoCheckBox name="telemetryReport"
+                            [(ngModel)]="selectedTelemetryReport" [value]="false"
+                            (change)="onTelemetryReportChange(false)" />
+                        <label class="k-radio-label" for="no">No</label>
+                    </div>
+
+                    <div class="order-report">Order Report ($1)</div>
+                </div>
+            </ng-template>
+        </kendo-panelbar-item>
+
+        <kendo-panelbar-item title="Add-Ons" [selected]="expandedIndex == 5" [expanded]="expandedIndex == 5">
+            <ng-template kendoPanelBarContent>
+                <div class="block">
+                    <div class="block-heading">Is O&P Warranted?</div>
+                    <div class="block-wrapper">
+                        <input type="radio" id="yes" kendoCheckBox name="warranted"
+                            [(ngModel)]="selectedWarranted" [value]="true" (change)="onWarrantedChange(true)" />
+                        <label class="k-radio-label" for="yes">Yes</label>
+                        <input type="radio" id="no" kendoCheckBox name="warranted"
+                            [(ngModel)]="selectedWarranted" [value]="false"
+                            (change)="onWarrantedChange(false)" />
+                        <label class="k-radio-label" for="no">No</label>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <div class="block-heading">Would you like roofing trade rates applied for tear off instead of default demolition rates?</div>
+                    <div class="block-wrapper">
+                        <input type="radio" id="yes" kendoCheckBox name="tradeRates"
+                            [(ngModel)]="selectedTradeRates" [value]="true" (change)="onTradeRatesChange(true)" />
+                        <label class="k-radio-label" for="yes">Yes</label>
+                        <input type="radio" id="no" kendoCheckBox name="tradeRates"
+                            [(ngModel)]="selectedTradeRates" [value]="false"
+                            (change)="onTradeRatesChange(false)" />
+                        <label class="k-radio-label" for="no">No</label>
+                    </div>
+                </div>
+
+            </ng-template>
+        </kendo-panelbar-item>
+    </kendo-panelbar>
+</div>

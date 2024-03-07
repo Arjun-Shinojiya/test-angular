@@ -1,0 +1,15 @@
+$extra-large-device: "only screen and (min-width: 1920px)";
+$laptop-device: "only screen and (min-width: 1400px) ";
+$lg-layout: "only screen and (min-width: 992px) and (max-width: 1599px)";
+$large-device: "only screen and (max-width: 1100px)";
+$md-layout: "only screen and (min-width: 768px) and (max-width: 991px)";
+$sm-layout: "only screen and (max-width: 768px)";
+$large-mobile: "only screen and (max-width: 575px)";
+$small-mobile: "only screen and (max-width: 475px)";
+$x-small-mobile: "only screen and (max-width: 375px)";
+
+//colors
+$primary: #306FD5;
+$error: red;
+$success: green;
+$warning: orange;

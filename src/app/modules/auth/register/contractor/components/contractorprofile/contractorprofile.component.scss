@@ -1,0 +1,193 @@
+.container 
+{
+  max-width: 1350px;
+  min-width: 1300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+//   height: 450px;
+
+  .instruction 
+  {
+    text-align: center;
+    margin: 0 0 12px;
+    font-size: 1.0625rem;
+    font-weight: 400;
+  }
+
+  .form 
+  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	padding: 0 18px;
+    .field-labels 
+	{
+      margin-top: 16px;
+	  margin-bottom: 8px;
+      font-size: 15px;
+	  display: block;
+      font-weight: 700;
+    }
+    .dropdown 
+	{
+      background-color: white;
+    }
+    .dropdown:focus 
+	{
+      box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+      border-color: #86b7fe;
+    }
+	.k-form-error { bottom: unset;}
+  }
+	.actions-main
+	{
+		padding: 0 12px;
+		width: 100%;
+		
+		.actions 
+		{
+			
+			display: flex;
+			justify-content: right;
+			align-items: center;
+			width: 100%;
+			margin-top: 29px;
+			&.action-margin-top { margin-top: 10px; }
+			button 
+			{
+				margin-left: 7.5%;
+				background-color: #306fd5;
+				color: white;
+				padding: 0.5625rem 1rem;
+				font-size: 1.0625rem;
+				font-weight: 600;
+			}
+		
+			kendo-label 
+			{
+				font-size: 0.9375rem;
+				font-weight: 400;
+				a 
+				{
+					text-decoration: none;
+					color: #306fd5;
+					font-size: 0.9375rem;
+					font-weight: 400;
+				}
+			}
+		}
+	}
+	
+  .uploading-main
+  {
+	padding: 0 12px;
+	width: 100%;
+	.uploading 
+	{
+		display: flex;
+		background-color: #f0f0f0;
+		width: 100%;
+		height: 103px;
+		padding: 12px 0px;
+		justify-content: center;
+		align-items: center;
+		flex-shrink: 0;
+		margin: 10px 0px 0;
+	  
+		.upload-image 
+		{
+		  display: flex;
+		  border-radius: 4px;
+		  font-size: 14px;
+		  height: 100%;
+		  width: 100%;
+		  justify-content: center;
+		  align-items: center;
+		  text-align: center;
+	  
+		  button 
+		  {
+			height: 24px;
+			width: 89px;
+			font-size: 13px;
+			line-height: 16px;
+			border: none;
+		  }
+		  .drop-files 
+		  {
+			display: flex;
+			justify-content: center;
+			text-align: center;
+			align-items: center;
+			margin-left: 15px;
+	  
+			img { margin-right: 10px; }
+			span { font-size: 13px; }
+		  }
+	  
+		  .preview-image 
+		  {
+			.uploaded-image 
+			{
+			  display: flex;
+			  img 
+			  {
+				width: 24px;
+				height: 24px;
+				object-fit: cover;
+				border: 1px solid rgba(122, 150, 175, 0.5);
+				border-radius: 4px;
+				margin-right: 7px;
+			  }
+			  .img-detail 
+			  {
+				display: flex;
+				flex-direction: column;
+				font-size: 10px;
+				justify-content: center;
+				p 
+				{
+				  margin-bottom: 0;
+				  font-weight: 400;
+				  line-height: 120%;
+				  display: flex;
+				  align-items: center;
+				}
+				.img-name 
+				{
+				  font-size: 10px;
+				  margin-bottom: 2px;
+				}
+				.img-size 
+				{
+				  font-size: 7px;
+				  opacity: 0.5;
+				}
+			  }
+			  .close-icon 
+			  {
+				position: absolute;
+				right: 3px;
+				img { border: none !important; cursor: pointer; }
+			  }
+			}
+		  }
+		}
+		.click-here { color: #306fd5; }
+		.file-drop 
+		{
+		  width: 100%;
+		  height: 100%;
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  flex-direction: column;
+		  cursor: pointer;
+		}
+	  }
+  }
+ 
+}
+
+

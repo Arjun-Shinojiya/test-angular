@@ -1,0 +1,65 @@
+.login_screen 
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  min-height: calc(100vh - 130px);
+  align-items: center;
+  .login_box 
+  {
+    background: var(--white, #FFF);
+    width: 387px;
+    max-width: 100%;
+    margin: 25px auto 40px;
+    display: inline-block;
+    text-align: left;
+    border-radius: 16px;
+    box-shadow: 0px 0px 18px 6px rgba(0, 0, 0, 0.04);
+    padding: 16px 28px 33px 28px;
+
+    .logo { display: inline-block; margin: 0 auto; width: 100%; text-align: center;}
+    h4 { font-size: 28px; font-style: normal; font-weight: 500; text-align: center; line-height: 34px; font-family: "AvenirNext-Medium"; margin: 17px 0 12px 0; }
+    p { color: #535353; font-size: 17px; font-style: normal; text-align: center; font-weight: 400; line-height: 22px; }
+    .form-group 
+    {
+      padding-bottom: 16px;
+      position: relative;
+      margin-bottom: 10px;
+      .form-control { border-radius: 4px; border: 1px solid var(--black-50, #484848); min-height: 48px; font-size: 17px; font-style: normal; font-weight: 400; line-height: 22px; padding: 6px 0; }
+    }
+  }
+
+  .btn-primary { background: var(--blue, #306FD5); border-color: var(--blue, #306FD5); margin-top: 32px; }
+  .btn-dark { background-color: #303030; border-color: #303030; }
+  .or 
+  {
+    width: 100%;
+    margin-top: 19px;
+    border-bottom: 1px solid #D7D7D7;
+    text-align: center;
+    span { position: relative; top: 12px; text-transform: uppercase; background-color: #FFF; padding: 0 15px; font-size: 15px; font-style: normal; font-weight: 500; line-height: 20px;}
+  }
+  .dont_account { font-size: 15px; font-style: normal; margin-top: 33px; font-weight: 500; text-align: center; line-height: 20px; display: inline-block; width: 100%; }
+}
+
+@media (min-width: 1700px) 
+{
+  .login_screen .login_box { margin: auto; }
+  .login_screen { min-height: calc(100vh - 130px); display: flex; overflow-y: hidden; align-items: center;}
+}
+
+@media (min-width: 768px) and (max-width: 1200px) 
+{
+  .login_screen { min-height: calc(100vh - 235px);}
+}
+
+@media (max-width: 1200px) 
+{
+  .login_screen { display: flex; align-items: center;}
+}
+
+@media (max-width:767px) 
+{
+  .login_screen  .login_box { margin-top: 25px; margin-bottom: 25px; }
+}

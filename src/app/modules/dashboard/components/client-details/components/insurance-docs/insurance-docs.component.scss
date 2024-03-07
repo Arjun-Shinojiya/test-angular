@@ -1,0 +1,201 @@
+.insurance-docs-container {
+  .block {
+    display: flex;
+    margin-top: 10px;
+
+    .select-all {
+      border-radius: 8px;
+      border: 1px solid  #D1D5DB;
+      background: #FFF;
+      height: 35px;
+      padding: 5px 10px;
+      box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      color: #374151;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      margin-right: 7px;
+
+      img
+      {
+        margin-right: 5px;
+        width: 20px;
+      }
+
+      span {
+        color: #374151;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  
+
+  .upload-image-block {
+    border: 1px solid #E5E7EB;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    border-radius: 8px;
+    background-color: #FFF;
+
+    .add-Icon {
+      width: 30px;
+      cursor: pointer;
+      margin-bottom: 10px;
+
+      img {
+        width: 30px;
+        cursor: pointer;
+      }
+    }
+
+    .upload-file {
+      font-size: 16px;
+      font-weight: 400;
+      color: #111827;
+
+      span {
+        color: #306FD5;
+        cursor: pointer;
+      }
+    }
+
+    .file-accepted {
+      font-size: 14px;
+      font-weight: 400;
+      color: #6B7280;
+      margin-top: 5px;
+    }
+  }
+
+  .uploading-image {
+    border: 1px solid #E5E7EB;
+    background-color: #FFF;
+    border-radius: 8px;
+    width: 100%;
+    padding: 30px;
+
+    .wrapper {
+      display: flex;
+      align-items: center;
+
+      .file-image {
+        img {
+          width: 35px;
+          border-radius: 4px;
+        }
+      }
+  
+      .file-details {
+        width: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
+  
+        .file-name {
+          font-size: 16px;
+          font-weight: 400;
+          color: #111827;
+        }
+        .uploading-progress {}
+        .file-size {
+          font-size: 14px;
+          font-weight: 400;
+          color: #6B7280;
+
+          span {
+            margin-left: 5px;
+            font-weight: 900;
+          }
+        }
+      }
+
+      .remove-icon {
+        cursor: pointer;
+      }
+    }
+
+  }
+
+  .files-block {
+
+    background-color: #FFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    margin-top: 10px;
+
+    .wrapper {
+
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 10px 0px;
+      border-bottom: 1px solid #E5E7EB;
+
+      .file-details {
+
+        display: flex;
+        align-items: center;
+  
+        .checkbox {
+
+          margin-right: 15px;
+          margin-left: 20px;
+        }
+  
+        .file-image {
+
+          margin-right: 8px;
+          position: relative;
+  
+          img {
+
+            width: 30px;
+          }
+
+          .file-type {
+            position: absolute;
+            top: 10px;
+            left: -5px;
+
+            img {
+              width: 25px;
+              border-radius: 8px;
+            }
+          }
+        }
+  
+        .file-info {
+
+          line-height: 1;
+  
+          .file-name {
+
+            font-size: 14px;
+            font-weight: 500;
+            color: #111827;
+            margin-bottom: 3px;
+          }
+
+          .file-size {
+
+            color: #374151;
+            font-size: 14px;
+            font-weight: 400;
+          }
+        }
+      }
+  
+      .delete-icon {
+        cursor: pointer;
+        margin-right: 10px;
+      }
+    }
+  }
+}

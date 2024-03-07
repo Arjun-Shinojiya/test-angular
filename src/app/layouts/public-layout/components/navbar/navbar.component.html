@@ -1,0 +1,78 @@
+<kendo-appbar class="navhight container p-0" position="top">
+	<!-- <kendo-appbar-spacer width="32px"></kendo-appbar-spacer> -->
+	
+	<kendo-appbar-section class="appbar-items show-titles">
+		<kendo-appbar-section class="title">
+			<a routerLink="/">
+				<img src="assets/images/svg/logo.svg" alt="logo" />
+			</a>
+		</kendo-appbar-section>
+		<ul class="show-titles d-none d-lg-flex">
+			<li *ngFor="let link of navLinks" (click)="onClickLink(link.path)" class="links">
+        <span [class]="activeLink == link.path ? 'active' : ''">{{ link.text }}
+        </span>
+			</li>
+		</ul>
+		<div class="d-none d-lg-flex ms-auto" *ngIf="!isUserLogIn; else userLoggedDev">
+			<a routerLink="login" *ngIf="!isRouteLogin">
+				<button class="btn auth-button me-2" kendoButton>
+					Login
+				</button>
+			</a>
+			<div *ngIf="isRouteLogin">
+				<button class="btn auth-button active-auth-button me-2" kendoButton>
+					Login
+				</button>
+			</div>
+			<a routerLink="register" *ngIf="!isRouteRegister">
+				<button class="btn auth-button me-2" kendoButton>
+					<img src="assets/images/svg/Polygon.svg" alt="" /> <span class="ms-2">Register</span>
+				</button>
+			</a>
+			<div *ngIf="isRouteRegister">
+				<button class="btn auth-button active-auth-button me-2 " kendoButton>
+					<img src="assets/images/svg/inporgress.svg" alt="" /> <span class="ms-2">In Progress</span>
+				</button>
+			</div>
+		</div>
+		<ng-template #userLoggedDev>
+			<div class="d-none d-lg-flex ms-auto">
+				<a routerLink="dashboard">
+					<button class="btn auth-button me-2" kendoButton>
+						<span class="ms-2">Dashboard</span>
+					</button>
+				</a>
+			</div>
+		</ng-template>
+		
+		<button kendoButton fillMode="flat" [style]="
+        show
+          ? 'background-color: #0c1d3e !important;height: 40px;width: 40px; '
+          : 'height: 40px;width: 40px;'
+      " class="overflow-button d-lg-none btt-icons d-flex align-self-center justify-content-center" #anchor
+			(click)="onToggle()">
+			<img [src]="show ? 'assets/images/svg/cross.svg' : 'assets/images/svg/menu.svg'" alt="" />
+		</button>
+		<kendo-popup [popupAlign]="popupAlign" style="left: 420px !important" [anchor]="anchor.element" *ngIf="show"
+			[margin]="margin">
+			<div class="content p-2">
+				<ul>
+					<li *ngFor="let link of navLinks" (click)="onClickLink(link.path)" class="links">
+            <span [class]="activeLink == link.path ? 'active' : ''">{{ link.text }}
+            </span>
+					</li>
+					<div class="d-flexcol">
+						<button size="small" style="border: 1px solid #303030;" class="btn mb-2" kendoButton
+							(click)="onButtonClick()" fillMode="outline">
+							Login
+						</button>
+						
+						<button size="small" class="btn" kendoButton (click)="onButtonClick()" themeColor="primary">
+							Register
+						</button>
+					</div>
+				</ul>
+			</div>
+		</kendo-popup>
+	</kendo-appbar-section>
+</kendo-appbar>

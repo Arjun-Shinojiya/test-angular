@@ -1,0 +1,716 @@
+@import "../../../../../styles/variable";
+.content{
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.top-section{
+    text-align:center;
+}
+/* Add your component-specific styles here */
+/* You can customize the styling according to your needs */
+.manage-files-wrapper 
+{
+	padding: 23px 24px 20px 0px;
+
+	.manage-top-list {
+		display: inline;
+		align-items: unset;
+		gap: 115%;	
+        padding-bottom: 16px;
+        box-sizing: content-box;
+        max-height: 40px;
+      
+		@media #{$extra-large-device} {
+			.input-form-pages {
+				display: flex;
+				margin-bottom: 17px;
+				margin-left: 42px !important;
+			}
+		}
+		@media #{$lg-layout} {
+			.input-form-pages {
+				display: flex;
+				margin-bottom: 17px;
+				margin-left: 34px !important;
+			}
+		}
+		
+        .input-form-pages {
+          display: flex;
+		  margin-bottom: 17px;
+		  margin-left: 40px;
+		 
+		  .searchBar{
+    		display: inline-table;
+    		width: 100%
+		  }
+		  .checkbox-options{
+			display: inline-table;
+			align-items: end;
+			margin-left: 10px;
+		  }
+
+		  
+      
+          .k-form-field-wrap {
+            border: unset;
+			&:last-child(){
+				width: 100px;
+			}
+      
+            .k-form-field-wrap {
+              .k-textbox {
+                .k-input-inner {
+                  color: var(--Gray-900, #111827);
+                  font-size: 14px;
+                  font-weight: 400;
+                  line-height: 20px;
+                }
+              }
+            }
+      
+            kendo-textbox {
+              border-radius: 8px;
+              border: 1px solid #d1d5db;
+              background: #fff;
+              box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+              width: 200px;  // Adjust width as needed
+              flex: 1;
+              height: 40px;
+            }
+          }
+      
+          .checkbox-options {
+            display: flex;
+            align-items: center;
+			margin-left: 10px;
+			font-size: 14px;
+          
+            label {
+              margin-right: 5px;
+			  display: flex;
+			  align-items: center;
+			  font-size: 14px;
+              input {
+                margin-right: 5px; // Adjust the spacing between the checkbox and label
+              }
+            }
+          }
+      
+          .buttonAdd {
+            .k-button {
+              border-radius: 30px;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              gap: 10px;
+              min-width: 40px;
+              height: 40px;
+              color: #fff;
+              font-size: 16px;
+              font-weight: 500;
+              line-height: 24px;
+            }
+          }
+        }
+		
+      }
+      
+
+	.table-main-wrapper 
+	{
+		.table-responsive 
+		{
+			background: var(--Color, #fff);
+			
+			::ng-deep .dashboard-table-wrap 
+			{
+				border: none;
+
+				.block 
+				{
+					display: flex;
+					align-items: center;
+
+					.title 
+					{
+						margin-right: 5px;
+						color: #374151;
+						font-size: 14px;
+						font-weight: 500;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+					}
+				}
+
+				.sorting-icon 
+				{
+					width: 20px;
+					height: 20px;
+				}
+
+				.k-pager-wrap 
+				{
+					gap: 8px;
+					justify-content: center;
+					background: transparent;
+					border: none !important;
+					outline: none;
+					box-shadow: none !important;
+					margin-top: 22px;
+					padding: 0;
+					.k-pager-first,
+					.k-pager-last {display: none;}
+
+					.k-pager-numbers 
+					{
+						gap: 8px;
+						display: flex;
+						align-items: center;
+
+						.k-button-flat 
+						{
+							width: 36px;
+							height: 36px;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							padding: 0;
+							color: #374151;
+							border-radius: 50%;
+
+							.k-button-text 
+							{
+								color: inherit;
+								font-size: 14px;
+								font-weight: 400;
+								line-height: 20px;
+							}
+
+							&.k-selected 
+							{
+								background: #eaf0fb;
+								color: #306fd5;
+							}
+
+							&:hover 
+							{
+								background: #eaf0fb;
+								color: #306fd5;
+							}
+						}
+
+						.k-icon-button 
+						{
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							margin: 1%;
+                            border-radius: 50px;
+							color: #374151;
+						}
+					}
+                    
+
+					kendo-pager-prev-buttons,
+					kendo-pager-next-buttons {
+						display: flex;
+						align-items: center;
+
+						.k-icon-button 
+						{
+							outline: none;
+							box-shadow: none;
+							padding: 0;
+
+							&::before {background: transparent;}
+
+							&:focus {border: 0;}
+
+							kendo-icon-wrapper 
+							{
+								.k-svg-icon 
+								{
+									min-width: 100%;
+									width: 100%;
+									height: unset;
+									min-height: unset;
+									display: flex;
+									align-items: flex-start;
+									justify-content: flex-start;
+
+									&::before 
+									{
+										font-family: "AvenirNext", sans-serif;
+										font-size: 14px;
+										font-weight: 400;
+										line-height: 20px;
+										color: #306fd5;
+									}
+
+									svg {display: none;}
+								}
+							}
+						}
+					}
+
+					kendo-pager-prev-buttons 
+					{
+						.k-icon-button 
+						{
+							kendo-icon-wrapper 
+							{
+								.k-svg-icon 
+								{
+									background: url('../../../../../assets/images/png/left-blue-arrow.png') no-repeat;
+									background-position: center left;
+									padding-left: 30px;
+
+									&::before {content: "Previous";}
+								}
+							}
+
+							&.k-disabled 
+							{
+								kendo-icon-wrapper 
+								{
+									.k-svg-icon {
+										background: url('../../../../../assets/images/png/left-gray-arrow.png') no-repeat;
+										background-position: center left;
+
+										&::before {color: #D1D5DB;}
+									}
+								}
+							}
+						}
+					}
+
+					kendo-pager-next-buttons 
+					{
+						.k-icon-button 
+						{
+							kendo-icon-wrapper 
+							{
+								.k-svg-icon 
+								{
+									background: url("../../../../../assets/images/png/Right-Arrow.png") no-repeat;
+									background-position: center right;
+									padding-right: 30px;
+
+									&::before {content: "Next";}
+								}
+							}
+
+							&.k-disabled 
+							{
+								kendo-icon-wrapper 
+								{
+									.k-svg-icon 
+									{
+										background: url('../../../../../assets/images/png/right-gray-arrow.png') no-repeat;
+										background-position: center right;
+
+										&::before {color: #D1D5DB;}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+			::ng-deep table 
+			{
+				overflow: hidden;
+
+				thead 
+				{
+					background-color: #eaf0fb;
+
+					tr 
+					{
+						th 
+						{
+							// text-transform: capitalize;
+							border-right: none;
+							border-left: none;
+							color: var(--Gray-700, #374151);
+							font-family: AvenirNext forINTUIT;
+							font-size: 14px;
+							font-style: normal;
+							font-weight: 500;
+							line-height: 34px;
+						
+							.status-check 
+							{
+								width: 10px;
+								height: 10px;
+								border-radius: 50%;
+								background: var(--Blue-Grey, #9bd0ff);
+							}
+
+							.k-cell-inner 
+							{
+								.k-link 
+								{
+									
+									padding: 12px;
+									line-height: 20px;
+									.k-column-title {
+										min-width: unset;
+                                        margin-left: 150px;
+										// text-overflow: unset;
+									}
+								}
+							}
+							
+
+							&:first-child 
+							{
+								border-radius: 10px 0px 0px 0px;
+								border-left: 1px solid var(--gray-200, #e5e7eb);
+								border-top: 1px solid var(--gray-200, #e5e7eb);
+								
+								visibility: hidden;
+							}
+							&:nth-child(2) {
+								&:last-child(){
+									border-radius: 10px 0px 0px 0px;
+								}
+								border-left: 1px solid var(--gray-200, #e5e7eb);
+								border-radius: 10px 0px 0px 0px;
+								border-top: 1px solid var(--gray-200, #e5e7eb);
+							  }
+
+							&:last-child 
+							{
+								justify-content: center;
+								border-radius: 0px 10px 0px 0px;
+							}
+
+							&:nth-of-type(1),
+							&:nth-of-type(2),
+							&:nth-of-type(3),
+							&:nth-of-type(4) 
+							{
+								.k-cell-inner 
+								{
+									.k-link 
+									{
+										.k-sort-icon 
+										{
+											width: 20px;
+											height: 20px;
+											position: relative;
+											color: #000;
+                                            
+											margin: 0 0 0 4px;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+
+				tbody 
+
+				{
+                    height: max-content;
+					tr 
+					{
+						
+						&:last-child 
+						{
+							td 
+							{
+								border-bottom: 1px solid var(--gray-200, #e5e7eb);
+								&:first-child 
+								{
+									border-left: 1px solid var(--gray-200, #e5e7eb);
+									border-bottom-left-radius: 10px;
+									&:nth-last-child(2) {
+										border-right: 1px solid var(--gray-200, #e5e7eb);
+									}
+									
+									
+								}
+								&:nth-child(2){
+									border-bottom-left-radius: 10px;
+								}
+								
+
+								&:last-child 
+								{
+									border-right: 1px solid var(--gray-200, #e5e7eb);
+									border-bottom-right-radius: 10px;
+									&:nth-child(2)
+									{
+										 border-bottom-left-radius: 10px
+									}
+									
+								}
+							}
+						}
+						&
+						
+						td 
+						{
+							color: #374151;
+							font-size: 14px;
+							font-weight: 400;
+							line-height: 20px;
+							padding: 10px;
+							border-bottom: 1px solid var(--gray-200, #e5e7eb);
+							border-right: none;
+							border-left: none;
+							white-space: pre;
+							// text-transform: capitalize;
+
+							&.status 
+							{
+								.status-color 
+								{
+									// padding-left: 12px;
+									position: relative;
+									display: inline;
+									width: 10px;
+									height: 10px;
+									border-radius: 50%;
+
+									&:before 
+									{
+										content: "";
+										position: absolute;
+										width: 10px;
+										height: 10px;
+										border-radius: 50%;
+										left: 0px;
+										top: 50%;
+										transform: translateY(-50%);
+									}
+
+									&.unsubmitted {
+										&:before {background: #9bd0ff;}
+									}
+
+									&.inprogress 
+									{
+										&:before {background: #12cbc4;}}
+
+									&.withdrawn 
+									{
+										&:before {background: #ef934d;}
+									}
+
+									&.completed 
+									{
+										&:before {background: #66bd50;}
+									}
+
+									&.revision 
+									{
+										&:before {background: #ebbc46;}
+									}
+								}
+							}
+
+							&:first-child 
+							{
+								border-left: 1px solid var(--gray-200, #e5e7eb);
+								border-right: none;
+								visibility: hidden;
+							}
+							&:nth-child(2){
+								border-left: 1px solid var(--gray-200, #e5e7eb) !important;															
+							}
+							
+
+							&:last-child 
+							{
+								border-left: 1px solid var(--gray-200, #e5e7eb);
+								border-right: 1px solid var(--gray-200, #e5e7eb);
+								text-align: center;
+								border-left: none;
+								padding: 0;
+								.container{
+									.wrapper{
+										background-color: #F9FAFB;
+										.user-create{
+											div{
+												.form{
+													input{
+														font-size: 14px;
+													}
+													padding: 2px 16px 17px 13px;
+													.caution{
+														margin-bottom: 6px;
+													}
+													.field-labels{
+														margin-top: 10px;
+														font-size: 14px;
+													}
+													.saveChanges{
+														button{
+															background-color: #F3F4F6;
+															border: none;
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+
+								.eye-action 
+								{
+									width: 40px;
+									height: 40px;
+									display: flex;
+									align-items: center;
+									justify-content: center;
+									border-radius: 50px;
+									padding: 10px;
+									border: 1px solid #d1d5db;
+									background: #fff;
+									box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+								}
+							}
+						}
+					}
+					tr:hover {
+						td {
+						  background-color: #ffffff !important;
+						  cursor: pointer;
+						}
+					  }
+				}
+				
+			}
+
+			::ng-deep kendo-grid 
+			{
+				.k-grid-header {
+					padding: 0 !important;
+					background-color: transparent;
+					border-color: transparent;
+				}
+				tr.bggray{
+					background-color: #F3F4F6;
+				}
+				tr:hover.bggray{
+					td{
+						background-color:  #F3F4F6 !important;
+					}
+				}
+				tr.bgwhite{
+					background-color: #fff;
+				}
+				tr:hover.bgwhite{
+					td{
+						background-color:  #fff !important;
+					}
+				}
+				.k-grid-content {
+
+					overflow-y: auto;
+					// max-height: 530px;
+				}
+			}
+		}
+	}
+}
+
+  
+
+.status
+{
+	width: 100px;
+	gap: 3px;
+    height: 29px;
+	justify-content: right;
+    padding: 2px 0;
+}
+.custom-border {
+    border: 1px solid #ccc; /* Set your desired border color */
+    border-radius: 30px; /* Set your desired border radius */
+	padding: 2px 10px 2px 10px; /* Add padding for spacing inside the border */
+    display: inline-block; /* Make sure the container only takes the necessary width */
+	background-color: white;
+  }
+  
+  .role-item {
+    border: 1px solid #ccc; /* Set your desired border color */
+    border-radius: 30px; /* Set your desired border radius */
+    padding: 2px 10px 2px 10px; /* Add padding for spacing inside the border */
+    display: inline-block;/* Make sure each role takes the necessary width */
+    margin-left: 5px;
+	background-color: white;
+	&:first-child{
+		margin: 0;
+	}
+  }
+
+  button{
+    border-radius: 50%;
+    margin-left: 5px;
+  }
+
+ 
+    .addUser {
+        padding: 0px;// Set text color to white or a contrasting color
+		border-radius: 20%;
+		
+      
+    }
+
+
+    .action-buttons {
+        justify-content: right;
+    }
+    
+    .edit-button,
+    .delete-button {
+        background: white;
+        border: 1px solid #ccc; /* Add a border style */
+        border-radius: 50%;
+        /* Add padding for better visual appearance */
+        cursor: pointer;
+        margin-right: 5px;
+        width: 40px;
+        height: 40px;
+    }
+
+
+	.hide-hierarchy-cell {
+		display: none !important;
+	  }
+    
+    .edit-button:hover,
+    .delete-button:hover {
+        opacity: 0.8;
+    }
+    .addUserContainer {
+        margin-right: 5%;
+    }
+    .checkbox-options {
+        display: block;
+        border: 1px solid #ccc; /* Add your preferred border style here */
+        padding: 0px 10px 0px 10px; /* Add padding for better visual appearance */
+        border-radius: 5px; /* Optional: Add border radius for rounded corners */
+      }
+      .input-form-pages input[type="checkbox"] {
+        /* Set the border-radius to make the checkboxes circular */
+        border-radius: 50%;
+      }
+	  .blockAction{
+		justify-content: right;
+		margin-left: 50px;
+	  }
+	  .header-table{
+		max-width: fit-content;
+	  }
+

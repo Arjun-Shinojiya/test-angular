@@ -1,0 +1,86 @@
+<div class="insurance-docs-container">
+
+  <div class="upload-image-block" *ngIf="!imageUrl">
+    <div class="add-Icon" (click)="onClickSelectFile()">
+      <label for="selectFile">
+        <img src="./assets/images/svg/Icon-left-2.svg" alt="">
+      </label>
+      <input type="file" (change)="onFileSelected($event)" class="hidden" id="selectFile" hidden #files/>	
+    </div>
+    <div class="upload-file"><span (click)="onClickSelectFile()">Upload a file</span> or drag
+      and drop</div>
+    <div class="file-accepted">PDF, XLS, XLSX, DOC, DOCX up to 50MB</div>
+  </div>
+
+  <div class="uploading-image" *ngIf="imageUrl">
+    <div class="wrapper">
+      <div class=" file-image">
+        <img [src]="imageUrl" alt="">
+      </div>
+      <div class="file-details">
+        <div class="file-name">{{ selectedFile?.name }}</div>
+        <div class="uploading-progress">
+          <kendo-progressbar
+            [min]="0"
+            [max]="100"
+            [value]="uploadProgress"
+          ></kendo-progressbar>
+        </div>
+        <div class="file-size">{{ formatFileSize(selectedFile?.size ?? 0) }}<span>&centerdot;</span> {{ uploadProgress }}% uploaded</div>
+      </div>
+      <div class="remove-icon" (click)="onRemove()">
+        <img src="./assets/images/svg/remove.svg" alt="">
+      </div>
+    </div>
+  </div>
+
+
+  <div class="block">
+    <div class="select-all" (click)="checkAll()">
+      <img src="./assets/images/svg/Icon-tick.svg" alt="">
+      <span>Select All</span>
+    </div>
+
+    <div class="select-all" *ngIf="checked">
+      <img src="./assets/images/svg/delete 2.svg" alt="">
+      <span>Delete</span>
+    </div>
+
+    <div class="select-all" *ngIf="checked">
+      <img src="./assets/images/svg/download.svg" alt="">
+      <span>Download</span>
+    </div>
+
+  </div>
+
+  <!--Block to show the list of the files-->
+  <div class="files-block">
+
+    <div class="wrapper" *ngFor="let image of imageArray; let i = index">
+      
+      <div class="file-details">
+        <div class="checkbox">
+          <input type="checkbox" #select [(ngModel)]="image.checked" kendoCheckBox (ngModelChange)="updateCheckedStatus()"/>
+        </div>
+        <div class="file-image">
+          <img src="./assets/images/svg/file-icon.svg" alt="">
+
+          <div class="file-type">
+            <img src="./assets/images/svg/Format.svg" alt="">
+          </div>
+        </div>
+        <div class="file-info">
+          <div class="file-name">insurancedoc.pdf</div>
+          <div class="file-size">{{image.size}}</div>
+        </div>
+      </div>
+  
+      <div class="delete-icon" (click)="onDelete(i)">
+        <img src="./assets/images/svg/delete.svg" alt="">
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

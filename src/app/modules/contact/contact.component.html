@@ -1,0 +1,130 @@
+<section class="contact-page">
+  <div class="container">
+    <div class="top">
+      <h3>Contact Us</h3>
+      <p>Get in touch with us, share your thoughts, and learn how we can help <br>
+        your business with fast and effective claim resolution.</p>
+    </div>
+    <form class="w-100">
+      <div class="row">
+        <div  class="col-sm-6">
+        <div class="form-group">
+          <label for="FirstName">First Name*</label>
+          <!-- style="margin-right: 48px" -->
+          <input
+            type="text"
+            id="FirstName"
+            formControlName="FirstName"
+            class="form-control"
+          />
+          <div class="invalid-feedback">First Name is required.</div>
+        </div>
+        </div>
+        <div  class="col-sm-6">
+        <div class="form-group">
+          <label for="LastName">Last Name*</label>
+          <input
+            type="text"
+         
+            id="LastName"
+            formControlName="LastName"
+            class="form-control"
+          />
+          <div class="invalid-feedback">Last Name is required.</div>
+        </div>
+      </div>
+      <div  class="col-sm-6">
+        <div class="form-group pb-1">
+          <label for="Email">Email*</label>
+          <input
+            type="email"
+            id="Email"
+            formControlName="Email"
+            class="form-control"
+          />
+          <div class="invalid-feedback">Email is required.</div>
+        </div>
+        </div>  
+        <div  class="col-sm-6">
+        <div class="form-group">
+          <label for="phone">Phone*</label>
+          <input
+            type="text"
+            id="phone"
+            formControlName="phone"
+            class="form-control"
+          />
+          <div class="invalid-feedback">Phone is required.</div>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div class="form-group"> 
+          <label for="message">Your Message*</label>
+          <textarea
+            id="message"
+            formControlName="message"
+            style="width: 100%"
+            class="form-control"
+          ></textarea>
+        </div>
+        <div class="invalid-feedback">Message is required.</div>
+      </div>
+      <div class="d-flex w-100 align-items-center justify-content-center">
+        <button
+          class="btn btn-sumbit"
+          kendoButtonSize="large"
+          kendoButton
+          (click)="onButtonClick()"
+          themeColor="primary"
+        >
+          Submit Form
+        </button>
+      </div>
+      </div>
+    </form>
+    <div class="section-two-main">
+      <div class="d-flex align-items-center">
+        <img class="icon-image" src="assets/images/svg/c-mail.svg" />&nbsp;&nbsp;
+        <div
+          class="d-flex align-items-start justify-content-center flex-column section-two-p"
+        >
+          <p style="font-weight: 400 !important" class="p-0 m-0">Email</p>
+          <p style="font-weight: 600 !important" class="p-0 m-0">
+            contact@totalscope.com
+          </p>
+        </div>
+      </div>
+      <div class="d-flex align-items-center">
+        <img class="icon-image" src="assets/images/svg/c-call.svg" />&nbsp;&nbsp;
+        <div
+          class="d-flex align-items-start justify-content-center flex-column section-two-p"
+        >
+          <p style="font-weight: 400 !important" class="p-0 m-0">Call</p>
+          <p style="font-weight: 600 !important" class="p-0 m-0">
+            <u>(720) 307-2795</u> (M-F 9:00 am - 5:00 pm)
+          </p>
+        </div>
+      </div>
+      <div class="d-flex align-items-center">
+        <img class="icon-image" src="assets/images/svg/c-address.svg" />&nbsp;&nbsp;
+        <div
+          class="d-flex align-items-start justify-content-center flex-column section-two-p"
+        >
+          <p style="font-weight: 400 !important" class="p-0 m-0">Address</p>
+          <p style="font-weight: 600 !important" class="p-0 m-0">
+            529 SH 46 E Unit B10 Boerne, TX 78006
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 
+
+<div class="d-flex flex-column h-100 boxrder"> 
+
+  <div class="section-two">
+ 
+  </div>
+</div> -->
