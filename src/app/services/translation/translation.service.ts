@@ -89,26 +89,26 @@ export class TranslationService
       this.translations = JSON.parse (this.translations);
     } else
     {
-      // this.apiService.get ('/translation/multi-translation').subscribe
-      // ({
-      //   next: (response) =>
-      //   {
-      //     this.translations = response.data;
+      this.apiService.get ('/translation/multi-translation').subscribe
+      ({
+        next: (response) =>
+        {
+          this.translations = response.data;
 
-      //     /**
-      //      * SEE IF THERE IS ANY DATA IN THE RESPONSE.DATA VARIABLE.
-      //      * IF THERE IS, SET THAT DATA TO A KEY CALLED TRANSLATIONS IN THE LOCAL STORAGE.
-      //      * IF THERE IS AN ERROR, DO NOTHING.
-      //      */
-      //     if (response.data)
-      //     {
-      //       sessionStorage.setItem ('translations', JSON.stringify (response.data))
-      //     }
-      //   },
-      //   error: (err) =>
-      //   {
-      //   }
-      // })
+          /**
+           * SEE IF THERE IS ANY DATA IN THE RESPONSE.DATA VARIABLE.
+           * IF THERE IS, SET THAT DATA TO A KEY CALLED TRANSLATIONS IN THE LOCAL STORAGE.
+           * IF THERE IS AN ERROR, DO NOTHING.
+           */
+          if (response.data)
+          {
+            sessionStorage.setItem ('translations', JSON.stringify (response.data))
+          }
+        },
+        error: (err) =>
+        {
+        }
+      })
     }
   }
 
