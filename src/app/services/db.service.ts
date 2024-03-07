@@ -5,7 +5,7 @@ import {HttpClient} from "@angular/common/http";
 // IMPORTING THE ANGULAR SUBJECT TO USE AS AN OBSERVABLE.
 import {Subject} from "rxjs";
 // IMPORTING THE LK ENVIRONMENT FILE TO GET THE STATIC VARIABLES LIKE SERVER URL.
-import {environment} from "../../environments/environment";
+import {environment} from "src/environments/environment";
 import {ApiService} from "../../core/api.service"
 
 // @Injectable DECLARES THIS AS A SERVICE SO THAT WE CAN INJECT THIS SERVICE INTO ANY OTHER COMPONENT OR SERVICE.
