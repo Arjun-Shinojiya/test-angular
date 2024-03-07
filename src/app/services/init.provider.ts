@@ -35,22 +35,22 @@ export class InitProvider
 		{
 			// GETTING SITE-VARIABLE, MESSAGES AND TRANSLATION FROM DATABASE.
 			this.dbService.getAppInitialData();
-
+			resolve(true)
 			// SUBSCRIBING TO THE RETRIEVAL OF DATA, MENTIONED ABOVE, FROM DATABASE.
-			this.dbService.appStaticDataObs.subscribe (data =>
-			{
-				// console.log('getAppInitialData',data);
+			// this.dbService.appStaticDataObs.subscribe (data =>
+			// {
+			// 	console.log('getAppInitialData',data);
+			// 	console.log('Resolving initial provider. Now angular will load');
+			// 	// GET THE TRANSLATIONS AND STORE IN THE HELPER.TRANSLATIONS.
+			// 	this.helper.translations = data;
 
-				// GET THE TRANSLATIONS AND STORE IN THE HELPER.TRANSLATIONS.
-				this.helper.translations = data;
+			// 	// CHANGE THE STATIC DATA LOADED FLAG TO TRUE.
+			// 	this.helper.staticDataLoaded = true;
+				
 
-				// CHANGE THE STATIC DATA LOADED FLAG TO TRUE.
-				this.helper.staticDataLoaded = true;
-				console.log('Resolving initial provider. Now angular will load');
-
-				// RESOLVING THE PROMISE.
-				resolve (true);
-			});
+			// 	// RESOLVING THE PROMISE.
+			// 	resolve (true);
+			// });
 		});
 	}
 

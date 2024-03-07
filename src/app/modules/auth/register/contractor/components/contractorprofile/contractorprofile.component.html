@@ -94,7 +94,7 @@
 			<kendo-formfield class="col">
 				<kendo-label class="field-labels required-field" text="Phone:" />
 				<kendo-maskedtextbox [maskOnFocus]="true" [mask]="phoneMask"
-					formControlName="mobilephone" [maskValidation]="false"></kendo-maskedtextbox>
+					formControlName="mobilephone" ></kendo-maskedtextbox>
 				<kendo-formerror
 					*ngIf="contractorProfileForm.controls.mobilephone.errors?.required">{{'MSG-REGISTRATION-FORM-INLINE-ERROR-PHONENUMBERREQUIRED'
 					| translate }}</kendo-formerror>

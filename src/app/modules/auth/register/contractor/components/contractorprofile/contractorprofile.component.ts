@@ -83,7 +83,7 @@ export class ContractorProfileComponent implements OnInit, OnChanges
 				city: new FormControl('', {validators: [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-Z \']*$'), this.cityValidator(false)], updateOn: 'blur'}),
 				statename: new FormControl('', {validators: [Validators.required, Validators.pattern('^[a-zA-Z \']*$'), this.stateValidator(false)], updateOn: 'blur'}),
 				email: new FormControl('', {validators: [Validators.required, Validators.pattern('^\\w+(?:[\\.+\\-]\\w+)*@\\w+(?:[\\.-]\\w+)*(?:\\.\\w{2,})+$'), Validators.maxLength(75)], updateOn: 'blur'}),
-				mobilephone: new FormControl(''),
+				mobilephone: new FormControl('', {validators:[Validators.required]}),
 				websiteurl: new FormControl('', {validators: [Validators.pattern('^((https?|ftp|smtp):\/\/)?(www\.)?[a-z0-9\-]+\.[a-z]+(\/[a-zA-Z0-9#\-]+\/?)*$')], updateOn: 'blur'}),
 				expectedmonthlyroofcompletions: new FormControl('', {validators: [Validators.required, Validators.pattern('^[0-9]*$')], updateOn: 'blur'}),
 				howdidyouhear: new FormControl({text: "Select item...", value: null}),
