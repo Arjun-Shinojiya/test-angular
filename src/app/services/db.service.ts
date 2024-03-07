@@ -61,19 +61,19 @@ export class DbService
 	// WE NEED THIS DATA TO START THE APP.
 	public getAppInitialData()
 	{
-		// SENDING REQUEST TO SERVER TO GET STATIC DATA.
-		this.http.get (this.apiURL + '/translation/multi-translation').subscribe ( (response: any) =>
-		{
-			// IF WE SUCCESSFULLY GOT THE DATA FROM DATABASE . . .
-			if ( Object.keys (response["data"]).length > 0)
-			{
-				console.log ("translations", response["data"])
-				this.translations = response["data"]; // . . .STORE IT INTO A CLASS VARIABLE.
-				sessionStorage.setItem ('translations', JSON.stringify (response?.data));
+		// // SENDING REQUEST TO SERVER TO GET STATIC DATA.
+		// this.http.get (this.apiURL + '/translation/multi-translation').subscribe ( (response: any) =>
+		// {
+		// 	// IF WE SUCCESSFULLY GOT THE DATA FROM DATABASE . . .
+		// 	if ( Object.keys (response["data"]).length > 0)
+		// 	{
+		// 		console.log ("translations", response["data"])
+		// 		this.translations = response["data"]; // . . .STORE IT INTO A CLASS VARIABLE.
+		// 		sessionStorage.setItem ('translations', JSON.stringify (response?.data));
 
-				// TRIGGERING THE OBSERVABLE SO THE APP KNOWS THAT STATIC DATA IS AVAILABLE NOW.
-				this.appStaticDataObs.next (this.translations);
-			}
-		});
+		// 		// TRIGGERING THE OBSERVABLE SO THE APP KNOWS THAT STATIC DATA IS AVAILABLE NOW.
+		// 		this.appStaticDataObs.next (this.translations);
+		// 	}
+		// });
 	}
 }
